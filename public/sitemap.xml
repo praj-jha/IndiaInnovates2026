@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://crackthru.com/</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>CRACKTHRU - Professional Development Platform</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SEO Landing Pages - High Priority -->
+  <url>
+    <loc>https://crackthru.com/investment-banking-course</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
+      <image:caption>Investment Banking Course - CRACKTHRU</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/management-consulting-course</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
+      <image:caption>Management Consulting Course - CRACKTHRU</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/investment-banking-cohort-india</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
+      <image:caption>Investment Banking Cohort in India - CRACKTHRU</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/management-consulting-cohort-india</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
+      <image:caption>Management Consulting Cohort in India - CRACKTHRU</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/cohort-in-india</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>Professional Cohorts in India - CRACKTHRU</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Cohort Pages -->
+  <url>
+    <loc>https://crackthru.com/cohorts/investment-banking</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
+      <image:caption>Investment Banking Cohort</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/cohorts/management-consultancy</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
+      <image:caption>Management Consulting Cohort</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/cohorts/product-management</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>Product Management Cohort</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Crash Course Pages -->
+  <url>
+    <loc>https://crackthru.com/crash-courses/track-1</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>Finance Fundamentals Crash Course</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/crash-courses/track-2</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>Consulting Case Prep Crash Course</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/crash-courses/track-3</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://crackthru.com/CTL.png</image:loc>
+      <image:caption>Product Strategy Crash Course</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Authentication Pages -->
+  <url>
+    <loc>https://crackthru.com/login</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://crackthru.com/signup</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

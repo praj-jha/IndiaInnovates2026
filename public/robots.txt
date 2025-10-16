@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# SEO Landing Pages - High Priority
+Allow: /investment-banking-course
+Allow: /management-consulting-course  
+Allow: /cohort-in-india
+Allow: /investment-banking-cohort-india
+Allow: /management-consulting-cohort-india
+
+# Course Pages
+Allow: /cohorts/
+Allow: /crash-courses/
+
+# Static Assets
+Allow: /CTL.png
+Allow: /IB.jpeg
+Allow: /MC.jpeg
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.svg
+
+# Disallow sensitive areas
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /api/
+Disallow: /backend/
+Disallow: /*.json
+Disallow: /node_modules/
+
+# Crawl Delay (optional - can help with server load)
+Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://crackthru.com/sitemap.xml

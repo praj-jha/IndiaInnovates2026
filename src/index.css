@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --primary: 210 100% 12%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 11% 15%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 210 11% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 12%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 11% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 210 11% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 11% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 210 11% 4%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+}
+
+@layer utilities {
+  /* Hero Section and Infinite Moving Cards Animations */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(calc(-50% - 0.75rem));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll var(--animation-duration, 20s) linear infinite;
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Optimize for mobile */
+  }
+  
+  .animate-scroll-reverse {
+    animation: scroll-reverse var(--animation-duration, 100s) linear infinite;
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Optimize for mobile */
+  }
+
+  /* Ensure smooth infinite scrolling */
+  .scroller {
+    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    contain: layout style paint; /* CSS containment for better performance */
+  }
+  
+  /* Smooth scrolling performance optimization */
+  .scroller ul {
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform: translateZ(0); /* Force GPU acceleration */
+  }
+  
+  /* Pause animation on hover - Desktop only */
+  @media (hover: hover) {
+    .animate-scroll:hover {
+      animation-play-state: paused;
+    }
+    
+    .scroller:hover ul {
+      animation-play-state: paused;
+    }
+  }
+
+  /* Mobile performance optimizations */
+  @media (max-width: 768px) {
+    .animate-scroll,
+    .animate-scroll-reverse {
+      animation-duration: calc(var(--animation-duration, 20s) * 0.7) !important; /* Faster on mobile */
+    }
+    
+    /* Reduce complex effects on mobile */
+    .group:hover {
+      transform: none !important;
+    }
+    
+    /* Optimize backdrop blur on mobile */
+    .backdrop-blur-sm {
+      backdrop-filter: none;
+    }
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll,
+    .animate-scroll-reverse {
+      animation-duration: 0s !important;
+      transform: translateX(0) !important;
+    }
+  }
+
+  /* Additional performance optimizations */
+  .performance-optimized {
+    /* Enable hardware acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    
+    /* Optimize compositing */
+    will-change: transform;
+    contain: layout style paint;
+  }
+
+  /* Image loading optimizations */
+  img, picture {
+    /* Prevent layout shift during image loading */
+    height: auto;
+    max-width: 100%;
+    
+    /* Smooth loading transition */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Optimize animations for mobile devices */
+  @media (max-width: 768px) {
+    * {
+      /* Reduce complex transforms on mobile */
+      will-change: auto !important;
+    }
+    
+    /* Simplify hover effects on touch devices */
+    @media (hover: none) {
+      .group:hover *,
+      *:hover {
+        transform: none !important;
+      }
+    }
+  }
+}

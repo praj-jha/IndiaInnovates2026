@@ -1,0 +1,21 @@
+# Handle static assets first (don't redirect these)
+/assets/*  200
+/optimized/*  200
+*.js  200
+*.css  200
+*.svg  200
+*.png  200
+*.webp  200
+*.jpg  200
+*.jpeg  200
+*.gif  200
+*.woff  200
+*.woff2  200
+*.ttf  200
+*.ico  200
+
+# Handle API routes
+/api/*  /api/:splat  200
+
+# Handle SPA routes (everything else goes to index.html)
+/*  /index.html  200
