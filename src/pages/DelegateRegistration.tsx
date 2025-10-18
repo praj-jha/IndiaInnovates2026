@@ -12,7 +12,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Upload, X, CheckCircle2 } from "lucide-react";
-import SEOHead from "@/components/seo/SEOHead";
+import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 
 interface PassCategory {
@@ -334,11 +334,11 @@ export default function DelegateRegistration() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 py-8 px-4 sm:px-6 lg:px-8">
-            <SEOHead
-                title="Delegate Registration - India Innovates 2026"
-                description="Register for your delegate pass at India Innovates 2026"
-                keywords="India Innovates, delegate registration, conference registration, event registration"
-            />
+            <Helmet>
+                <title>Delegate Registration - India Innovates 2026</title>
+                <meta name="description" content="Register for your delegate pass at India Innovates 2026" />
+                <meta name="keywords" content="India Innovates, delegate registration, conference registration, event registration" />
+            </Helmet>
 
             <div className="max-w-4xl mx-auto">
                 {/* Registration Form */}

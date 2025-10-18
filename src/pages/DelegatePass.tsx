@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
-import SEOHead from "@/components/seo/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 interface PassFeature {
     text: string;
@@ -140,11 +140,11 @@ const delegatePasses: DelegatePass[] = [
 export default function DelegatePass() {
     return (
         <div className="min-h-screen bg-background">
-            <SEOHead
-                title="Delegate Pass - India Innovates 2026"
-                description="Choose your delegate pass for India Innovates 2026 - Premium, Business, Standard, Government, Media, or Visitors Pass"
-                keywords="India Innovates, delegate pass, conference pass, event registration"
-            />
+            <Helmet>
+                <title>Delegate Pass - India Innovates 2026</title>
+                <meta name="description" content="Choose your delegate pass for India Innovates 2026 - Premium, Business, Standard, Government, Media, or Visitors Pass" />
+                <meta name="keywords" content="India Innovates, delegate pass, conference pass, event registration" />
+            </Helmet>
 
             {/* Hero Section */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-background dark:from-gray-900">

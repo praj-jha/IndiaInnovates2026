@@ -1,13 +1,13 @@
-import SEOHead from "@/components/seo/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 export default function Agenda() {
     return (
         <div className="min-h-screen bg-background">
-            <SEOHead
-                title="Agenda - India Innovates 2026"
-                description="View the complete agenda for India Innovates 2026 conference"
-                keywords="India Innovates, conference agenda, event schedule"
-            />
+            <Helmet>
+                <title>Agenda - India Innovates 2026</title>
+                <meta name="description" content="View the complete agenda for India Innovates 2026 conference" />
+                <meta name="keywords" content="India Innovates, conference agenda, event schedule" />
+            </Helmet>
 
             {/* Hero Section */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-background dark:from-gray-900">

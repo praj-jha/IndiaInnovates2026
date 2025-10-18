@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import SEOHead from "@/components/seo/SEOHead";
+import { Helmet } from "react-helmet-async";
 
 interface Speaker {
     id: number;
@@ -95,11 +95,11 @@ export default function AllSpeakers() {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-background to-purple-50/30 dark:from-gray-900 dark:to-purple-950/30">
-            <SEOHead
-                title="All Speakers - India Innovates 2026"
-                description="Meet all the distinguished speakers at India Innovates 2026"
-                keywords="India Innovates, speakers, political leaders, entrepreneurs, technology leaders"
-            />
+            <Helmet>
+                <title>All Speakers - India Innovates 2026</title>
+                <meta name="description" content="Meet all the distinguished speakers at India Innovates 2026" />
+                <meta name="keywords" content="India Innovates, speakers, political leaders, entrepreneurs, technology leaders" />
+            </Helmet>
 
             <div className="py-12 px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -179,8 +179,8 @@ export default function AllSpeakers() {
                                     {/* Hover Arrow Indicator */}
                                     <div
                                         className={`absolute bottom-3 right-3 transition-all duration-300 ${hoveredCard === speaker.id
-                                                ? 'opacity-100 translate-x-0'
-                                                : 'opacity-0 translate-x-2'
+                                            ? 'opacity-100 translate-x-0'
+                                            : 'opacity-0 translate-x-2'
                                             }`}
                                     >
                                         <div className="bg-purple-600 text-white p-1.5 rounded-full shadow-lg">
