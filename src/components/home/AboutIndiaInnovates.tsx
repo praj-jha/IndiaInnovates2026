@@ -76,7 +76,7 @@ export function AboutIndiaInnovates() {
                             </p>
 
                             <p>
-                                Through expert-led cohorts in Investment Banking, Management Consulting, Product Management, and Strategy, we're building the talent that will create India's future - <span className="font-semibold">Made in India, for the World</span>.
+                                Through expert-led fellowships in Technology, Innovation, Entrepreneurship, and Strategy, we're building the talent that will create India's future - <span className="font-semibold">Made in India, for the World</span>.
                             </p>
 
                             <p>

@@ -15,7 +15,6 @@ import SchoolCompetitionRegistration from "./pages/SchoolCompetitionRegistration
 import SchoolCompetitions from "./pages/SchoolCompetitions";
 import Agenda from "./pages/Agenda";
 import AllSpeakers from "./pages/AllSpeakers";
-import LazyComponents from "@/utils/lazyComponents";
 import Navbar from "./components/layout/Navbar";
 
 const queryClient = new QueryClient();
@@ -51,13 +50,6 @@ const App = () => {
                     <Route path="/school-competitions" element={<SchoolCompetitions />} />
                     <Route path="/agenda" element={<Agenda />} />
                     <Route path="/all-speakers" element={<AllSpeakers />} />
-
-                    {/* Legacy SEO Landing Pages - kept for SEO purposes */}
-                    <Route path="/investment-banking-course" element={<LazyComponents.InvestmentBankingCoursePage />} />
-                    <Route path="/management-consulting-course" element={<LazyComponents.ManagementConsultingCoursePage />} />
-                    <Route path="/cohort-in-india" element={<LazyComponents.CohortInIndiaPage />} />
-                    <Route path="/investment-banking-cohort-india" element={<LazyComponents.InvestmentBankingCohortIndiaPage />} />
-                    <Route path="/management-consulting-cohort-india" element={<LazyComponents.ManagementConsultingCohortIndiaPage />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Routes>

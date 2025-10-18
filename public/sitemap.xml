@@ -3,101 +3,53 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://crackthru.com/</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://crackthru.com/CTL.png</image:loc>
-      <image:caption>CRACKTHRU - Professional Development Platform</image:caption>
+      <image:loc>https://indiainnovates.in/iii26.png</image:loc>
+      <image:caption>India Innovates 2026 - Youth Innovation Summit</image:caption>
     </image:image>
   </url>
 
-  <!-- SEO Landing Pages - High Priority -->
+  <!-- Main Pages -->
   <url>
-    <loc>https://crackthru.com/investment-banking-course</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/delegate-pass</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
-      <image:caption>Investment Banking Course - CRACKTHRU</image:caption>
-    </image:image>
   </url>
 
   <url>
-    <loc>https://crackthru.com/management-consulting-course</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/exhibitor-registration</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
-      <image:caption>Management Consulting Course - CRACKTHRU</image:caption>
-    </image:image>
   </url>
 
   <url>
-    <loc>https://crackthru.com/investment-banking-cohort-india</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/school-competitions</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
-      <image:caption>Investment Banking Cohort in India - CRACKTHRU</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://crackthru.com/management-consulting-cohort-india</loc>
-    <lastmod>2025-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
-      <image:caption>Management Consulting Cohort in India - CRACKTHRU</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://crackthru.com/cohort-in-india</loc>
-    <lastmod>2025-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/CTL.png</image:loc>
-      <image:caption>Professional Cohorts in India - CRACKTHRU</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Cohort Pages -->
-  <url>
-    <loc>https://crackthru.com/cohorts/investment-banking</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/agenda</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/IB.jpeg</image:loc>
-      <image:caption>Investment Banking Cohort</image:caption>
-    </image:image>
   </url>
 
   <url>
-    <loc>https://crackthru.com/cohorts/management-consultancy</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://indiainnovates.in/all-speakers</loc>
+    <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://crackthru.com/MC.jpeg</image:loc>
-      <image:caption>Management Consulting Cohort</image:caption>
-    </image:image>
   </url>
 
-  <url>
-    <loc>https://crackthru.com/cohorts/product-management</loc>
-    <lastmod>2025-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
+</urlset>
       <image:loc>https://crackthru.com/CTL.png</image:loc>
       <image:caption>Product Management Cohort</image:caption>
     </image:image>
