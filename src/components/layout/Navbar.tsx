@@ -30,7 +30,9 @@ export default function Navbar() {
             src="/iil.png"
             alt="CRACKTHRU Logo"
             className="h-40 w-auto"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </Link>
 

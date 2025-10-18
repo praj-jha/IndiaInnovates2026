@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
+import { Pause, Play } from 'lucide-react';
 
 export function AboutIndiaInnovates() {
     const navigate = useNavigate();
@@ -70,21 +70,20 @@ export function AboutIndiaInnovates() {
     const togglePlayPause = () => {
         if (videoRef.current) {
             if (isPlaying) {
+                // Pause: pause video and mute it
                 videoRef.current.pause();
+                videoRef.current.muted = true;
                 setIsPlaying(false);
+                setIsMuted(true);
             } else {
+                // Play: play video with sound
+                videoRef.current.muted = false;
                 videoRef.current.play().catch(error => {
                     console.log("Video play failed:", error);
                 });
                 setIsPlaying(true);
+                setIsMuted(false);
             }
-        }
-    };
-
-    const toggleMute = () => {
-        if (videoRef.current) {
-            videoRef.current.muted = !isMuted;
-            setIsMuted(!isMuted);
         }
     };
 
@@ -167,28 +166,16 @@ export function AboutIndiaInnovates() {
 
                                 {/* Mobile Controls */}
                                 {isMobile && (
-                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3">
-                                        {/* Play/Pause Button */}
+                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                        {/* Single Play/Pause Button with Sound Toggle */}
                                         <button
                                             onClick={togglePlayPause}
-                                            className="bg-black/70 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/80 transition-all"
+                                            className="bg-black/70 backdrop-blur-sm text-white p-4 rounded-full shadow-lg hover:bg-black/80 transition-all"
                                         >
                                             {isPlaying ? (
-                                                <Pause className="w-5 h-5" />
+                                                <Pause className="w-6 h-6" />
                                             ) : (
-                                                <Play className="w-5 h-5" />
-                                            )}
-                                        </button>
-
-                                        {/* Mute/Unmute Button */}
-                                        <button
-                                            onClick={toggleMute}
-                                            className="bg-black/70 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/80 transition-all"
-                                        >
-                                            {isMuted ? (
-                                                <VolumeX className="w-5 h-5" />
-                                            ) : (
-                                                <Volume2 className="w-5 h-5" />
+                                                <Play className="w-6 h-6 ml-0.5" />
                                             )}
                                         </button>
                                     </div>
