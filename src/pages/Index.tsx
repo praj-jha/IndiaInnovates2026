@@ -7,7 +7,6 @@ import {
   SpeakerSection,
   DelegatePassesSection,
   VideoTestimonialsSection,
-  CoursesSection,
   FAQSection,
   CTASection,
   Footer

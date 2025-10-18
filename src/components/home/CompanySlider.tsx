@@ -1,10 +1,10 @@
 
 const companies = [
-  { name: "KPMG", logo: "/kpm.svg" },
-  { name: "PwC", logo: "/optimized/pwc.webp" },
-  { name: "OYO", logo: "/optimized/oyo.webp" },
-  { name: "EY", logo: "/optimized/EYP.webp" },
-  { name: "ZS Associates", logo: "/ZSA.svg" }
+  { name: "JNU", logo: "/jnu.png" },
+  { name: "NSUT", logo: "/nsut.png" },
+  { name: "BSF", logo: "/bsf.png" },
+  { name: "MCD", logo: "/mcdlogo.png" },
+  { name: "DDU", logo: "/ddu.png" },
 ];
 
 export default function CompanySlider() {
@@ -13,9 +13,9 @@ export default function CompanySlider() {
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-2xl lg:text-3xl font-semibold mb-4">
-            Our <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Students</span> Work At
+            In <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Collaboration</span> with
           </h2>
-          <p className="text-muted-foreground">See where our alumni have landed their dream Jobs</p>
+          <p className="text-muted-foreground">See our partners</p>
         </div>
 
         <div className="flex items-center justify-center">

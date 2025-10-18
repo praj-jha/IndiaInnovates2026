@@ -2,20 +2,28 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "What makes CRACKTHRU different from other EdTech platforms?",
-    answer: "We focus exclusively on high-impact careers in finance, consulting, and product management. Our mentors come from top-tier firms and provide real-world insights that you won't find elsewhere."
+    question: "What is India Innovates 2026?",
+    answer: "India Innovates 2026 is India's premier innovation and technology summit taking place at Bharat Mandapam, New Delhi on 28-29 March 2026. It brings together 5,000+ international delegates, 300+ Members of Parliament, 200+ investors, and young innovators to shape India's innovation ecosystem and build towards India's 2047 vision."
   },
   {
-    question: "Are the courses suitable for beginners?",
-    answer: "Our cohorts are designed for serious learners at all levels. We provide foundational content for beginners while offering advanced insights for experienced professionals."
+    question: "What are the sub-events at India Innovates 2026?",
+    answer: "The summit features multiple exciting sub-events including: Future of Politics sessions with leading parliamentarians, II26 Awards recognizing outstanding innovators, Future of Cities dialogue on urban innovation, India 2047 vision workshops, School and University Competitions for young innovators, and an Innovation Expo showcasing cutting-edge technology and startups."
   },
   {
-    question: "What kind of support do I get during the course?",
-    answer: "You'll have access to live sessions, 1-on-1 mentorship, peer groups, and our dedicated support team throughout your learning journey."
+    question: "What does a Delegate Pass include?",
+    answer: "A Delegate Pass gives you full access to all summit sessions, keynote speeches, panel discussions, networking events, and the innovation expo. You'll get opportunities to interact with MPs, industry leaders, investors, and fellow innovators. Passes also include access to workshops, competition events, and exclusive networking lounges. Early bird and group discounts are available."
   },
   {
-    question: "Do you offer any placement assistance?",
-    answer: "While we focus on skill development and industry insights, our strong network of alumni and mentors often leads to valuable career opportunities."
+    question: "How can I participate in the Innovation Expo?",
+    answer: "Organizations, startups, and innovators can book exhibition space to showcase their innovations, products, and services. The expo provides a platform to connect with investors, partners, and potential customers. Exhibition packages include booth space, branding opportunities, and promotional support. Visit our Exhibitor Registration page to learn more about packages and book your space."
+  },
+  {
+    question: "Are there competitions for students and young innovators?",
+    answer: "Yes! We have separate competition tracks for school students and university students/young professionals. These include innovation challenges in technology, sustainability, and social impact. Winners receive awards, mentorship opportunities, and potential funding. Competitions are designed to identify and nurture India's next generation of innovators aligned with the Prime Minister's vision of self-reliant innovation."
+  },
+  {
+    question: "How can I register for India Innovates 2026?",
+    answer: "You can register through our website by selecting your category: Delegate Pass for general attendees, School Competition Registration for school participants, or Exhibitor Registration for organizations wanting exhibition space. Group registrations and early bird discounts are available. For any questions, contact us at contact@indiainnovates.org"
   }
 ];
 
@@ -24,9 +32,9 @@ export default function FAQSection() {
     <section id="faq" className="py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-semibold mb-4">Frequently Asked <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Questions</span></h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold mb-4">Frequently Asked <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Questions</span></h2>
           <p className="text-xl text-muted-foreground">
-            Everything you need to know about CRACKTHRU
+            Everything you need to know about India Innovates 2026
           </p>
         </div>
 

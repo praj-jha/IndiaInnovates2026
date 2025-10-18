@@ -51,16 +51,16 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-4 -ml-4">
               <img
                 src="/iil.png"
                 alt="India Innovates Logo"
-                className="h-24 w-auto"
+                className="h-40 w-auto"
                 loading="lazy"
               />
             </div>
 
-            <p className="text-foreground/70 mb-6 max-w-md font-light">
+            <p className="text-foreground/70 mb-6 max-w-md font-light -mt-12">
               India's premier innovation and technology summit bringing together young innovators, industry leaders, and visionaries. Join us at Bharat Mandapam, New Delhi on 28-29 March 2026.
             </p>
 
