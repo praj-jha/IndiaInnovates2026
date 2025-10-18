@@ -144,42 +144,13 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t bg-background">
           <div className="container py-4 space-y-4">
-            <Link to="/" className={`block py-2 text-sm font-medium ${isActiveLink("/") ? "text-purple-600 font-semibold" : ""}`}>
+            <Link
+              to="/"
+              className={`block py-2 text-sm font-medium ${isActiveLink("/") ? "text-purple-600 font-semibold" : ""}`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Home
             </Link>
-            <div className="space-y-2">
-              <div className={`text-sm font-medium text-muted-foreground ${isActiveLink("/cohorts") ? "text-purple-600" : ""}`}>Cohorts</div>
-              <Link to="/cohorts/investment-banking" className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/investment-banking") ? "text-purple-600 font-semibold" : ""}`}>
-                Investment Banking
-              </Link>
-              <Link to="/cohorts/management-consultancy" className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/management-consultancy") ? "text-purple-600 font-semibold" : ""}`}>
-                Management Consultancy
-              </Link>
-              <Link to="/cohorts/product-management" className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/product-management") ? "text-purple-600 font-semibold" : ""}`}>
-                Product Management
-              </Link>
-            </div>
-            <div className="space-y-2">
-              <div className={`text-sm font-medium text-muted-foreground ${isActiveLink("/crash-courses") ? "text-purple-600" : ""}`}>Crash Courses</div>
-              <Link to="/crash-courses/track-1" className={`block py-1 pl-4 text-sm ${isActiveLink("/crash-courses/track-1") ? "text-purple-600 font-semibold" : ""}`}>
-                Track 1
-              </Link>
-              <Link to="/crash-courses/track-2" className={`block py-1 pl-4 text-sm ${isActiveLink("/crash-courses/track-2") ? "text-purple-600 font-semibold" : ""}`}>
-                Track 2
-              </Link>
-              <Link to="/crash-courses/track-3" className={`block py-1 pl-4 text-sm ${isActiveLink("/crash-courses/track-3") ? "text-purple-600 font-semibold" : ""}`}>
-                Track 3
-              </Link>
-            </div>
-            <div className="space-y-2">
-              <div className={`text-sm font-medium text-muted-foreground ${isActiveLink("/school-competitions") ? "text-purple-600" : ""}`}>Competitions</div>
-              <Link to="/school-competitions" className={`block py-1 pl-4 text-sm ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}>
-                School
-              </Link>
-              <Link to="/cohorts/management-consultancy" className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/management-consultancy") ? "text-purple-600 font-semibold" : ""}`}>
-                Universities + Professionals
-              </Link>
-            </div>
             <a
               href="/#testimonials"
               className="block py-2 text-sm font-medium"
@@ -200,7 +171,29 @@ export default function Navbar() {
                 document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              FAQs
+              II26 Awards
+            </a>
+            <a
+              href="/#faq"
+              className="block py-2 text-sm font-medium"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Future of Cities
+            </a>
+            <a
+              href="/#faq"
+              className="block py-2 text-sm font-medium"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              India 2047
             </a>
             <Link
               to="/exhibitor-registration"
@@ -209,11 +202,36 @@ export default function Navbar() {
             >
               Expo
             </Link>
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-muted-foreground">Competitions</div>
+              <Link
+                to="/school-competitions"
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                School
+              </Link>
+              <Link
+                to="/cohorts/management-consultancy"
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/management-consultancy") ? "text-purple-600 font-semibold" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Universities + Professionals
+              </Link>
+            </div>
             <div className="pt-4 border-t space-y-2">
-              <Link to="/agenda" className="block py-2 text-sm font-medium hover:text-purple-600">
+              <Link
+                to="/agenda"
+                className="block py-2 text-sm font-medium hover:text-purple-600"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Agenda
               </Link>
-              <Link to="/delegate-pass" className="block py-2 text-sm font-medium text-purple-600 hover:text-purple-700">
+              <Link
+                to="/delegate-pass"
+                className="block py-2 text-sm font-medium text-purple-600 hover:text-purple-700"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Delegate Pass
               </Link>
             </div>

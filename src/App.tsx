@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import DelegatePass from "./pages/DelegatePass";
@@ -18,6 +19,17 @@ import AllSpeakers from "./pages/AllSpeakers";
 import Navbar from "./components/layout/Navbar";
 
 const queryClient = new QueryClient();
+
+// Component to scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 // Component to conditionally render navbar
 const ConditionalNavbar = () => {
@@ -39,6 +51,7 @@ const App = () => {
                   v7_relativeSplatPath: true,
                 }}
               >
+                <ScrollToTop />
                 <div className="min-h-screen bg-background">
                   <ConditionalNavbar />
                   <Routes>

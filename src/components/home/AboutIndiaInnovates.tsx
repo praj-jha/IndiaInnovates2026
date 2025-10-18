@@ -1,38 +1,54 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
 
 export function AboutIndiaInnovates() {
     const navigate = useNavigate();
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [isMuted, setIsMuted] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        // Check if mobile
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
         // Autoplay video when component mounts
         if (videoRef.current) {
             const video = videoRef.current;
 
             video.play().catch(error => {
                 console.log("Video autoplay failed:", error);
+                setIsPlaying(false);
             });
 
-            // Prevent video from pausing
+            // Only prevent pause on desktop
             const handlePause = () => {
-                video.play().catch(error => {
-                    console.log("Video play failed:", error);
-                });
+                if (!isMobile) {
+                    video.play().catch(error => {
+                        console.log("Video play failed:", error);
+                    });
+                }
             };
 
             video.addEventListener('pause', handlePause);
 
             return () => {
                 video.removeEventListener('pause', handlePause);
+                window.removeEventListener('resize', checkMobile);
             };
         }
-    }, []);
+    }, [isMobile]);
 
     const handleMouseEnter = () => {
-        if (videoRef.current) {
+        if (videoRef.current && !isMobile) {
             videoRef.current.muted = false;
+            setIsMuted(false);
             // Ensure video continues playing
             videoRef.current.play().catch(error => {
                 console.log("Video play failed:", error);
@@ -41,12 +57,34 @@ export function AboutIndiaInnovates() {
     };
 
     const handleMouseLeave = () => {
-        if (videoRef.current) {
+        if (videoRef.current && !isMobile) {
             videoRef.current.muted = true;
+            setIsMuted(true);
             // Ensure video continues playing
             videoRef.current.play().catch(error => {
                 console.log("Video play failed:", error);
             });
+        }
+    };
+
+    const togglePlayPause = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+                setIsPlaying(false);
+            } else {
+                videoRef.current.play().catch(error => {
+                    console.log("Video play failed:", error);
+                });
+                setIsPlaying(true);
+            }
+        }
+    };
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
         }
     };
 
@@ -127,22 +165,55 @@ export function AboutIndiaInnovates() {
                                     Your browser does not support the video tag.
                                 </video>
 
-                                {/* Sound icon indicator */}
-                                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white p-2 rounded-full shadow-lg">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
+                                {/* Mobile Controls */}
+                                {isMobile && (
+                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3">
+                                        {/* Play/Pause Button */}
+                                        <button
+                                            onClick={togglePlayPause}
+                                            className="bg-black/70 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/80 transition-all"
+                                        >
+                                            {isPlaying ? (
+                                                <Pause className="w-5 h-5" />
+                                            ) : (
+                                                <Play className="w-5 h-5" />
+                                            )}
+                                        </button>
 
-                                {/* Hover to unmute text */}
-                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="flex items-center gap-2">
-                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
-                                        </svg>
-                                        Hover for sound
-                                    </span>
-                                </div>
+                                        {/* Mute/Unmute Button */}
+                                        <button
+                                            onClick={toggleMute}
+                                            className="bg-black/70 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-black/80 transition-all"
+                                        >
+                                            {isMuted ? (
+                                                <VolumeX className="w-5 h-5" />
+                                            ) : (
+                                                <Volume2 className="w-5 h-5" />
+                                            )}
+                                        </button>
+                                    </div>
+                                )}
+
+                                {/* Desktop Sound indicator (hidden on mobile) */}
+                                {!isMobile && (
+                                    <>
+                                        <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white p-2 rounded-full shadow-lg">
+                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
+                                            </svg>
+                                        </div>
+
+                                        {/* Hover to unmute text */}
+                                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <span className="flex items-center gap-2">
+                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
+                                                </svg>
+                                                Hover for sound
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                             {/* End of Purple Frame */}
                         </div>
