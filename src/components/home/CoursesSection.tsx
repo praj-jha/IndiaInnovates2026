@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, ArrowRight, Clock, Users } from "lucide-react";
-import { apiService } from "@/services/api";
-import { useAuth } from "@/components/auth/AuthProvider";
-import { useToast } from "@/hooks/use-toast";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const courses = [
@@ -97,108 +94,7 @@ const courses = [
 ];
 
 export default function CoursesSection() {
-	const [enrollingCourseId, setEnrollingCourseId] = useState<string | null>(null);
-	const [enrolledCourses, setEnrolledCourses] = useState<Set<string>>(new Set());
-	const { user } = useAuth();
-	const navigate = useNavigate();
-	const { toast } = useToast();
-
-	// Check user's existing enrollments when component loads
-	useEffect(() => {
-		if (user) {
-			checkUserEnrollments();
-		}
-	}, [user]);
-
-	const checkUserEnrollments = async () => {
-		try {
-			const enrollments = await apiService.getUserEnrollments();
-			const enrolledCourseIds = new Set(
-				enrollments
-					.map((enrollment) => {
-						// Map backend course data to frontend course IDs
-						const courseMapping: { [key: string]: string } = {
-							ib: "ib",
-							mc: "mc",
-							pm: "pm",
-							crash1: "crash1",
-							crash2: "crash2",
-							crash3: "crash3",
-						};
-						return courseMapping[enrollment.courseId.id] || enrollment.courseId.id;
-					})
-					.filter(Boolean)
-			);
-			setEnrolledCourses(enrolledCourseIds);
-		} catch (error) {
-			// Silently handle enrollment check errors in production
-		}
-	};
-
-	const handleEnroll = async (courseId: string, courseTitle: string) => {
-		if (!user) {
-			toast({
-				title: "Authentication required",
-				description: "Please log in to enroll in courses.",
-				variant: "destructive",
-			});
-			navigate("/login");
-			return;
-		}
-
-		setEnrollingCourseId(courseId);
-
-		try {
-			// Find the course from backend by its slug/id
-			let backendCourseId = "";
-
-			// Map frontend course IDs to backend course IDs/slugs
-			const courseMapping: { [key: string]: string } = {
-				ib: "ib",
-				mc: "mc",
-				pm: "pm",
-				crash1: "crash1",
-				crash2: "crash2",
-				crash3: "crash3",
-			};
-
-			const slug = courseMapping[courseId];
-			if (slug) {
-				// Get all courses from backend to find the matching one
-				const allCourses = await apiService.getAllCourses();
-				const matchingCourse = allCourses.find(
-					(course) => course.id === slug || course.slug.includes(slug)
-				);
-
-				if (matchingCourse) {
-					backendCourseId = matchingCourse._id;
-				}
-			}
-
-			if (!backendCourseId) {
-				throw new Error("Course not found in database");
-			}
-
-			await apiService.enrollInCourse(backendCourseId);
-
-			toast({
-				title: "Enrollment successful! 🎉",
-				description: `Welcome to ${courseTitle}! Check your dashboard to access course materials.`,
-			});
-
-			// Update the enrolled courses set
-			setEnrolledCourses((prev) => new Set([...prev, courseId]));
-		} catch (error: any) {
-			toast({
-				title: "Enrollment failed",
-				description:
-					error.message || "Failed to enroll in course. Please try again.",
-				variant: "destructive",
-			});
-		} finally {
-			setEnrollingCourseId(null);
-		}
-	};
+	// Note: This section can be repurposed for event-related content in the future
 
 	return (
 		<section id="courses" className="py-24">
@@ -243,11 +139,6 @@ export default function CoursesSection() {
 								>
 									{course.type === "cohort" ? "Cohort" : "Crash Course"}
 								</Badge>
-								{enrolledCourses.has(course.id) && (
-									<Badge className="absolute top-4 right-4 bg-green-600 text-white">
-										Enrolled
-									</Badge>
-								)}
 							</div>
 
 							<CardHeader>
@@ -288,25 +179,14 @@ export default function CoursesSection() {
 													</span>
 												)}
 										</div>
-										{enrolledCourses.has(course.id) ? (
-											<Button variant="outline" asChild>
-												<Link to="/dashboard">
-													View Course{" "}
-													<ArrowRight className="ml-2 h-4 w-4" />
-												</Link>
-											</Button>
-										) : (
-											<Button
-												onClick={() => handleEnroll(course.id, course.title)}
-												disabled={enrollingCourseId === course.id}
-												className="group-hover:bg-orange-600 group-hover:border-orange-600"
-											>
-												{enrollingCourseId === course.id
-													? "Enrolling..."
-													: "Enroll Now"}{" "}
-												<ArrowRight className="ml-2 h-4 w-4" />
-											</Button>
-										)}
+										<Button
+											asChild
+											className="group-hover:bg-orange-600 group-hover:border-orange-600"
+										>
+											<Link to={course.link}>
+												Learn More <ArrowRight className="ml-2 h-4 w-4" />
+											</Link>
+										</Button>
 									</div>
 								</div>
 							</CardContent>

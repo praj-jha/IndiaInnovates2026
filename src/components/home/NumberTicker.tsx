@@ -48,10 +48,10 @@ export default function NumberTickerSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const stats = [
-    { value: 1500, suffix: "+", label: "Students Trained" },
-    { value: 250, suffix: "+", label: "Companies Hiring" },
-    { value: 95, suffix: "%", label: "Placement Rate" },
-    { value: 4.8, suffix: "/5", label: "Average Rating" }
+    { value: 300, suffix: "+", label: "Member of Parliament" },
+    { value: 5000, suffix: "+", label: "International Delegate" },
+    { value: 200, suffix: "+", label: "Investors" },
+    { value: 30000, suffix: "+", label: "Visitors" }
   ];
 
   useEffect(() => {

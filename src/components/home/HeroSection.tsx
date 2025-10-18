@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Star } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Ticket } from "lucide-react";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import ResponsiveHeroImage from "@/components/ui/ResponsiveHeroImage";
 
@@ -19,48 +19,36 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 mb-16 lg:mb-20">
           <div className="flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0">
-            <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-orange-500/10 to-orange-600/10 dark:from-orange-900/30 dark:to-orange-900/20 border border-orange-500/30 dark:border-orange-700 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium tracking-wide">
-              Built by professionals. Designed for impact.
-            </div>
-
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-6 leading-[1.1] tracking-tight text-black dark:text-white">
-              World's <span className="bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">biggest youth innovation</span> Summit!
+              World's <span className="bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">biggest youth innovation</span> tech Summit!
             </h1>
 
             <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-              Expert-led cohorts for IB, Consulting, Product & Strategy roles.
-              Learn from professionals, skip the theory, land your dream job.
+              Join India's premier innovation and technology summit. Connect with industry leaders, showcase your innovations, and be part of shaping the future.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              {/* <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-700 hover:to-orange-800 dark:from-orange-600 dark:to-orange-700 dark:hover:from-orange-500 dark:hover:to-orange-600 text-white font-medium text-base tracking-wide hover:scale-[1.02] transition-all rounded-full px-8 shadow-lg shadow-orange-500/10 dark:shadow-orange-500/5"
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-800 dark:from-purple-600 dark:to-purple-700 dark:hover:from-purple-500 dark:hover:to-purple-600 text-white font-medium text-base tracking-wide hover:scale-[1.02] transition-all rounded-full px-8 shadow-lg shadow-purple-500/10 dark:shadow-purple-500/5"
                 asChild
               >
-                <Link to="#courses">
-                  Explore Cohorts <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/delegate-pass">
+                  <Ticket className="mr-2 h-5 w-5" />
+                  Get Delegate Pass
                 </Link>
-              </Button> */}
-              <Button className="bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-700 hover:to-orange-800 dark:from-orange-600 dark:to-orange-700 dark:hover:from-orange-500 dark:hover:to-orange-600 text-white font-medium"
-                onClick={() => document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Explore Cohorts <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="font-medium text-base tracking-wide bg-white/70 dark:bg-gray-900/50 hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-all rounded-full px-8 border-orange-600 text-orange-600 hover:text-orange-700 dark:border-orange-400 dark:text-orange-400 dark:hover:text-orange-300 shadow-sm"
+                className="font-medium text-base tracking-wide bg-white/70 dark:bg-gray-900/50 hover:bg-purple-50 dark:hover:bg-purple-950/20 transition-all rounded-full px-8 border-purple-600 text-purple-600 hover:text-purple-700 dark:border-purple-400 dark:text-purple-400 dark:hover:text-purple-300 shadow-sm"
                 asChild
               >
-                <Link to="#crash-courses">
-                  <Play className="mr-2 h-5 w-5" />
-                  Crash Courses
+                <Link to="/exhibitor-registration">
+                  Book Your Booth <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
-
-
           </div>
 
           {/* Right image column */}
@@ -71,14 +59,14 @@ export default function HeroSection() {
                 priority={true}
               />
 
-              {/* Orange and Purple Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-purple-500/20 pointer-events-none"></div>
+              {/* purple and Purple Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-500/20 pointer-events-none"></div>
 
               {/* Floating badge */}
               <div className="absolute bottom-6 right-6 bg-white dark:bg-gray-900 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 border border-orange-500/20">
-                <div className="w-3 h-3 rounded-full bg-orange-500 animate-pulse"></div>
-                <span className="text-sm font-medium text-orange-700 dark:text-orange-400">
-                  Live Cohort Starting
+                <div className="w-3 h-3 rounded-full bg-purple-500 animate-pulse"></div>
+                <span className="text-sm font-medium text-purple-700 dark:text-purple-400">
+                  Registration Open
                 </span>
               </div>
             </div>
@@ -88,9 +76,9 @@ export default function HeroSection() {
         {/* Company Logos Section */}
         <div className="mt-16 pt-8">
           <div className="text-center">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-500/20 to-orange-600/20 dark:from-orange-900/40 dark:to-orange-900/30 border border-orange-500/30 dark:border-orange-700 rounded-full mb-8">
-              <p className="text-orange-700 dark:text-orange-300 text-sm font-semibold tracking-wide uppercase">
-                Our Mentors are from
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 dark:from-purple-900/40 dark:to-purple-900/30 border border-purple-500/30 dark:border-purple-700 rounded-full mb-8">
+              <p className="text-purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">
+                In Collaboration with
               </p>
             </div>            <div className="overflow-hidden">
               <div

@@ -5,26 +5,26 @@ import { Separator } from "@/components/ui/separator";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const footerLinks = [
     {
-      title: "Company",
+      title: "Event",
       links: [
-        { name: "About Us", href: "#" },
-        { name: "Our Team", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Press", href: "#" },
-        { name: "Contact", href: "#" }
+        { name: "About India Innovates", href: "/#about" },
+        { name: "Speakers", href: "/#speakers" },
+        { name: "Agenda", href: "/agenda" },
+        { name: "Delegate Pass", href: "/delegate-pass" },
+        { name: "FAQ", href: "/#faq" }
       ]
     },
     {
-      title: "Resources",
+      title: "Participate",
       links: [
-        { name: "Financial Models", href: "#" },
-        { name: "Case Studies", href: "#" },
-        { name: "Webinars", href: "#" },
-        { name: "Free Guides", href: "#" },
-        { name: "Blog", href: "#" }
+        { name: "School Competitions", href: "/school-competitions" },
+        { name: "Exhibitor Registration", href: "/exhibitor-registration" },
+        { name: "Delegate Registration", href: "/delegate-registration" },
+        { name: "Sponsors & Partners", href: "/#partners" },
+        { name: "Testimonials", href: "/#testimonials" }
       ]
     },
     {
@@ -33,12 +33,12 @@ const Footer: React.FC = () => {
         { name: "Terms of Service", href: "#" },
         { name: "Privacy Policy", href: "#" },
         { name: "Cookie Policy", href: "#" },
-        { name: "GDPR", href: "#" },
-        { name: "Accessibility", href: "#" }
+        { name: "Refund Policy", href: "#" },
+        { name: "Code of Conduct", href: "#" }
       ]
     }
   ];
-  
+
   const socialLinks = [
     { name: "Twitter", icon: "logos:twitter", href: "#" },
     { name: "LinkedIn", icon: "logos:linkedin-icon", href: "#" },
@@ -52,33 +52,38 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <img 
-                src="/CTLOGO.svg" 
-                alt="CRACKTHRU Logo" 
-                className="h-16 w-auto"
+              <img
+                src="/iil.png"
+                alt="India Innovates Logo"
+                className="h-24 w-auto"
                 loading="lazy"
               />
-              <p className="font-light text-xl tracking-wide">CRACK<span className="font-semibold">THRU</span></p>
             </div>
-            
+
             <p className="text-foreground/70 mb-6 max-w-md font-light">
-              Elevating financial education with industry-leading courses in Investment Banking, Finance, and Product Management. Learn from Wall Street veterans and transform your career.
+              India's premier innovation and technology summit bringing together young innovators, industry leaders, and visionaries. Join us at Bharat Mandapam, New Delhi on 28-29 March 2026.
             </p>
-            
+
             <div className="flex gap-4 mb-6">
               {socialLinks.map((social, index) => (
-                <a key={index} href={social.href} className="hover:opacity-80 transition-opacity">
+                <a key={index} href={social.href} className="hover:opacity-80 transition-opacity" aria-label={social.name}>
                   <Icon icon={social.icon} width={24} height={24} />
                 </a>
               ))}
             </div>
-            
-            <div className="flex items-center gap-2">
-              <Icon icon="lucide:mail" className="text-foreground/60" width={16} />
-              <span className="text-sm font-light">contact@crackthru.com</span>
+
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Icon icon="lucide:mail" className="text-foreground/60" width={16} />
+                <span className="text-sm font-light">contact@indiainnovates.org</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon icon="lucide:map-pin" className="text-foreground/60" width={16} />
+                <span className="text-sm font-light">Bharat Mandapam, New Delhi</span>
+              </div>
             </div>
           </div>
-          
+
           {footerLinks.map((column, index) => (
             <div key={index}>
               <h3 className="font-semibold mb-4">{column.title}</h3>
@@ -94,14 +99,14 @@ const Footer: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <Separator className="my-8" />
-        
+
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-foreground/60 font-light">
-            © {currentYear} CRACKTHRU. All rights reserved.
+            © {currentYear} India Innovates. All rights reserved.
           </p>
-          
+
           <div className="flex gap-6">
             <a href="#" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
               Terms

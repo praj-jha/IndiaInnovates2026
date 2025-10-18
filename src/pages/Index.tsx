@@ -1,10 +1,13 @@
 
 import {
   HeroSection,
+  AboutIndiaInnovates,
   CompanySlider,
   NumberTicker,
+  SpeakerSection,
+  DelegatePassesSection,
+  VideoTestimonialsSection,
   CoursesSection,
-  TestimonialsSection,
   FAQSection,
   CTASection,
   Footer
@@ -13,11 +16,13 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <AboutIndiaInnovates />
       <NumberTicker />
-      <CoursesSection />
+      <SpeakerSection />
+      <DelegatePassesSection />
+      <VideoTestimonialsSection />
       <CompanySlider />
       <FAQSection />
-      <CTASection />
       <Footer />
     </div>
   );
