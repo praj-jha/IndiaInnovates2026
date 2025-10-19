@@ -23,46 +23,57 @@ export default defineConfig(({ mode }) => ({
       output: {
         // Advanced code splitting for optimal caching
         manualChunks: (id) => {
-          // React core and related libs
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'react-vendor';
-            }
-            // Radix UI components
-            if (id.includes('@radix-ui')) {
-              return 'ui-vendor';
-            }
-            // Lucide icons
-            if (id.includes('lucide-react')) {
-              return 'icons';
-            }
-            // Form handling
-            if (id.includes('react-hook-form') || id.includes('zod') || id.includes('@hookform')) {
-              return 'form-vendor';
-            }
-            // Animation and motion
-            if (id.includes('motion') || id.includes('framer')) {
-              return 'animation';
-            }
-            // Charts and data viz
-            if (id.includes('recharts') || id.includes('d3')) {
-              return 'charts';
-            }
-            // Utilities
-            if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
-              return 'utils';
-            }
-            // Query and state management
-            if (id.includes('@tanstack/react-query')) {
-              return 'query';
-            }
-            // Theme
-            if (id.includes('next-themes')) {
-              return 'theme';
-            }
-            // Everything else
-            return 'vendor';
+          if (!id.includes('node_modules')) {
+            return;
           }
+
+          // React core and router bits
+          if (/node_modules\/(react(?:-dom)?|scheduler|react-router(?:-dom)?)/.test(id)) {
+            return 'react-vendor';
+          }
+
+          // Radix UI components
+          if (id.includes('node_modules/@radix-ui/')) {
+            return 'ui-vendor';
+          }
+
+          // Icon packs
+          if (id.includes('node_modules/lucide-react')) {
+            return 'icons';
+          }
+
+          // Form handling
+          if (id.includes('node_modules/react-hook-form') || id.includes('node_modules/@hookform/') || id.includes('node_modules/zod')) {
+            return 'form-vendor';
+          }
+
+          // Animation and motion
+          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/motion')) {
+            return 'animation';
+          }
+
+          // Charts and data viz
+          if (id.includes('node_modules/recharts') || id.includes('node_modules/d3')) {
+            return 'charts';
+          }
+
+          // Utilities
+          if (id.includes('node_modules/clsx') || id.includes('node_modules/tailwind-merge') || id.includes('node_modules/class-variance-authority')) {
+            return 'utils';
+          }
+
+          // Query and state management
+          if (id.includes('node_modules/@tanstack/react-query')) {
+            return 'query';
+          }
+
+          // Theme handling
+          if (id.includes('node_modules/next-themes')) {
+            return 'theme';
+          }
+
+          // Fallback to Rollup defaults for everything else to avoid circular chunk graphs
+          return undefined;
         },
         // Optimize chunk naming for better caching
         chunkFileNames: (chunkInfo) => {
