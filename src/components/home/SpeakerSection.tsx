@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 interface Speaker {
     id: number;
@@ -228,13 +229,14 @@ export const SpeakerSection = () => {
                                 >
                                     {/* Image Container */}
                                     <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900">
-                                        <img
+                                        <OptimizedImage
                                             src={speaker.image}
                                             alt={speaker.name}
                                             className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
+                                            width={240}
+                                            height={320}
+                                            type="speaker"
                                             loading="lazy"
-                                            width="240"
-                                            height="320"
                                         />
                                         {/* Gradient Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

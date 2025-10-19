@@ -14,6 +14,7 @@ interface OptimizedImageProps {
   onError?: () => void;
   loading?: 'lazy' | 'eager';
   decoding?: 'async' | 'sync' | 'auto';
+  type?: 'speaker' | 'logo' | 'default';
 }
 
 const OptimizedImageComponent = ({
@@ -29,11 +30,41 @@ const OptimizedImageComponent = ({
   onError,
   loading,
   decoding = 'async',
+  type = 'default',
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
+
+  // Generate optimized image paths
+  const getOptimizedPaths = (originalSrc: string) => {
+    const filename = originalSrc.split('/').pop()?.replace(/\.(png|jpg|jpeg)$/i, '');
+
+    if (type === 'speaker') {
+      return {
+        avif: `/optimized/${filename}.avif`,
+        avifSmall: `/optimized/${filename}-sm.avif`,
+        webp: `/optimized/${filename}.webp`,
+        webpSmall: `/optimized/${filename}-sm.webp`,
+        fallback: originalSrc,
+      };
+    } else if (type === 'logo') {
+      return {
+        avif: `/optimized/${filename}.avif`,
+        avifSmall: `/optimized/${filename}-sm.avif`,
+        webp: `/optimized/${filename}.webp`,
+        webpSmall: `/optimized/${filename}-sm.webp`,
+        fallback: originalSrc,
+      };
+    }
+
+    return {
+      fallback: originalSrc,
+    };
+  };
+
+  const optimizedPaths = getOptimizedPaths(src);
 
   // Intersection Observer for lazy loading (only if not priority)
   useEffect(() => {
@@ -134,20 +165,84 @@ const OptimizedImageComponent = ({
 
       {/* Actual image */}
       {(isInView || priority) && !hasError && (
-        <img
-          src={optimizedSrc}
-          srcSet={srcSet}
-          sizes={sizes}
-          alt={alt}
-          className={cn(
-            'w-full h-full object-cover transition-opacity duration-300',
-            isLoaded ? 'opacity-100' : 'opacity-0'
+        <>
+          {type === 'speaker' && optimizedPaths.avif ? (
+            <picture>
+              {/* AVIF format for best compression */}
+              <source
+                type="image/avif"
+                srcSet={`${optimizedPaths.avifSmall} 180w, ${optimizedPaths.avif} 240w`}
+                sizes={sizes || '(max-width: 768px) 180px, 240px'}
+              />
+              {/* WebP fallback */}
+              <source
+                type="image/webp"
+                srcSet={`${optimizedPaths.webpSmall} 180w, ${optimizedPaths.webp} 240w`}
+                sizes={sizes || '(max-width: 768px) 180px, 240px'}
+              />
+              {/* Original format fallback */}
+              <img
+                src={optimizedPaths.fallback}
+                alt={alt}
+                width={width || 240}
+                height={height || 320}
+                className={cn(
+                  'w-full h-full object-cover transition-opacity duration-300',
+                  isLoaded ? 'opacity-100' : 'opacity-0'
+                )}
+                onLoad={handleLoad}
+                onError={handleError}
+                loading={loading || (priority ? 'eager' : 'lazy')}
+                decoding={decoding}
+              />
+            </picture>
+          ) : type === 'logo' && optimizedPaths.avif ? (
+            <picture>
+              {/* AVIF format for best compression */}
+              <source
+                type="image/avif"
+                srcSet={`${optimizedPaths.avifSmall} 120w, ${optimizedPaths.avif} 200w`}
+                sizes={sizes || '(max-width: 768px) 120px, 200px'}
+              />
+              {/* WebP fallback */}
+              <source
+                type="image/webp"
+                srcSet={`${optimizedPaths.webpSmall} 120w, ${optimizedPaths.webp} 200w`}
+                sizes={sizes || '(max-width: 768px) 120px, 200px'}
+              />
+              {/* Original format fallback */}
+              <img
+                src={optimizedPaths.fallback}
+                alt={alt}
+                className={cn(
+                  'w-full h-full object-cover transition-opacity duration-300',
+                  isLoaded ? 'opacity-100' : 'opacity-0'
+                )}
+                onLoad={handleLoad}
+                onError={handleError}
+                loading={loading || (priority ? 'eager' : 'lazy')}
+                decoding={decoding}
+              />
+            </picture>
+          ) : (
+            <img
+              src={optimizedSrc}
+              srcSet={srcSet}
+              sizes={sizes}
+              alt={alt}
+              width={width}
+              height={height}
+              className={cn(
+                'w-full h-full object-cover transition-opacity duration-300',
+                isLoaded ? 'opacity-100' : 'opacity-0'
+              )}
+              onLoad={handleLoad}
+              onError={handleError}
+              loading={loading || (priority ? 'eager' : 'lazy')}
+              decoding={decoding}
+            />
           )}
-          onLoad={handleLoad}
-          onError={handleError}
-          loading={loading || (priority ? 'eager' : 'lazy')}
-          decoding={decoding}
-        />
+        </>
       )}
 
       {/* Error fallback */}

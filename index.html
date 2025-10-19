@@ -10,7 +10,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 
     <!-- Performance: Preload critical assets -->
-    <link rel="preload" as="image" href="/iil.png" fetchpriority="high" />
+    <!-- Preload hero image in AVIF and WebP formats -->
+    <link rel="preload" as="image" href="/optimized/vr-mobile.avif"
+      fetchpriority="high" type="image/avif" media="(max-width: 640px)" />
+    <link rel="preload" as="image" href="/optimized/vr-tablet.avif"
+      fetchpriority="high" type="image/avif"
+      media="(min-width: 641px) and (max-width: 1024px)" />
+    <link rel="preload" as="image" href="/optimized/vr-desktop.avif"
+      fetchpriority="high" type="image/avif" media="(min-width: 1025px)" />
+
+    <!-- Preload logo -->
+    <link rel="preload" as="image" href="/optimized/iil.avif"
+      fetchpriority="high" type="image/avif" />
+
     <link rel="preload" as="style" href="/fonts/poppins.css" />
     <link rel="preload" as="font" type="font/woff2"
       href="/fonts/poppins-400.woff2" crossorigin />

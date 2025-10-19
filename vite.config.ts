@@ -32,7 +32,13 @@ export default defineConfig(({ mode }) => ({
             return 'react-vendor';
           }
 
-          // Radix UI components
+          // Radix UI components - split by component type
+          if (id.includes('node_modules/@radix-ui/react-dialog') || 
+              id.includes('node_modules/@radix-ui/react-dropdown') ||
+              id.includes('node_modules/@radix-ui/react-popover')) {
+            return 'radix-dialogs';
+          }
+
           if (id.includes('node_modules/@radix-ui/')) {
             return 'ui-vendor';
           }

@@ -3,6 +3,7 @@ import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 interface Speaker {
     id: number;
@@ -145,13 +146,14 @@ export default function AllSpeakers() {
                             >
                                 {/* Image Container */}
                                 <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900">
-                                    <img
+                                    <OptimizedImage
                                         src={speaker.image}
                                         alt={speaker.name}
                                         className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
+                                        width={240}
+                                        height={320}
+                                        type="speaker"
                                         loading="lazy"
-                                        width="240"
-                                        height="240"
                                     />
                                     {/* Gradient Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
