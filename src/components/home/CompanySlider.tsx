@@ -4,6 +4,7 @@ const companies = [
   { name: "NSUT", logo: "/nsut.png" },
   { name: "MCD", logo: "/mcdlogo.png" },
   { name: "DDU", logo: "/ddu2.jpeg" },
+  { name: "DDU", logo: "/ay.jpeg" },
 ];
 
 export default function CompanySlider() {
