@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Performance testing and optimization script for CRACKTHRU
+# Performance testing and optimization script for India Innovates 2026
 
-echo "🚀 CRACKTHRU Performance Optimization Suite"
+echo "🚀 India Innovates 2026 Performance Optimization Suite"
 echo "=========================================="
 
 # Colors for output

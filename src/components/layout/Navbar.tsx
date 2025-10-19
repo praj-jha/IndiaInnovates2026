@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="/" className="mr-6 flex items-center">
           <img
             src="/iil.png"
-            alt="CRACKTHRU Logo"
+            alt="India Innovates 2026 Logo"
             className="h-40 w-auto"
             loading="eager"
             fetchPriority="high"

@@ -2,87 +2,87 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 const testimonials = [
   {
-    quote: "I express my sincere appreciation for the outstanding services provided by CRACKTHRU. Their online sessions have been invaluable in shaping my career trajectory. The team meticulously covered every aspect of the interview process, providing me with the confidence needed to excel.",
-    name: "Gyanendra Tripathi",
-    title: "Management Consultant",
+    quote: "India Innovates 2026 was an incredible platform that showcased the power of youth innovation. The robotics competitions and AI demonstrations inspired me to pursue my dreams in technology.",
+    name: "Aarav Sharma",
+    title: "Student Innovator",
     image: "/optimized/1.webp"
   },
   {
-    quote: "CRACKTHRU definitely proves to be very helpful for my professional career. I learned a lot about consultancy and direct sessions with industry professionals was an absolutely great learning experience.",
-    name: "Sakshi Mishra",
-    title: "Strategy Professional",
+    quote: "Participating in the drone obstacle course at India Innovates 2026 was a life-changing experience. The event brought together the brightest young minds and gave us a platform to showcase our skills.",
+    name: "Diya Patel",
+    title: "Robotics Enthusiast",
     image: "/optimized/2.webp"
   },
   {
-    quote: "The experience was new and learned. It felt nice to be tutored by industry experts. The CRACKTHRU team delivered what they promised at the start of the course. Looking forward to more courses.",
-    name: "Dr. Nitish Chaudhri",
-    title: "Healthcare Consultant",
+    quote: "As a speaker at India Innovates 2026, I was amazed by the energy and passion of young innovators. This summit is truly shaping the future of technology in India.",
+    name: "Dr. Rajesh Kumar",
+    title: "Technology Innovator",
     image: "/optimized/3.webp"
   },
   {
-    quote: "It was great to interact and learn from industry experts. The team gave us a comprehensive overview of the consulting world with practical insights.",
-    name: "A M Shobhit",
-    title: "Business Analyst",
+    quote: "The AgriTech competition at India Innovates 2026 gave me the opportunity to present my smart farming solution. The mentorship and feedback I received were invaluable.",
+    name: "Ananya Singh",
+    title: "Young Entrepreneur",
     image: "/optimized/4.webp"
   },
   {
-    quote: "CRACKTHRU Fellowship is a game-changer. From personalized CV reviews to direct expert access, it's invaluable. The referrals and insights transformed my career path. It's a competitive advantage and community.",
-    name: "Purva Pandya",
-    title: "Management Consultant",
+    quote: "India Innovates 2026 is not just an event, it's a movement. Connecting with fellow innovators and industry leaders has opened doors I never thought possible.",
+    name: "Arjun Mehta",
+    title: "Tech Innovator",
     image: "/optimized/1.webp"
   },
   {
-    quote: "The Fellowship Programme proved valuable in my professional development, providing hands-on exposure to real-world consulting practices. It enhanced my prospects for a successful consulting career.",
-    name: "Shayna",
-    title: "Strategy Consultant",
+    quote: "The Zero Waste Innovation challenge pushed me to think creatively about sustainability. India Innovates 2026 showed me that young people can make a real difference.",
+    name: "Priya Desai",
+    title: "Environmental Innovator",
     image: "/optimized/2.webp"
   },
   {
-    quote: "The comprehensive training and mentorship provided by CRACKTHRU has been instrumental in my career growth. The practical insights and industry connections have opened doors I never thought possible.",
-    name: "Rajesh Kumar",
-    title: "Senior Consultant",
+    quote: "Exhibiting at India Innovates 2026 helped our startup gain visibility and connect with potential investors. This summit is a game-changer for youth entrepreneurship.",
+    name: "Vikram Reddy",
+    title: "Startup Founder",
     image: "/optimized/3.webp"
   },
   {
-    quote: "CRACKTHRU's approach to teaching consulting skills is unique and effective. The real-world case studies and expert guidance have significantly improved my problem-solving abilities.",
-    name: "Priya Sharma",
-    title: "Business Strategy Analyst",
+    quote: "The scale and quality of India Innovates 2026 is unmatched. From AI workshops to robotics wars, every aspect of the summit was designed to inspire and educate.",
+    name: "Sneha Kapoor",
+    title: "AI Researcher",
     image: "/optimized/4.webp"
   },
   {
-    quote: "The networking opportunities and career guidance provided by CRACKTHRU have been exceptional. I've built valuable connections and gained insights that have accelerated my professional journey.",
-    name: "Arjun Patel",
-    title: "Management Trainee",
+    quote: "As a delegate at India Innovates 2026, I gained insights from global leaders and connected with innovators from across the country. An unforgettable experience!",
+    name: "Rohan Gupta",
+    title: "Innovation Enthusiast",
     image: "/optimized/1.webp"
   },
   {
-    quote: "CRACKTHRU's curriculum is well-structured and industry-relevant. The skills I've gained have made me more confident in client interactions and strategic thinking.",
-    name: "Neha Gupta",
-    title: "Consultant",
+    quote: "The competitions at India Innovates 2026 are world-class. Participating in the Robots War gave me practical skills and confidence to pursue robotics professionally.",
+    name: "Kavya Iyer",
+    title: "Robotics Engineer",
     image: "/optimized/2.webp"
   },
   {
-    quote: "The personalized approach and one-on-one mentoring sessions have been invaluable. CRACKTHRU doesn't just teach theory; they provide practical, actionable insights.",
-    name: "Rohit Verma",
-    title: "Digital Strategy Consultant",
+    quote: "India Innovates 2026 celebrates the spirit of innovation and entrepreneurship. The networking opportunities alone made it worth attending.",
+    name: "Aditya Verma",
+    title: "Young Innovator",
     image: "/optimized/3.webp"
   },
   {
-    quote: "From case study preparation to interview coaching, CRACKTHRU covers it all. The mock interviews were particularly helpful in building my confidence.",
-    name: "Kavya Reddy",
-    title: "Business Consultant",
+    quote: "The ReelBaaz competition showcased how creativity and technology can come together. India Innovates 2026 is redefining what youth summits can achieve.",
+    name: "Ishita Joshi",
+    title: "Content Creator",
     image: "/optimized/4.webp"
   },
   {
-    quote: "The industry exposure and practical learning approach at CRACKTHRU has been phenomenal. I now feel equipped to tackle any business challenge.",
-    name: "Amit Singh",
-    title: "Strategy Analyst",
+    quote: "Attending India Innovates 2026 was a turning point in my journey. The exposure to cutting-edge technology and mentorship from industry experts was priceless.",
+    name: "Karan Malhotra",
+    title: "Tech Enthusiast",
     image: "/optimized/1.webp"
   },
   {
-    quote: "CRACKTHRU's comprehensive program and excellent mentorship helped me transition from engineering to consulting successfully. Highly recommended!",
-    name: "Sneha Agarwal",
-    title: "Management Consultant",
+    quote: "India Innovates 2026 is where passion meets opportunity. The event inspired me to take my innovation from concept to reality.",
+    name: "Neha Agarwal",
+    title: "Student Innovator",
     image: "/optimized/2.webp"
   }
 ];

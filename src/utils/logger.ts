@@ -88,7 +88,7 @@ class Logger {
   private storeErrorLocally(logEntry: LogEntry) {
     // Store errors locally for debugging without exposing them
     try {
-      const request = indexedDB.open('CrackthruErrorLogs', 1);
+      const request = indexedDB.open('IndiaInnovatesErrorLogs', 1);
       request.onsuccess = (event) => {
         const db = (event.target as IDBOpenDBRequest).result;
         const transaction = db.transaction(['errors'], 'readwrite');
