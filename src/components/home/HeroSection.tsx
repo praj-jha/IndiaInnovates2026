@@ -1,11 +1,10 @@
-
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, MapPin, Ticket } from "lucide-react";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 import ResponsiveHeroImage from "@/components/ui/ResponsiveHeroImage";
 
-export default function HeroSection() {
+const HeroSection = () => {
   return (
     <section
       className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden bg-white dark:bg-background"
@@ -61,20 +60,12 @@ export default function HeroSection() {
 
               {/* purple and Purple Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-purple-500/20 pointer-events-none"></div>
-
-              {/* Floating badge */}
-              <div className="absolute bottom-6 right-6 bg-white dark:bg-gray-900 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 border border-orange-500/20">
-                <div className="w-3 h-3 rounded-full bg-purple-500 animate-pulse"></div>
-                <span className="text-sm font-medium text-purple-700 dark:text-purple-400">
-                  Registration Open
-                </span>
-              </div>
             </div>
           </div>
         </div>
 
         {/* Company Logos Section */}
-        <div className="mt-16 pt-8">
+        <div className="mt-10 pt-8">
           <div className="text-center">
             <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 dark:from-purple-900/40 dark:to-purple-900/30 border border-purple-500/30 dark:border-purple-700 rounded-full mb-8">
               <p className="text-purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">
@@ -89,41 +80,57 @@ export default function HeroSection() {
                 <img
                   src="/oyo.png"
                   alt="OYO"
+                  loading="lazy"
+                  decoding="async"
                   className="h-12 md:h-16 lg:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/TM.webp"
                   alt="Tech Mahindra"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/ZSA.svg"
                   alt="ZS Associates"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/RL.avif"
                   alt="Russell Reynolds"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/kpm.svg"
                   alt="KPMG"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/optimized/EYP.webp"
                   alt="EY"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/optimized/del.webp"
                   alt="Deloitte"
+                  loading="lazy"
+                  decoding="async"
                   className="h-14 md:h-20 lg:h-24 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/optimized/pwc.webp"
                   alt="pwc"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
 
@@ -131,31 +138,43 @@ export default function HeroSection() {
                 <img
                   src="/optimized/oyo.webp"
                   alt="OYO"
+                  loading="lazy"
+                  decoding="async"
                   className="h-12 md:h-16 lg:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/TM.webp"
                   alt="Tech Mahindra"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/ZSA.svg"
                   alt="ZS Associates"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/RL.avif"
                   alt="Russell Reynolds"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/kpm.svg"
                   alt="KPMG"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
                   src="/optimized/EYP.webp"
                   alt="EY"
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 lg:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity hover:scale-105 transform duration-200 flex-shrink-0"
                 />
                 <img
@@ -175,4 +194,8 @@ export default function HeroSection() {
       </div>
     </section>
   );
-}
+};
+
+HeroSection.displayName = "HeroSection";
+
+export default memo(HeroSection);

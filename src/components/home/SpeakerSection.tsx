@@ -166,13 +166,13 @@ export const SpeakerSection = () => {
     }, [isAutoPlaying]);
 
     return (
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-purple-50/30 dark:from-gray-900 dark:to-purple-950/30">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-800 to-purple-900 dark:from-purple-950 dark:to-black">
             {/* Section Header */}
             <div className="max-w-7xl mx-auto mb-8 text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
-                    Distinguished <span className="text-purple-600">Speakers</span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">
+                    Distinguished <span className="text-orange-400">Speakers</span>
                 </h2>
-                <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-base text-purple-200 max-w-2xl mx-auto">
                     Learn from visionary leaders shaping the future of innovation
                 </p>
             </div>
@@ -182,18 +182,18 @@ export const SpeakerSection = () => {
                 {/* Navigation Buttons - Now visible on mobile too */}
                 <button
                     onClick={goToPrev}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 bg-white dark:bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-purple-50 dark:hover:bg-purple-900 transition-all duration-300 border-2 border-purple-200 dark:border-purple-700"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 bg-white dark:bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-orange-50 dark:hover:bg-orange-900 transition-all duration-300 border-2 border-orange-400 dark:border-orange-600"
                     aria-label="Previous speakers"
                 >
-                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 </button>
 
                 <button
                     onClick={goToNext}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 bg-white dark:bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-purple-50 dark:hover:bg-purple-900 transition-all duration-300 border-2 border-purple-200 dark:border-purple-700"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 bg-white dark:bg-gray-800 p-2 sm:p-3 rounded-full shadow-lg hover:bg-orange-50 dark:hover:bg-orange-900 transition-all duration-300 border-2 border-orange-400 dark:border-orange-600"
                     aria-label="Next speakers"
                 >
-                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 </button>
 
                 {/* Slider Container */}
@@ -213,7 +213,7 @@ export const SpeakerSection = () => {
                                 }}
                             >
                                 <div
-                                    className="group relative cursor-pointer overflow-hidden rounded-xl bg-card border-2 border-border hover:border-purple-500 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                    className="group relative cursor-pointer overflow-hidden rounded-xl bg-card border-2 border-orange-300 hover:border-orange-500 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                     onMouseEnter={() => setHoveredCard(speaker.id)}
                                     onMouseLeave={() => setHoveredCard(null)}
                                     onClick={() => setSelectedSpeaker(speaker)}
@@ -227,7 +227,7 @@ export const SpeakerSection = () => {
                                     }}
                                 >
                                     {/* Image Container */}
-                                    <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900">
+                                    <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900">
                                         <img
                                             src={speaker.image}
                                             alt={speaker.name}
@@ -242,15 +242,8 @@ export const SpeakerSection = () => {
 
                                     {/* Content Section */}
                                     <div className="relative p-3 bg-card">
-                                        {/* Followers Count */}
-                                        <div className="mb-1">
-                                            <span className="text-purple-600 dark:text-purple-400 text-[10px] sm:text-xs font-semibold tracking-wide">
-                                                {speaker.followers}
-                                            </span>
-                                        </div>
-
-                                        {/* Name */}
-                                        <h3 className="text-foreground text-xs sm:text-sm md:text-base font-bold mb-1 tracking-tight uppercase line-clamp-2">
+                                        {/* Name and Title */}
+                                        <h3 className="text-sm sm:text-base font-bold text-foreground mb-0.5 line-clamp-1">
                                             {speaker.name}
                                         </h3>
 

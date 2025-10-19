@@ -1,4 +1,4 @@
-# Global headers for all files
+# Global security headers for all files
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
@@ -8,46 +8,93 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-XSS-Protection: 1; mode=block
 
-# Cache static assets
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
+# HTML files - short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  
+# Root index
+/
+  Cache-Control: public, max-age=0, must-revalidate
 
-# Font files - optimized caching
-/fonts/*
+# Service Worker - no cache
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Manifest
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# Static assets with hash in filename - aggressive caching
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
-# Optimized images
+# Font files - long-term caching with CORS
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+/*.eot
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Optimized images - long-term caching
 /optimized/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
-# Cache images
+# Image files - 1 year cache
 /*.jpg
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
 /*.jpeg
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
 /*.png
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
 /*.webp
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
 /*.svg
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
 /*.gif
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=31536000, immutable
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
 
-# Cache fonts
-/*.woff
-  Cache-Control: public, max-age=31536000
-/*.woff2
-  Cache-Control: public, max-age=31536000
+# JavaScript and CSS files with hash - immutable
+/assets/js/*
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
-# JavaScript and CSS files
+/assets/css/*
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
 /*.js
-  Content-Type: application/javascript
-  Cache-Control: public, max-age=31536000
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
 /*.css
-  Content-Type: text/css
-  Cache-Control: public, max-age=31536000
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+# Compression headers (if not handled by server)
+/*.js
+  Content-Encoding: gzip
+
+/*.css
+  Content-Encoding: gzip
 
 # HTML files - no cache for SPA
 /*.html

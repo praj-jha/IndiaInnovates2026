@@ -28,15 +28,24 @@ const delegatePasses: DelegatePass[] = [
         usdPrice: "$181",
         gst: "+18% GST",
         badge: "CXO, MD, Sr. Govt Officials, Startup Founders, Investors",
-        badgeColor: "bg-red-600",
-        borderColor: "border-purple-300",
-        registerLink: "/delegate-registration",
+        badgeColor: "bg-gradient-to-r from-yellow-600 to-amber-500",
+        borderColor: "border-yellow-500",
+        registerLink: "/delegate-registration?pass=premium",
         features: [
             { text: "Exclusive Business Lounge Access", included: true, highlighted: true },
             { text: "All Conference Access", included: true },
             { text: "Award Ceremony Access", included: true, highlighted: true },
             { text: "Lunch in VIP Dining Area", included: true },
             { text: "Exclusive Interaction with chief guests", included: true },
+            { text: "Priority conference seating", included: true },
+            { text: "Startup Expo Access", included: true },
+            { text: "Workshop Access", included: true },
+            { text: "Startup Product's Launch Access", included: true },
+            { text: "Industry Roundtable Access", included: true },
+            { text: "GALA Dinner", included: true },
+            { text: "VIP car parking pass", included: true },
+            { text: "Delegate kits", included: true },
+            { text: "Discussion with top MPs", included: true },
         ],
     },
     {
@@ -45,15 +54,24 @@ const delegatePasses: DelegatePass[] = [
         usdPrice: "$90",
         gst: "+18% GST",
         badge: "CXO, Startup Founders, Investors",
-        badgeColor: "bg-red-600",
-        borderColor: "border-purple-300",
-        registerLink: "/delegate-registration",
+        badgeColor: "bg-gradient-to-r from-slate-400 to-gray-300",
+        borderColor: "border-slate-400",
+        registerLink: "/delegate-registration?pass=business",
         features: [
+            { text: "Exclusive Business Lounge Access", included: false },
             { text: "All Conference Access", included: true },
             { text: "Award Ceremony Access", included: true, highlighted: true },
+            { text: "Lunch in VIP Dining Area", included: false },
+            { text: "Exclusive Interaction with chief guests", included: false },
+            { text: "Priority conference seating", included: false },
             { text: "Startup Expo Access", included: true },
             { text: "Workshop Access", included: true },
             { text: "Startup Product's Launch Access", included: true },
+            { text: "Industry Roundtable Access", included: false },
+            { text: "GALA Dinner", included: false },
+            { text: "VIP car parking pass", included: false },
+            { text: "Delegate kits", included: false },
+            { text: "Discussion with top MPs", included: false },
         ],
     },
     {
@@ -62,14 +80,24 @@ const delegatePasses: DelegatePass[] = [
         usdPrice: "$24",
         gst: "+18% GST",
         badge: "Business Representatives, Researchers, Students",
-        badgeColor: "bg-red-600",
-        borderColor: "border-purple-300",
-        registerLink: "/delegate-registration",
+        badgeColor: "bg-gradient-to-r from-amber-700 to-orange-600",
+        borderColor: "border-orange-500",
+        registerLink: "/delegate-registration?pass=standard",
         features: [
+            { text: "Exclusive Business Lounge Access", included: false },
             { text: "All Conference Access", included: true },
+            { text: "Award Ceremony Access", included: false },
+            { text: "Lunch in VIP Dining Area", included: false },
+            { text: "Exclusive Interaction with chief guests", included: false },
+            { text: "Priority conference seating", included: false },
             { text: "Startup Expo Access", included: true },
             { text: "Workshop Access", included: true },
-            { text: "Exhibition access", included: true },
+            { text: "Startup Product's Launch Access", included: false },
+            { text: "Industry Roundtable Access", included: false },
+            { text: "GALA Dinner", included: false },
+            { text: "VIP car parking pass", included: false },
+            { text: "Delegate kits", included: false },
+            { text: "Discussion with top MPs", included: false },
         ],
     },
 ];
@@ -95,7 +123,7 @@ export function DelegatePassesSection() {
                     {delegatePasses.map((pass, index) => (
                         <Card
                             key={index}
-                            className={`relative overflow-hidden hover:shadow-xl transition-all duration-300 border-2 ${pass.borderColor} hover:-translate-y-2`}
+                            className={`relative overflow-hidden hover:shadow-2xl transition-all duration-300 border-4 ${pass.borderColor} hover:-translate-y-2`}
                         >
                             <CardHeader className="space-y-4">
                                 <CardTitle className="text-2xl font-bold">

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Upload, X, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
+import { useSearchParams } from "react-router-dom";
 
 interface PassCategory {
     id: string;
@@ -130,6 +131,8 @@ const govtIdTypes = [
 ];
 
 export default function DelegateRegistration() {
+    const [searchParams] = useSearchParams();
+
     const [formData, setFormData] = useState<FormData>({
         passCategory: "",
         firstName: "",
@@ -153,6 +156,14 @@ export default function DelegateRegistration() {
     const [isDragging, setIsDragging] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    // Auto-detect pass from URL parameter
+    useEffect(() => {
+        const passParam = searchParams.get('pass');
+        if (passParam && ['premium', 'business', 'standard'].includes(passParam)) {
+            setFormData((prev) => ({ ...prev, passCategory: passParam }));
+        }
+    }, [searchParams]);
 
     const handleInputChange = (field: keyof FormData, value: string) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
@@ -349,12 +360,12 @@ export default function DelegateRegistration() {
                             <img
                                 src="/iil.png"
                                 alt="India Innovates Logo"
-                                className="h-24 md:h-48 mx-auto -mt-20"
+                                className="h-16 sm:h-20 md:h-32 lg:h-40 w-auto mx-auto object-contain"
                             />
-                            <h1 className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white -mt-12 mb-2">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mt-4 mb-2">
                                 Delegate Pass Registration
                             </h1>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">
+                            <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base px-4">
                                 Fill in your details to register for India Innovates 2026
                             </p>
                         </div>

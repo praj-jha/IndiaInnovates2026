@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Pause, Play } from 'lucide-react';
 
-export function AboutIndiaInnovates() {
+const AboutIndiaInnovates = () => {
     const navigate = useNavigate();
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -88,16 +88,11 @@ export function AboutIndiaInnovates() {
     };
 
     return (
-        <section className="py-2 md:py- bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
+        <section className=" bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                     {/* Text Content - Left Side */}
                     <div className="order-2 lg:order-1 space-y-6">
-                        <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-500/20 to-orange-600/20 dark:from-orange-900/40 dark:to-orange-900/30 border border-orange-500/30 dark:border-orange-700 rounded-full">
-                            <p className="text-Purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">
-                                About India Innovates 2026
-                            </p>
-                        </div>
 
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                             Challenge <span className='text-purple-800'>Accepted!</span>
@@ -109,15 +104,15 @@ export function AboutIndiaInnovates() {
                             </p>
 
                             <p>
-                                India Innovates 2026 is our answer - a premier platform bringing together <span className="font-semibold text-orange-600 dark:text-orange-400">300+ Members of Parliament</span>, <span className="font-semibold text-orange-600 dark:text-orange-400">5,000+ international delegates</span>, and <span className="font-semibold text-orange-600 dark:text-orange-400">200+ investors</span> to empower India's next generation of innovators and entrepreneurs.
+                                India Innovates 2026 is our answer - a premier platform bringing together <span className="font-semibold text-green-700 dark:text-green-500">300+ Members of Parliament</span>, <span className="font-semibold text-green-700 dark:text-green-600">5,000+ international delegates</span>, and <span className="font-semibold text-green-700 dark:text-green-500">200+ investors</span> to empower India's next generation of innovators and entrepreneurs.
                             </p>
 
                             <p>
-                                Through expert-led fellowships in Technology, Innovation, Entrepreneurship, and Strategy, we're building the talent that will create India's future - <span className="font-semibold">Made in India, for the World</span>.
+                                Through expert-led fellowships in Technology, Innovation, Entrepreneurship, and Strategy, we're building the talent that will create India's future - <span className="font-semibold text-green-700">Made in India, for the World</span>.
                             </p>
 
                             <p>
-                                With mentors from <span className="font-semibold">KPMG, EY Parthenon, Deloitte, PwC, OYO, Tech Mahindra</span>, and more, we're transforming ambitious students into industry-ready professionals who will lead India's innovation revolution.
+                                With mentors from <span className="font-semibold text-green-700">KPMG, EY Parthenon, Deloitte, PwC, OYO, Tech Mahindra</span>, and more, we're transforming ambitious students into industry-ready professionals who will lead India's innovation revolution.
                             </p>
                         </div>
 
@@ -146,7 +141,7 @@ export function AboutIndiaInnovates() {
                     {/* Video - Right Side */}
                     <div className="order-1 lg:order-2 flex justify-center lg:pl-32 lg:mt-20 lg:justify-start">
                         {/* Purple Frame Container */}
-                        <div className="p-2 md:p-3 lg:p-4 bg-purple-700 rounded-2xl shadow-2xl">
+                        <div className="p-2 md:p-3 lg:p-2 bg-purple-700 rounded-2xl shadow-2xl">
                             <div
                                 className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer w-full max-w-[400px] aspect-[11/15]"
                                 onMouseEnter={handleMouseEnter}
@@ -209,4 +204,9 @@ export function AboutIndiaInnovates() {
             </div>
         </section>
     );
-}
+};
+
+AboutIndiaInnovates.displayName = 'AboutIndiaInnovates';
+
+export default memo(AboutIndiaInnovates);
+export { AboutIndiaInnovates };

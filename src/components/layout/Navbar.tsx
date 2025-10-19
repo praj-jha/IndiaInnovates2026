@@ -1,25 +1,25 @@
-import { useState } from "react";
+import { useState, memo, useCallback, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { ChevronDown, Menu, X } from "lucide-react";
 
-export default function Navbar() {
+const Navbar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const isActiveLink = (path: string) => {
+  const isActiveLink = useCallback((path: string) => {
     if (path === "/") {
       return location.pathname === "/";
     }
     return location.pathname.startsWith(path);
-  };
+  }, [location.pathname]);
 
-  const getLinkClassName = (path: string) => {
+  const getLinkClassName = useCallback((path: string) => {
     const baseClasses = "text-sm font-medium transition-colors hover:text-primary";
     const activeClasses = "text-purple-600 font-semibold";
     return isActiveLink(path) ? `${baseClasses} ${activeClasses}` : baseClasses;
-  };
+  }, [isActiveLink]);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -242,4 +242,8 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
+};
+
+Navbar.displayName = 'Navbar';
+
+export default memo(Navbar);

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import { cn } from '@/lib/utils';
 
 interface OptimizedImageProps {
@@ -12,9 +12,11 @@ interface OptimizedImageProps {
   sizes?: string;
   onLoad?: () => void;
   onError?: () => void;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
 }
 
-export function OptimizedImage({
+const OptimizedImageComponent = ({
   src,
   alt,
   className,
@@ -25,13 +27,15 @@ export function OptimizedImage({
   sizes,
   onLoad,
   onError,
-}: OptimizedImageProps) {
+  loading,
+  decoding = 'async',
+}: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  // Intersection Observer for lazy loading
+  // Intersection Observer for lazy loading (only if not priority)
   useEffect(() => {
     if (priority || isInView) return;
 
@@ -42,9 +46,9 @@ export function OptimizedImage({
           observer.disconnect();
         }
       },
-      { 
-        threshold: 0.1,
-        rootMargin: '20px' // Reduced from 50px to prevent early loading
+      {
+        threshold: 0.01,
+        rootMargin: '50px' // Start loading slightly before visible
       }
     );
 
@@ -101,7 +105,7 @@ export function OptimizedImage({
 
   const getResponsiveSrcSet = (originalSrc: string) => {
     const filename = originalSrc.split('/').pop();
-    
+
     // For hero background, provide responsive sizes
     if (filename === 'bgct.png') {
       return [
@@ -118,7 +122,7 @@ export function OptimizedImage({
   const srcSet = getResponsiveSrcSet(src);
 
   return (
-    <div 
+    <div
       ref={imgRef}
       className={cn('relative overflow-hidden', className)}
       style={{ width, height }}
@@ -141,8 +145,8 @@ export function OptimizedImage({
           )}
           onLoad={handleLoad}
           onError={handleError}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
+          loading={loading || (priority ? 'eager' : 'lazy')}
+          decoding={decoding}
         />
       )}
 
@@ -154,6 +158,9 @@ export function OptimizedImage({
       )}
     </div>
   );
-}
+};
 
+OptimizedImageComponent.displayName = 'OptimizedImage';
+
+export const OptimizedImage = memo(OptimizedImageComponent);
 export default OptimizedImage;
