@@ -1,7 +1,6 @@
 import { useState, memo, useCallback, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -22,7 +21,7 @@ const Navbar = () => {
   }, [isActiveLink]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center">
         {/* Logo */}
         <Link to="/" className="mr-6 flex items-center">
@@ -118,7 +117,6 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="hidden md:flex items-center space-x-4">
-          <ThemeToggle />
           <div className="flex items-center space-x-2">
             <Button variant="ghost" asChild className="hover:bg-purple-50 hover:text-purple-600">
               <Link to="/agenda">Agenda</Link>
@@ -130,8 +128,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden flex-1 justify-end items-center space-x-4">
-          <ThemeToggle />
+        <div className="flex md:hidden flex-1 justify-end items-center">
           <Button
             variant="ghost"
             size="icon"

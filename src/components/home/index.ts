@@ -1,6 +1,6 @@
-
+// Note: AboutIndiaInnovates is not re-exported here to avoid chunk splitting issues
+// Import it directly from './AboutIndiaInnovates' when needed
 export { default as HeroSection } from './HeroSection';
-export { AboutIndiaInnovates } from './AboutIndiaInnovates';
 export { default as CompanySlider } from './CompanySlider';
 export { default as NumberTicker } from './NumberTicker';
 export { SpeakerSection } from './SpeakerSection';

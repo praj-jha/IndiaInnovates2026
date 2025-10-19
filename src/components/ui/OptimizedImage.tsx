@@ -129,7 +129,7 @@ const OptimizedImageComponent = ({
     >
       {/* Placeholder */}
       {placeholder === 'blur' && !isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse" />
+        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
       )}
 
       {/* Actual image */}
@@ -152,7 +152,7 @@ const OptimizedImageComponent = ({
 
       {/* Error fallback */}
       {hasError && (
-        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
           <div className="text-gray-400 text-sm">Image failed to load</div>
         </div>
       )}
