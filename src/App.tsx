@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/layout/Navbar";
+import { prefetchRoutes } from "@/components/common/PrefetchLink";
 
 // Lazy load all page components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -19,13 +20,10 @@ const SchoolCompetitions = lazy(() => import("./pages/SchoolCompetitions"));
 const Agenda = lazy(() => import("./pages/Agenda"));
 const AllSpeakers = lazy(() => import("./pages/AllSpeakers"));
 
-// Loading fallback component
+// Optimized loading fallback - lighter and faster
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-white">
-    <div className="flex flex-col items-center gap-4">
-      <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-      <p className="text-sm text-gray-600">Loading...</p>
-    </div>
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin" />
   </div>
 );
 
@@ -47,6 +45,29 @@ const ConditionalNavbar = () => {
   return <Navbar />;
 };
 
+// Component to prefetch critical routes after initial load
+const RoutePrefetcher = () => {
+  useEffect(() => {
+    // Prefetch critical routes after a short delay (2 seconds after mount)
+    // These are the most visited pages
+    prefetchRoutes([
+      "/delegate-pass",
+      "/school-competitions",
+      "/delegate-registration",
+    ], 2000);
+
+    // Prefetch remaining routes after 5 seconds (low priority)
+    prefetchRoutes([
+      "/exhibitor-registration",
+      "/school-competitions-register",
+      "/agenda",
+      "/all-speakers",
+    ], 5000);
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   return (
     <ErrorBoundary>
@@ -62,6 +83,7 @@ const App = () => {
               }}
             >
               <ScrollToTop />
+              <RoutePrefetcher />
               <div className="min-h-screen bg-white">
                 <ConditionalNavbar />
                 <Suspense fallback={<PageLoader />}>
