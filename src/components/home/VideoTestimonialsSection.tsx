@@ -16,7 +16,7 @@ const testimonials: Testimonial[] = [
         name: "Dr. Rajesh Kumar",
         title: "Chief Technology Officer",
         organization: "Tech Mahindra",
-        videoUrl: "/vid.mov",
+        videoUrl: "/v3.mp4",
         quote: "India Innovates has been a game-changer for our innovation journey."
     },
     {
@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
         name: "Priya Sharma",
         title: "Startup Founder",
         organization: "InnovateTech Solutions",
-        videoUrl: "/vid.mov",
+        videoUrl: "/v3.mp4",
         quote: "The networking opportunities at India Innovates are unparalleled."
     },
     {
@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
         name: "Amit Patel",
         title: "Investment Manager",
         organization: "Sequoia Capital",
-        videoUrl: "/vid.mov",
+        videoUrl: "/v3.mp4",
         quote: "We discovered incredible startups at India Innovates 2025."
     },
 ];
@@ -44,21 +44,23 @@ export function VideoTestimonialsSection() {
         setActiveVideo(id);
     };
 
+
+
     return (
-        <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <section className="py-16 bg-purple-700">
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 dark:from-purple-900/40 dark:to-purple-900/30 border border-purple-500/30 dark:border-purple-700 rounded-full mb-4">
-                        <Quote className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                        <span className="text-purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 border border-white/30 rounded-full mb-4">
+                        <Quote className="w-4 h-4 text-white" />
+                        <span className="text-white text-sm font-semibold tracking-wide uppercase">
                             Testimonials
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                        Hear From Our <span className="text-purple-600">Community</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                        Hear From Our <span className="text-purple-200">Community</span>
                     </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-lg text-purple-100 max-w-2xl mx-auto">
                         Discover what delegates, speakers, and partners have to say about their India Innovates experience
                     </p>
                 </div>
@@ -68,7 +70,7 @@ export function VideoTestimonialsSection() {
                     {testimonials.map((testimonial) => (
                         <div
                             key={testimonial.id}
-                            className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                            className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
                         >
                             {/* Video Container */}
                             <div className="relative aspect-video bg-gray-900">
@@ -114,13 +116,13 @@ export function VideoTestimonialsSection() {
 
                             {/* Details */}
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                                <h3 className="text-xl font-bold text-gray-900 mb-1">
                                     {testimonial.name}
                                 </h3>
-                                <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold mb-1">
+                                <p className="text-sm text-purple-600 font-semibold mb-1">
                                     {testimonial.title}
                                 </p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                <p className="text-sm text-gray-600">
                                     {testimonial.organization}
                                 </p>
                             </div>
@@ -130,12 +132,12 @@ export function VideoTestimonialsSection() {
 
                 {/* Bottom CTA */}
                 <div className="text-center mt-12">
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-purple-100 mb-4">
                         Want to share your India Innovates experience?
                     </p>
                     <a
                         href="mailto:info@indiainnovates.in"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-purple-50 text-purple-700 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
                     >
                         Submit Your Testimonial
                     </a>

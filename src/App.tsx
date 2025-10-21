@@ -17,6 +17,8 @@ const DelegateRegistration = lazy(() => import("./pages/DelegateRegistration"));
 const ExhibitorRegistration = lazy(() => import("./pages/ExhibitorRegistration"));
 const SchoolCompetitionRegistration = lazy(() => import("./pages/SchoolCompetitionRegistration"));
 const SchoolCompetitions = lazy(() => import("./pages/SchoolCompetitions"));
+const UniversityCompetitions = lazy(() => import("./pages/UniversityCompetitions"));
+const UniversityCompetitionRegistration = lazy(() => import("./pages/UniversityCompetitionRegistration"));
 const Agenda = lazy(() => import("./pages/Agenda"));
 const AllSpeakers = lazy(() => import("./pages/AllSpeakers"));
 
@@ -53,6 +55,7 @@ const RoutePrefetcher = () => {
     prefetchRoutes([
       "/delegate-pass",
       "/school-competitions",
+      "/university-competitions",
       "/delegate-registration",
     ], 2000);
 
@@ -60,6 +63,7 @@ const RoutePrefetcher = () => {
     prefetchRoutes([
       "/exhibitor-registration",
       "/school-competitions-register",
+      "/university-competitions-register",
       "/agenda",
       "/all-speakers",
     ], 5000);
@@ -94,6 +98,8 @@ const App = () => {
                     <Route path="/exhibitor-registration" element={<ExhibitorRegistration />} />
                     <Route path="/school-competitions-register" element={<SchoolCompetitionRegistration />} />
                     <Route path="/school-competitions" element={<SchoolCompetitions />} />
+                    <Route path="/university-competitions" element={<UniversityCompetitions />} />
+                    <Route path="/university-competitions-register" element={<UniversityCompetitionRegistration />} />
                     <Route path="/agenda" element={<Agenda />} />
                     <Route path="/all-speakers" element={<AllSpeakers />} />
 

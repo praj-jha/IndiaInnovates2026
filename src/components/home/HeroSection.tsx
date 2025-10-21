@@ -99,7 +99,7 @@ const HeroSection = () => {
                 } as React.CSSProperties}
               >
                 {/* First set of logos */}
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/mcdlogo.png"
                     alt="MCD"
@@ -108,7 +108,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/bsf.png"
                     alt="BSF"
@@ -117,7 +117,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/jnu.png"
                     alt="JNU"
@@ -126,7 +126,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/nsut.png"
                     alt="NSUT"
@@ -135,7 +135,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/ddu2.jpeg"
                     alt="DDU"
@@ -144,7 +144,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/niti.png"
                     alt="NITI"
@@ -153,7 +153,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/Dl.png"
                     alt="Delhi"
@@ -162,7 +162,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/ay.jpeg"
                     alt="Ayushman Bharat"
@@ -173,7 +173,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Duplicate set for seamless loop */}
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/mcdlogo.png"
                     alt="MCD"
@@ -182,7 +182,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/bsf.png"
                     alt="BSF"
@@ -191,7 +191,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/jnu.png"
                     alt="JNU"
@@ -200,7 +200,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/nsut.png"
                     alt="NSUT"
@@ -209,7 +209,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/ddu2.jpeg"
                     alt="DDU"
@@ -218,7 +218,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/niti.png"
                     alt="NITI"
@@ -227,7 +227,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/Dl.png"
                     alt="Delhi"
@@ -236,7 +236,7 @@ const HeroSection = () => {
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-32 sm:w-36 md:w-40 h-20 sm:h-24 md:h-28">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
                     src="/ay.jpeg"
                     alt="Ayushman Bharat"

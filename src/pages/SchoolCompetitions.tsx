@@ -8,65 +8,49 @@ const competitions = [
   {
     id: "drone-obstacle",
     name: "Drone Obstacle Crossing",
-    nameHindi: "ड्रोन ऑब्सटेकल क्रॉसिंग",
     description: "Navigate drones through challenging obstacle courses",
-    descriptionHindi: "ड्रोन को निर्धारित बाधाओं से पार कराने की प्रतियोगिता",
     icon: "🚁",
   },
   {
     id: "agritech",
     name: "Agritech – Smart Farming",
-    nameHindi: "एग्रीटेक – स्मार्ट फार्मिंग",
     description: "Showcase innovative smart farming solutions",
-    descriptionHindi: "स्मार्ट खेती से जुड़े इनोवेशन मॉडल",
     icon: "🌾",
   },
   {
     id: "robots-war",
     name: "Robots War",
-    nameHindi: "रोबोट्स वॉर",
-    description: "Robot fighting and task performance",
-    descriptionHindi: "रोबोट्स की फाइटिंग या टास्क परफॉर्मेंस प्रतियोगिता",
+    description: "Robot fighting and task performance competition",
     icon: "🤖",
   },
   {
     id: "zero-waste",
     name: "Zero Waste Innovation",
-    nameHindi: "जीरो वेस्ट इनोवेशन",
     description: "Create useful products from waste materials",
-    descriptionHindi: "कचरे को पुनः उपयोग कर नई उपयोगी वस्तुएँ बनाना",
     icon: "♻️",
   },
   {
     id: "reelbaaz",
     name: "ReelBaaz",
-    nameHindi: "रीलबाज़",
     description: "Create engaging 30-second reels",
-    descriptionHindi: "30 सेकंड की आकर्षक रील बनाएं",
     icon: "📱",
   },
   {
     id: "clickkarr",
     name: "Clickkarr – Photography",
-    nameHindi: "क्लिककर – फोटोग्राफी",
     description: "Showcase photography and digital media skills",
-    descriptionHindi: "फोटोग्राफी या डिजिटल मीडिया क्रिएशन कॉन्टेस्ट",
     icon: "📸",
   },
   {
     id: "ad-mad-show",
     name: "AD Mad Show",
-    nameHindi: "एडी मैड शो",
     description: "Create and present innovative advertisements",
-    descriptionHindi: "विज्ञापन बनाने और प्रस्तुत करने की प्रतियोगिता",
     icon: "🎬",
   },
   {
     id: "debate",
     name: "Debate Competition",
-    nameHindi: "वाद-विवाद प्रतियोगिता",
     description: "Showcase debating skills on contemporary topics",
-    descriptionHindi: "समकालीन विषयों पर वाद-विवाद प्रतियोगिता",
     icon: "🎤",
   },
 ];
@@ -108,7 +92,7 @@ const SchoolCompetitions = () => {
               School Competitions
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 font-light">
-              स्कूली प्रतियोगिताएं | Participate in exciting competitions and showcase your talents!
+              Participate in exciting competitions and showcase your talents!
             </p>
             <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 px-6 py-3 rounded-full">
               <span className="text-lg font-medium bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
@@ -136,14 +120,11 @@ const SchoolCompetitions = () => {
                   <CardTitle className="text-lg leading-tight font-medium text-black dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     {competition.name}
                   </CardTitle>
-                  <CardDescription className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                    {competition.nameHindi}
-                  </CardDescription>
                 </CardHeader>
 
                 <CardContent className="relative z-10">
                   <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 font-normal">
-                    {competition.descriptionHindi}
+                    {competition.description}
                   </p>
                   <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
                     <span className="text-xs font-medium text-purple-600 dark:text-purple-400 group-hover:underline">

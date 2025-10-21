@@ -24,9 +24,9 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <PrefetchLink to="/" className="mr-6 flex items-center">
+        <PrefetchLink to="/" className="flex items-center md:mr-6 -ml-4 md:ml-0">
           <img
             src="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
             alt="India Innovates 2026 Logo"
@@ -98,15 +98,15 @@ const Navbar = () => {
             </PrefetchLink>
 
             <div className="group relative">
-              <button className={`flex items-center transition-colors hover:text-primary ${isActiveLink("/cohorts") ? "text-purple-600 font-semibold" : ""}`}>
-                Competitions <ChevronDown className="ml-1 h-4 w-4" />
+              <button className={`flex items-center transition-colors hover:text-primary ${isActiveLink("/school-competitions") || isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}>
+                Themes <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               <div className="absolute top-full left-0 mt-1 w-56 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-1">
                   <PrefetchLink to="/school-competitions" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}>
                     School
                   </PrefetchLink>
-                  <PrefetchLink to="/cohorts/management-consultancy" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/cohorts/management-consultancy") ? "text-purple-600 font-semibold" : ""}`}>
+                  <PrefetchLink to="/university-competitions" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}>
                     Universities + Professionals
                   </PrefetchLink>
                 </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden flex-1 justify-end items-center">
+        <div className="flex md:hidden items-center">
           <Button
             variant="ghost"
             size="icon"
@@ -206,7 +206,7 @@ const Navbar = () => {
               Expo
             </PrefetchLink>
             <div className="space-y-2">
-              <div className="text-sm font-medium text-muted-foreground">Competitions</div>
+              <div className="text-sm font-medium text-muted-foreground">Themes</div>
               <PrefetchLink
                 to="/school-competitions"
                 className={`block py-1 pl-4 text-sm ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}
@@ -215,8 +215,8 @@ const Navbar = () => {
                 School
               </PrefetchLink>
               <PrefetchLink
-                to="/cohorts/management-consultancy"
-                className={`block py-1 pl-4 text-sm ${isActiveLink("/cohorts/management-consultancy") ? "text-purple-600 font-semibold" : ""}`}
+                to="/university-competitions"
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Universities + Professionals
