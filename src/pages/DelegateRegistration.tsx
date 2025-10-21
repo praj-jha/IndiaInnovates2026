@@ -358,9 +358,11 @@ export default function DelegateRegistration() {
                         {/* Logo and Title Section - Inside Form */}
                         <div className="text-center mb-6 pb-4 border-b-2 border-purple-100 dark:border-purple-900">
                             <img
-                                src="/iil.png"
+                                src="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
                                 alt="India Innovates Logo"
                                 className="h-16 sm:h-20 md:h-32 lg:h-40 w-auto mx-auto object-contain"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mt-4 mb-2">
                                 Delegate Pass Registration

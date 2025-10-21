@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/home";
 
 // Lazy load below-the-fold components for better initial load
 const AboutIndiaInnovates = lazy(() => import("@/components/home/AboutIndiaInnovates").then(m => ({ default: m.AboutIndiaInnovates })));
-const CompanySlider = lazy(() => import("@/components/home/CompanySlider"));
 const NumberTicker = lazy(() => import("@/components/home/NumberTicker"));
 const SpeakerSection = lazy(() => import("@/components/home/SpeakerSection").then(m => ({ default: m.SpeakerSection })));
 const DelegatePassesSection = lazy(() => import("@/components/home/DelegatePassesSection").then(m => ({ default: m.DelegatePassesSection })));
@@ -38,9 +37,6 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<SectionLoader />}>
         <VideoTestimonialsSection />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <CompanySlider />
       </Suspense>
       <Suspense fallback={<SectionLoader />}>
         <FAQSection />

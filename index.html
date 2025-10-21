@@ -8,9 +8,16 @@
     <!-- Performance: DNS Prefetch and Preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 
     <!-- Performance: Preload critical assets -->
-    <!-- Preload hero image in AVIF and WebP formats -->
+    <!-- Preload logo from Cloudinary -->
+    <link rel="preload" as="image"
+      href="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
+      fetchpriority="high" type="image/avif" />
+
+    <!-- Preload hero image from local optimized files -->
     <link rel="preload" as="image" href="/optimized/vr-mobile.avif"
       fetchpriority="high" type="image/avif" media="(max-width: 640px)" />
     <link rel="preload" as="image" href="/optimized/vr-tablet.avif"
@@ -18,10 +25,6 @@
       media="(min-width: 641px) and (max-width: 1024px)" />
     <link rel="preload" as="image" href="/optimized/vr-desktop.avif"
       fetchpriority="high" type="image/avif" media="(min-width: 1025px)" />
-
-    <!-- Preload logo -->
-    <link rel="preload" as="image" href="/optimized/iil.avif"
-      fetchpriority="high" type="image/avif" />
 
     <link rel="preload" as="style" href="/fonts/poppins.css" />
     <link rel="preload" as="font" type="font/woff2"

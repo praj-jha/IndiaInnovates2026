@@ -27,28 +27,16 @@ const Navbar = () => {
       <div className="container flex h-16 items-center">
         {/* Logo */}
         <PrefetchLink to="/" className="mr-6 flex items-center">
-          <picture>
-            <source
-              type="image/avif"
-              srcSet="/optimized/iil-sm.avif 120w, /optimized/iil.avif 200w"
-              sizes="(max-width: 768px) 120px, 200px"
-            />
-            <source
-              type="image/webp"
-              srcSet="/optimized/iil-sm.webp 120w, /optimized/iil.webp 200w"
-              sizes="(max-width: 768px) 120px, 200px"
-            />
-            <img
-              src="/iil.png"
-              alt="India Innovates 2026 Logo"
-              className="h-40 w-auto"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              width="200"
-              height="160"
-            />
-          </picture>
+          <img
+            src="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
+            alt="India Innovates 2026 Logo"
+            className="h-40 w-auto"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width="200"
+            height="160"
+          />
         </PrefetchLink>
 
         {/* Desktop Navigation */}

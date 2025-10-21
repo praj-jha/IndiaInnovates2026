@@ -52,26 +52,15 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4 -ml-4">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcSet="/optimized/iil-sm.avif 120w, /optimized/iil.avif 200w"
-                  sizes="200px"
-                />
-                <source
-                  type="image/webp"
-                  srcSet="/optimized/iil-sm.webp 120w, /optimized/iil.webp 200w"
-                  sizes="200px"
-                />
-                <img
-                  src="/iil.png"
-                  alt="India Innovates Logo"
-                  className="h-40 w-auto"
-                  loading="lazy"
-                  width="200"
-                  height="160"
-                />
-              </picture>
+              <img
+                src="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
+                alt="India Innovates Logo"
+                className="h-40 w-auto"
+                loading="lazy"
+                width="200"
+                height="160"
+                decoding="async"
+              />
             </div>
 
             <p className="text-foreground/70 mb-6 max-w-md font-light -mt-12">

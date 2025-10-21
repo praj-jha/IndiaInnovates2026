@@ -154,8 +154,12 @@ const AboutIndiaInnovates = () => {
                                     muted
                                     loop
                                     playsInline
+                                    preload="metadata"
+                                    controls={isMobile}
+                                    poster="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761006039/mds_tam2ia.jpg"
                                 >
-                                    <source src="/mds.mp4" type="video/mp4" />
+                                    {/* Cloudinary: f_auto,q_auto will serve optimal format & quality */}
+                                    <source src="https://res.cloudinary.com/dgo3wykbm/video/upload/f_auto,q_auto/v1761006039/mds_tam2ia.mp4" />
                                     Your browser does not support the video tag.
                                 </video>
 

@@ -21,7 +21,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Prime Minister of India",
         followers: "100M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/modi.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/modi_xrej0s.avif",
         description: "Narendra Modi is the Prime Minister of India and one of the most influential political leaders globally. His leadership has transformed India's digital infrastructure, economic policies, and international relations. Known for his vision of Digital India and Make in India initiatives."
     },
     {
@@ -30,7 +30,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Union Home Minister of India",
         followers: "20M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/shah.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/shah_vcnki2.avif",
         description: "Amit Shah serves as the Union Home Minister of India and is a prominent political strategist. He has played a crucial role in India's internal security policies and administrative reforms."
     },
     {
@@ -39,7 +39,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Chief Minister of Delhi",
         followers: "5M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/rekha.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/rekha_sjg3hd.avif",
         description: "Rekha Gupta is the Chief Minister of Delhi, leading initiatives in urban development, education reform, and digital governance. Her leadership focuses on making Delhi a model smart city."
     },
     {
@@ -48,7 +48,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Union Minister for Commerce & Industry",
         followers: "15M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/piyush.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/piyush_brqefi.avif",
         description: "Piyush Goyal is the Union Minister for Commerce & Industry, Railways and Consumer Affairs. He has been instrumental in driving India's trade policies and infrastructure development."
     },
     {
@@ -57,7 +57,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Minister of Information Technology, UAE",
         followers: "2M+ Followers",
         category: "TECHNOLOGY LEADER",
-        image: "/dubai.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/dubai_j7gahz.avif",
         description: "Leading Dubai's digital transformation initiatives and smart city projects. Spearheading the emirate's vision to become a global hub for artificial intelligence and blockchain technology."
     },
     {
@@ -66,7 +66,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Co-founder & CMO, boAt",
         followers: "8M+ Followers",
         category: "ENTREPRENEUR",
-        image: "/aman.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/aman_h972eu.avif",
         description: "Aman Gupta is the co-founder and CMO of boAt, India's leading consumer electronics brand. Known for his appearance on Shark Tank India, he has revolutionized the audio accessories market in India."
     },
     {
@@ -75,7 +75,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Political Leader & Former IPS Officer",
         followers: "3M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/anna.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/anna_vwandt.avif",
         description: "Annamalai K is a prominent political leader and former IPS officer. His transition from civil services to politics has brought a unique perspective to governance and public service."
     },
     {
@@ -84,7 +84,7 @@ const SPEAKERS_DATA: Speaker[] = [
         title: "Member of Parliament & Author",
         followers: "25M+ Followers",
         category: "POLITICAL LEADER",
-        image: "/shashi.png",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/shashi_xtmsn0.avif",
         description: "Shashi Tharoor is a Member of Parliament, accomplished author, and former UN diplomat. Known for his eloquent speeches and writings on Indian politics, history, and international relations."
     }
 ];
@@ -229,14 +229,14 @@ export const SpeakerSection = () => {
                                 >
                                     {/* Image Container */}
                                     <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900">
-                                        <OptimizedImage
+                                        <img
                                             src={speaker.image}
                                             alt={speaker.name}
                                             className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
                                             width={240}
                                             height={320}
-                                            type="speaker"
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                         {/* Gradient Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
