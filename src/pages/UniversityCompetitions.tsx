@@ -109,6 +109,86 @@ const themes = [
         motto: "Matter matters — and innovation transforms it.",
         icon: "⚗️",
     },
+    {
+        id: "governance-policy",
+        name: "Governance & Policy",
+        tagline: "Where innovation meets public service.",
+        description: "Exploring new digital frameworks for transparent governance, citizen engagement, and evidence-based policymaking.",
+        motto: "From paper to pixels — reimagining how democracy delivers.",
+        icon: "🏛️",
+    },
+    {
+        id: "booth-manager",
+        name: "Booth Manager Simulation",
+        tagline: "The future of election management — simulated and smart.",
+        description: "A next-gen platform that trains teams in booth-level strategy, volunteer coordination, and real-time voting analytics.",
+        motto: "Every vote counts — and every booth learns.",
+        icon: "🗳️",
+    },
+    {
+        id: "ai-voter-profiler",
+        name: "AI Voter Profiler",
+        tagline: "Understanding voters through responsible AI.",
+        description: "Analyzing behavioral patterns, issues, and sentiments to help leaders connect with citizens meaningfully and ethically.",
+        motto: "Data that empowers democracy — not divides it.",
+        icon: "🤖",
+    },
+    {
+        id: "ai-complaint-resolver",
+        name: "AI Complaint Resolver",
+        tagline: "Because listening is the first act of leadership.",
+        description: "An intelligent system that sorts, tracks, and recommends solutions to citizen grievances in real time.",
+        motto: "Turning complaints into conversations — and actions.",
+        icon: "🧾",
+    },
+    {
+        id: "data-analysis",
+        name: "Data Analysis",
+        tagline: "From data to decisions.",
+        description: "Empowering innovators, policymakers, and students to visualize insights, predict outcomes, and design better public systems.",
+        motto: "Numbers tell stories — when innovation listens.",
+        icon: "📊",
+    },
+    {
+        id: "ai-calling-agent",
+        name: "AI Calling Agent",
+        tagline: "Human warmth, machine efficiency.",
+        description: "AI-driven voice systems that interact naturally with citizens — for surveys, awareness campaigns, and service feedback.",
+        motto: "Every call is a connection — powered by AI.",
+        icon: "☎️",
+    },
+    {
+        id: "ai-poster-maker",
+        name: "AI Poster Maker",
+        tagline: "Design meets data.",
+        description: "A creative engine that generates campaign posters, infographics, and awareness visuals automatically through prompt-based design.",
+        motto: "Where imagination is automated.",
+        icon: "🧠",
+    },
+    {
+        id: "ai-social-media-manager",
+        name: "AI Social Media Manager",
+        tagline: "The digital voice of innovation.",
+        description: "Manages and analyzes online campaigns, engagement patterns, and audience behavior — ensuring meaningful digital dialogue.",
+        motto: "Because the algorithm should work for truth, not trends.",
+        icon: "🌐",
+    },
+    {
+        id: "grassroot-reporter",
+        name: "Best Grassroot Reporter",
+        tagline: "Innovation from the ground up.",
+        description: "Recognizing voices that report local change, community innovation, and civic transformation using digital tools.",
+        motto: "Real journalism begins where power meets people.",
+        icon: "📰",
+    },
+    {
+        id: "ai-chatbot-designer",
+        name: "AI Chatbot Designer",
+        tagline: "Conversational intelligence for every cause.",
+        description: "Designing chatbots that guide, inform, and engage citizens, students, and innovators — in every Indian language.",
+        motto: "One nation, many voices — one AI that listens to all.",
+        icon: "💬",
+    },
 ];
 
 const UniversityCompetitions = () => {
@@ -155,7 +235,7 @@ const UniversityCompetitions = () => {
                         </p>
                         <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 px-6 py-3 rounded-full">
                             <span className="text-lg font-medium bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
-                                13 Innovation Themes • Open to All
+                                23 Innovation Themes • Open to All
                             </span>
                         </div>
                     </div>

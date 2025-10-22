@@ -8,6 +8,7 @@ import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/layout/Navbar";
 import { prefetchRoutes } from "@/components/common/PrefetchLink";
+import { initializeVersionChecker } from "@/utils/versionChecker";
 
 // Lazy load all page components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -73,6 +74,11 @@ const RoutePrefetcher = () => {
 };
 
 const App = () => {
+  // Initialize version checker on app mount
+  useEffect(() => {
+    initializeVersionChecker();
+  }, []);
+
   return (
     <ErrorBoundary>
       <HelmetProvider>

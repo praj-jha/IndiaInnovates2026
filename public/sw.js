@@ -1,5 +1,5 @@
 // Enhanced Service Worker with advanced caching strategies
-const CACHE_VERSION = 'india-innovates-v2.0.0';
+const CACHE_VERSION = 'india-innovates-v3.0.0'; // IMPORTANT: Increment this version with every deployment
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -35,7 +35,7 @@ const isCacheExpired = (response) => {
 
 // Install event - cache static assets with improved error handling
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing Service Worker...');
+    console.log('[SW] Installing Service Worker...', CACHE_VERSION);
     event.waitUntil(
         caches.open(STATIC_CACHE)
             .then((cache) => {
@@ -43,8 +43,8 @@ self.addEventListener('install', (event) => {
                 return cache.addAll(STATIC_CACHE_URLS.map(url => new Request(url, { cache: 'reload' })));
             })
             .then(() => {
-                console.log('[SW] Skip waiting');
-                return self.skipWaiting();
+                console.log('[SW] Skip waiting - activating new service worker immediately');
+                return self.skipWaiting(); // Activate immediately
             })
             .catch((err) => {
                 console.error('[SW] Installation failed:', err);
@@ -52,9 +52,9 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activate event - clean up old caches
+// Activate event - clean up old caches aggressively
 self.addEventListener('activate', (event) => {
-    console.log('[SW] Activating Service Worker...');
+    console.log('[SW] Activating Service Worker...', CACHE_VERSION);
     const currentCaches = [STATIC_CACHE, DYNAMIC_CACHE, IMAGE_CACHE, FONT_CACHE];
 
     event.waitUntil(
@@ -70,8 +70,19 @@ self.addEventListener('activate', (event) => {
                 );
             })
             .then(() => {
-                console.log('[SW] Claiming clients');
-                return self.clients.claim();
+                console.log('[SW] Claiming clients - taking control immediately');
+                return self.clients.claim(); // Take control of all pages immediately
+            })
+            .then(() => {
+                // Notify all clients about the update
+                return self.clients.matchAll().then(clients => {
+                    clients.forEach(client => {
+                        client.postMessage({
+                            type: 'SW_UPDATED',
+                            version: CACHE_VERSION
+                        });
+                    });
+                });
             })
     );
 });

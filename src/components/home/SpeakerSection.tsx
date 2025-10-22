@@ -14,6 +14,8 @@ interface Speaker {
     description: string;
 }
 
+// kapil mishra , shehzad poonawala , sunil bansal , bagga , 
+
 const SPEAKERS_DATA: Speaker[] = [
     {
         id: 1,

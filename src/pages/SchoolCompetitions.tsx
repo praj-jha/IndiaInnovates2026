@@ -156,6 +156,75 @@ const SchoolCompetitions = () => {
             </div>
           </div>
 
+          {/* Individual/Team Participation Section */}
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-900/20 p-8 md:p-12 rounded-3xl shadow-sm border-2 border-blue-200 dark:border-blue-800">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-4 shadow-lg shadow-blue-500/20">
+                  <Trophy className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-medium text-black dark:text-white mb-4 tracking-tight">
+                  Independent Students & Teams Welcome!
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+                  Not representing a school? No problem! Individual students and independent teams can also participate in all competitions.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl">
+                  <div className="text-4xl mb-3">👨‍🎓</div>
+                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Individual Students</h4>
+                  <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                    Compete as a solo participant and showcase your unique talents and innovations
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl">
+                  <div className="text-4xl mb-3">👥</div>
+                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Independent Teams</h4>
+                  <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                    Form your own team with friends from different schools and compete together
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white/60 dark:bg-gray-900/60 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl mb-8">
+                <h4 className="font-semibold text-black dark:text-white mb-3 text-lg flex items-center gap-2">
+                  <span className="text-2xl">💡</span> Registration Details
+                </h4>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
+                    <span><strong>Same competitions:</strong> Access to all 8 exciting competitions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
+                    <span><strong>Flexible registration:</strong> Register as an individual or form teams of 2-5 members</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
+                    <span><strong>Same benefits:</strong> Certificates, prizes, and recognition for all winners</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
+                    <span><strong>Individual fee:</strong> ₹500 per student (individual or team member)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="text-center">
+                <Button
+                  onClick={handleRegisterAll}
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium px-8 text-base tracking-wide hover:scale-[1.02] transition-all rounded-full shadow-lg shadow-blue-500/20"
+                >
+                  Register as Individual/Team
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
           {/* Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-2xl text-center hover:shadow-lg transition-shadow">
