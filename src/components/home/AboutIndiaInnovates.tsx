@@ -156,7 +156,7 @@ const AboutIndiaInnovates = () => {
                                     playsInline
                                     preload="metadata"
                                     controls={isMobile}
-                                    poster="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761006039/mds_tam2ia.jpg"
+                                    poster="https://res.cloudinary.com/dgo3wykbm/video/upload/v1761006039/mds_tam2ia.mp4"
                                     onError={(e) => {
                                         console.error("Video failed to load:", e);
                                         // Fallback: show poster image if video fails

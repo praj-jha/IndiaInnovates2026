@@ -10,23 +10,25 @@ import Navbar from "./components/layout/Navbar";
 import { prefetchRoutes } from "@/components/common/PrefetchLink";
 import { initializeVersionChecker } from "@/utils/versionChecker";
 
-// Lazy load all page components for code splitting
-const Index = lazy(() => import("./pages/Index"));
+// Eagerly load critical pages (no lazy loading for instant navigation)
+import Index from "./pages/Index";
+import UniversityCompetitions from "./pages/UniversityCompetitions";
+import SchoolCompetitions from "./pages/SchoolCompetitions";
+
+// Lazy load less critical pages
 const NotFound = lazy(() => import("./pages/NotFound"));
 const DelegatePass = lazy(() => import("./pages/DelegatePass"));
 const DelegateRegistration = lazy(() => import("./pages/DelegateRegistration"));
 const ExhibitorRegistration = lazy(() => import("./pages/ExhibitorRegistration"));
 const SchoolCompetitionRegistration = lazy(() => import("./pages/SchoolCompetitionRegistration"));
-const SchoolCompetitions = lazy(() => import("./pages/SchoolCompetitions"));
-const UniversityCompetitions = lazy(() => import("./pages/UniversityCompetitions"));
 const UniversityCompetitionRegistration = lazy(() => import("./pages/UniversityCompetitionRegistration"));
 const Agenda = lazy(() => import("./pages/Agenda"));
 const AllSpeakers = lazy(() => import("./pages/AllSpeakers"));
 
-// Optimized loading fallback - lighter and faster
+// Ultra-lightweight loading fallback
 const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin" />
+  <div className="min-h-[40vh] flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
   </div>
 );
 
@@ -51,23 +53,16 @@ const ConditionalNavbar = () => {
 // Component to prefetch critical routes after initial load
 const RoutePrefetcher = () => {
   useEffect(() => {
-    // Prefetch critical routes after a short delay (2 seconds after mount)
-    // These are the most visited pages
-    prefetchRoutes([
-      "/delegate-pass",
-      "/school-competitions",
-      "/university-competitions",
-      "/delegate-registration",
-    ], 2000);
+    // Prefetch registration pages immediately (they're frequently accessed)
+    const timer = setTimeout(() => {
+      prefetchRoutes([
+        "/delegate-registration",
+        "/school-competitions-register",
+        "/university-competitions-register",
+      ], 500);
+    }, 500);
 
-    // Prefetch remaining routes after 5 seconds (low priority)
-    prefetchRoutes([
-      "/exhibitor-registration",
-      "/school-competitions-register",
-      "/university-competitions-register",
-      "/agenda",
-      "/all-speakers",
-    ], 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   return null;

@@ -77,6 +77,7 @@ const competitions = [
 ];
 
 interface FormData {
+    registrationType: "school" | "individual" | "";
     schoolName: string;
     principalName: string;
     email: string;
@@ -89,6 +90,12 @@ interface FormData {
     contactPersonPhone: string;
     numberOfStudents: string;
     selectedCompetitions: string[];
+    // For individual/team registration
+    studentName: string;
+    studentAge: string;
+    parentName: string;
+    parentPhone: string;
+    teamMembers: string;
 }
 
 const SchoolCompetitionRegistration = () => {
@@ -98,6 +105,7 @@ const SchoolCompetitionRegistration = () => {
     const preSelectedCompetition = searchParams.get("competition");
 
     const [formData, setFormData] = useState<FormData>({
+        registrationType: "",
         schoolName: "",
         principalName: "",
         email: "",
@@ -110,6 +118,11 @@ const SchoolCompetitionRegistration = () => {
         contactPersonPhone: "",
         numberOfStudents: "",
         selectedCompetitions: preSelectedCompetition ? [preSelectedCompetition] : [],
+        studentName: "",
+        studentAge: "",
+        parentName: "",
+        parentPhone: "",
+        teamMembers: "",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -132,6 +145,15 @@ const SchoolCompetitionRegistration = () => {
         e.preventDefault();
 
         // Validation
+        if (!formData.registrationType) {
+            toast({
+                title: "Registration Type Required",
+                description: "Please select whether you're registering as a school or individual/team.",
+                variant: "destructive",
+            });
+            return;
+        }
+
         if (formData.selectedCompetitions.length === 0) {
             toast({
                 title: "No Competition Selected",
@@ -150,9 +172,12 @@ const SchoolCompetitionRegistration = () => {
             // Simulate API call
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
+            const registrationType = formData.registrationType === "school" ? "School" : "Individual/Team";
+            const fee = formData.registrationType === "school" ? "₹2,200" : `₹${500 * (formData.teamMembers ? formData.teamMembers.split(',').length + 1 : 1)}`;
+
             toast({
                 title: "Registration Successful! 🎉",
-                description: `Your school has been registered for ${formData.selectedCompetitions.length} competition(s). Total fee: ₹2,200. You will receive a confirmation email shortly.`,
+                description: `${registrationType} registration completed for ${formData.selectedCompetitions.length} competition(s). Total fee: ${fee}. You will receive a confirmation email shortly.`,
             });
 
             // Reset form or redirect
@@ -191,245 +216,424 @@ const SchoolCompetitionRegistration = () => {
                             School Competition Registration
                         </h1>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                            Register your school for exciting competitions at India Innovates Summit 2025
+                            Register for exciting competitions at India Innovates Summit 2025
                         </p>
                         <div className="mt-4 inline-flex items-center gap-2 bg-orange-100 dark:bg-orange-900/30 px-6 py-3 rounded-full">
-                            <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">
-                                Registration Fee: ₹2,200
+                            <span className="text-xl font-bold text-orange-600 dark:text-orange-400">
+                                School: ₹2,200 | Individual: ₹500 per student
                             </span>
                         </div>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-8">
-                        {/* School Information */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Building2 className="w-5 h-5 text-orange-600" />
-                                    School Information
-                                </CardTitle>
-                                <CardDescription>Basic details about your institution</CardDescription>
-                            </CardHeader>
-                            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="schoolName">School Name *</Label>
-                                    <Input
-                                        id="schoolName"
-                                        name="schoolName"
-                                        value={formData.schoolName}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Enter school name"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="principalName">Principal's Name *</Label>
-                                    <Input
-                                        id="principalName"
-                                        name="principalName"
-                                        value={formData.principalName}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Enter principal's name"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="email" className="flex items-center gap-2">
-                                        <Mail className="w-4 h-4" />
-                                        Email Address *
-                                    </Label>
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="school@example.com"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="phone" className="flex items-center gap-2">
-                                        <Phone className="w-4 h-4" />
-                                        Phone Number *
-                                    </Label>
-                                    <Input
-                                        id="phone"
-                                        name="phone"
-                                        type="tel"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="+91 XXXXXXXXXX"
-                                    />
-                                </div>
-                                <div className="space-y-2 md:col-span-2">
-                                    <Label htmlFor="address" className="flex items-center gap-2">
-                                        <MapPin className="w-4 h-4" />
-                                        Address *
-                                    </Label>
-                                    <Input
-                                        id="address"
-                                        name="address"
-                                        value={formData.address}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Street address"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="city">City *</Label>
-                                    <Input
-                                        id="city"
-                                        name="city"
-                                        value={formData.city}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="City"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="state">State *</Label>
-                                    <Input
-                                        id="state"
-                                        name="state"
-                                        value={formData.state}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="State"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="pincode">Pincode *</Label>
-                                    <Input
-                                        id="pincode"
-                                        name="pincode"
-                                        value={formData.pincode}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Pincode"
-                                    />
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* Contact Person */}
-                        <Card>
+                        {/* Registration Type Selection */}
+                        <Card className="border-2 border-orange-200 dark:border-orange-800">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <Users className="w-5 h-5 text-orange-600" />
-                                    Contact Person Details
+                                    Registration Type
                                 </CardTitle>
-                                <CardDescription>Point of contact for competition coordination</CardDescription>
-                            </CardHeader>
-                            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="contactPerson">Contact Person Name *</Label>
-                                    <Input
-                                        id="contactPerson"
-                                        name="contactPerson"
-                                        value={formData.contactPerson}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Teacher/Coordinator name"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="contactPersonPhone">Contact Person Phone *</Label>
-                                    <Input
-                                        id="contactPersonPhone"
-                                        name="contactPersonPhone"
-                                        type="tel"
-                                        value={formData.contactPersonPhone}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="+91 XXXXXXXXXX"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="numberOfStudents" className="flex items-center gap-2">
-                                        <GraduationCap className="w-4 h-4" />
-                                        Approximate Number of Participating Students
-                                    </Label>
-                                    <Input
-                                        id="numberOfStudents"
-                                        name="numberOfStudents"
-                                        type="number"
-                                        value={formData.numberOfStudents}
-                                        onChange={handleInputChange}
-                                        placeholder="e.g., 20"
-                                    />
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* Competition Selection */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Rocket className="w-5 h-5 text-orange-600" />
-                                    Select Competitions
-                                </CardTitle>
-                                <CardDescription>Choose the competitions your school wants to participate in</CardDescription>
+                                <CardDescription>Choose how you want to register</CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {competitions.map((competition) => (
-                                        <div
-                                            key={competition.id}
-                                            className={`border-2 rounded-lg p-4 transition-all ${formData.selectedCompetitions.includes(competition.id)
-                                                ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20"
-                                                : "border-gray-200 dark:border-gray-700"
-                                                }`}
-                                        >
-                                            <div className="flex items-start gap-3">
-                                                <Checkbox
-                                                    checked={formData.selectedCompetitions.includes(competition.id)}
-                                                    onCheckedChange={() => handleCompetitionToggle(competition.id)}
-                                                    className="mt-1"
-                                                />
-                                                <div
-                                                    className="flex-1 cursor-pointer"
-                                                    onClick={() => handleCompetitionToggle(competition.id)}
-                                                >
-                                                    <div className="flex items-center gap-2 mb-1">
-                                                        <span className="text-2xl">{competition.icon}</span>
-                                                        <h3 className="font-semibold text-sm">{competition.name}</h3>
-                                                    </div>
-                                                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                                                        {competition.nameHindi}
-                                                    </p>
-                                                    <p className="text-xs text-gray-500 dark:text-gray-500">
-                                                        {competition.descriptionHindi}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                                {formData.selectedCompetitions.length > 0 && (
-                                    <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                                        <p className="text-sm font-medium text-green-800 dark:text-green-300">
-                                            ✓ {formData.selectedCompetitions.length} competition(s) selected
+                                    <button
+                                        type="button"
+                                        onClick={() => setFormData(prev => ({ ...prev, registrationType: "school" }))}
+                                        className={`p-6 rounded-xl border-2 transition-all ${formData.registrationType === "school"
+                                                ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
+                                                : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
+                                            }`}
+                                    >
+                                        <Building2 className={`w-8 h-8 mb-3 ${formData.registrationType === "school" ? "text-orange-600" : "text-gray-400"
+                                            }`} />
+                                        <h3 className="font-semibold text-lg mb-2">School Registration</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            Register on behalf of your school
                                         </p>
-                                    </div>
-                                )}
+                                        <p className="text-sm font-semibold text-orange-600 mt-2">₹2,200</p>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setFormData(prev => ({ ...prev, registrationType: "individual" }))}
+                                        className={`p-6 rounded-xl border-2 transition-all ${formData.registrationType === "individual"
+                                                ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
+                                                : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
+                                            }`}
+                                    >
+                                        <GraduationCap className={`w-8 h-8 mb-3 ${formData.registrationType === "individual" ? "text-orange-600" : "text-gray-400"
+                                            }`} />
+                                        <h3 className="font-semibold text-lg mb-2">Individual / Team</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            Register as individual or with friends
+                                        </p>
+                                        <p className="text-sm font-semibold text-orange-600 mt-2">₹500 per student</p>
+                                    </button>
+                                </div>
                             </CardContent>
                         </Card>
 
+                        {/* School Information - Only show if school type selected */}
+                        {formData.registrationType === "school" && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2">
+                                        <Building2 className="w-5 h-5 text-orange-600" />
+                                        School Information
+                                    </CardTitle>
+                                    <CardDescription>Basic details about your institution</CardDescription>
+                                </CardHeader>
+                                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="schoolName">School Name *</Label>
+                                        <Input
+                                            id="schoolName"
+                                            name="schoolName"
+                                            value={formData.schoolName}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Enter school name"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="principalName">Principal's Name *</Label>
+                                        <Input
+                                            id="principalName"
+                                            name="principalName"
+                                            value={formData.principalName}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Enter principal's name"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="email" className="flex items-center gap-2">
+                                            <Mail className="w-4 h-4" />
+                                            Email Address *
+                                        </Label>
+                                        <Input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="school@example.com"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="phone" className="flex items-center gap-2">
+                                            <Phone className="w-4 h-4" />
+                                            Phone Number *
+                                        </Label>
+                                        <Input
+                                            id="phone"
+                                            name="phone"
+                                            type="tel"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="+91 XXXXXXXXXX"
+                                        />
+                                    </div>
+                                    <div className="space-y-2 md:col-span-2">
+                                        <Label htmlFor="address" className="flex items-center gap-2">
+                                            <MapPin className="w-4 h-4" />
+                                            Address *
+                                        </Label>
+                                        <Input
+                                            id="address"
+                                            name="address"
+                                            value={formData.address}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Street address"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="city">City *</Label>
+                                        <Input
+                                            id="city"
+                                            name="city"
+                                            value={formData.city}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="City"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="state">State *</Label>
+                                        <Input
+                                            id="state"
+                                            name="state"
+                                            value={formData.state}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="State"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="pincode">Pincode *</Label>
+                                        <Input
+                                            id="pincode"
+                                            name="pincode"
+                                            value={formData.pincode}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Pincode"
+                                        />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                        {/* Individual/Team Information - Only show if individual type selected */}
+                        {formData.registrationType === "individual" && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2">
+                                        <GraduationCap className="w-5 h-5 text-orange-600" />
+                                        Student/Team Information
+                                    </CardTitle>
+                                    <CardDescription>Your personal details</CardDescription>
+                                </CardHeader>
+                                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="studentName">Student Name *</Label>
+                                        <Input
+                                            id="studentName"
+                                            name="studentName"
+                                            value={formData.studentName}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="Enter your name"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="studentAge">Age *</Label>
+                                        <Input
+                                            id="studentAge"
+                                            name="studentAge"
+                                            type="number"
+                                            value={formData.studentAge}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="Your age"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="email" className="flex items-center gap-2">
+                                            <Mail className="w-4 h-4" />
+                                            Email Address *
+                                        </Label>
+                                        <Input
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="student@example.com"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="phone" className="flex items-center gap-2">
+                                            <Phone className="w-4 h-4" />
+                                            Phone Number *
+                                        </Label>
+                                        <Input
+                                            id="phone"
+                                            name="phone"
+                                            type="tel"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="+91 XXXXX XXXXX"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="parentName">Parent/Guardian Name *</Label>
+                                        <Input
+                                            id="parentName"
+                                            name="parentName"
+                                            value={formData.parentName}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="Parent or guardian name"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="parentPhone">Parent/Guardian Phone *</Label>
+                                        <Input
+                                            id="parentPhone"
+                                            name="parentPhone"
+                                            type="tel"
+                                            value={formData.parentPhone}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="+91 XXXXX XXXXX"
+                                        />
+                                    </div>
+                                    <div className="space-y-2 md:col-span-2">
+                                        <Label htmlFor="teamMembers">Team Members (Optional)</Label>
+                                        <Input
+                                            id="teamMembers"
+                                            name="teamMembers"
+                                            value={formData.teamMembers}
+                                            onChange={handleInputChange}
+                                            placeholder="Names of team members (comma-separated)"
+                                        />
+                                        <p className="text-xs text-gray-500">If participating as a team, list other members</p>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="city">City *</Label>
+                                        <Input
+                                            id="city"
+                                            name="city"
+                                            value={formData.city}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="City"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="state">State *</Label>
+                                        <Input
+                                            id="state"
+                                            name="state"
+                                            value={formData.state}
+                                            onChange={handleInputChange}
+                                            required={formData.registrationType === "individual"}
+                                            placeholder="State"
+                                        />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                        {/* Contact Person - Only for school registration */}
+                        {formData.registrationType === "school" && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2">
+                                        <Users className="w-5 h-5 text-orange-600" />
+                                        Contact Person Details
+                                    </CardTitle>
+                                    <CardDescription>Point of contact for competition coordination</CardDescription>
+                                </CardHeader>
+                                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="contactPerson">Contact Person Name *</Label>
+                                        <Input
+                                            id="contactPerson"
+                                            name="contactPerson"
+                                            value={formData.contactPerson}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Teacher/Coordinator name"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="contactPersonPhone">Contact Person Phone *</Label>
+                                        <Input
+                                            id="contactPersonPhone"
+                                            name="contactPersonPhone"
+                                            type="tel"
+                                            value={formData.contactPersonPhone}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="+91 XXXXXXXXXX"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="numberOfStudents" className="flex items-center gap-2">
+                                            <GraduationCap className="w-4 h-4" />
+                                            Approximate Number of Participating Students
+                                        </Label>
+                                        <Input
+                                            id="numberOfStudents"
+                                            name="numberOfStudents"
+                                            type="number"
+                                            value={formData.numberOfStudents}
+                                            onChange={handleInputChange}
+                                            placeholder="e.g., 20"
+                                        />
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                        {/* Competition Selection - Show for both types */}
+                        {formData.registrationType && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2">
+                                        <Rocket className="w-5 h-5 text-orange-600" />
+                                        Select Competitions
+                                    </CardTitle>
+                                    <CardDescription>Choose the competitions your school wants to participate in</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {competitions.map((competition) => (
+                                            <div
+                                                key={competition.id}
+                                                className={`border-2 rounded-lg p-4 transition-all ${formData.selectedCompetitions.includes(competition.id)
+                                                    ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20"
+                                                    : "border-gray-200 dark:border-gray-700"
+                                                    }`}
+                                            >
+                                                <div className="flex items-start gap-3">
+                                                    <Checkbox
+                                                        checked={formData.selectedCompetitions.includes(competition.id)}
+                                                        onCheckedChange={() => handleCompetitionToggle(competition.id)}
+                                                        className="mt-1"
+                                                    />
+                                                    <div
+                                                        className="flex-1 cursor-pointer"
+                                                        onClick={() => handleCompetitionToggle(competition.id)}
+                                                    >
+                                                        <div className="flex items-center gap-2 mb-1">
+                                                            <span className="text-2xl">{competition.icon}</span>
+                                                            <h3 className="font-semibold text-sm">{competition.name}</h3>
+                                                        </div>
+                                                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                                                            {competition.nameHindi}
+                                                        </p>
+                                                        <p className="text-xs text-gray-500 dark:text-gray-500">
+                                                            {competition.descriptionHindi}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {formData.selectedCompetitions.length > 0 && (
+                                        <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                                            <p className="text-sm font-medium text-green-800 dark:text-green-300">
+                                                ✓ {formData.selectedCompetitions.length} competition(s) selected
+                                            </p>
+                                        </div>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        )}
+
                         {/* Submit Button */}
-                        <div className="flex flex-col items-center gap-4">
-                            <Button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full md:w-auto px-12 py-6 text-lg bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600"
-                            >
-                                {isSubmitting ? "Submitting..." : "Register School (₹2,200)"}
-                            </Button>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 text-center max-w-md">
-                                By registering, you agree to our terms and conditions. You will receive a payment link via email after submission.
-                            </p>
-                        </div>
+                        {formData.registrationType && (
+                            <div className="flex flex-col items-center gap-4">
+                                <Button
+                                    type="submit"
+                                    disabled={isSubmitting || !formData.registrationType}
+                                    className="w-full md:w-auto px-12 py-6 text-lg bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600"
+                                >
+                                    {isSubmitting ? "Submitting..." : formData.registrationType === "school" ? "Register School (₹2,200)" : "Register as Individual/Team (₹500 per student)"}
+                                </Button>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 text-center max-w-md">
+                                    By registering, you agree to our terms and conditions. You will receive a payment link via email after submission.
+                                </p>
+                            </div>
+                        )}
                     </form>
                 </div>
             </div>

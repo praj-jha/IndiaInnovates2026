@@ -79,91 +79,69 @@ export const forceRefresh = async () => {
 };
 
 /**
- * Show a notification to the user about the new version
- * Uses a custom notification that's more user-friendly than browser alert
+ * Automatically update without user prompt
+ * Shows a brief notification then refreshes
  */
 export const showUpdateNotification = () => {
-    // Create a styled notification
+    // Create a brief loading notification
     const notification = document.createElement('div');
     notification.id = 'version-update-notification';
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         z-index: 10000;
-        max-width: 400px;
         font-family: system-ui, -apple-system, sans-serif;
-        animation: slideIn 0.3s ease-out;
+        text-align: center;
+        animation: fadeIn 0.3s ease-out;
     `;
 
     notification.innerHTML = `
         <style>
-            @keyframes slideIn {
-                from {
-                    transform: translateX(400px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+                to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
             }
-            #version-update-notification button {
-                cursor: pointer;
-                margin-top: 15px;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 6px;
-                font-weight: 600;
-                font-size: 14px;
-                transition: transform 0.2s;
-            }
-            #version-update-notification button:hover {
-                transform: scale(1.05);
-            }
-            .update-btn {
-                background: white;
-                color: #667eea;
-                margin-right: 10px;
-            }
-            .later-btn {
-                background: rgba(255, 255, 255, 0.2);
-                color: white;
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
         </style>
-        <div style="font-size: 24px; margin-bottom: 10px;">🎉</div>
-        <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">New Version Available!</div>
-        <div style="font-size: 14px; opacity: 0.9; margin-bottom: 15px;">
-            We've made improvements to India Innovates. Please refresh to get the latest updates and features.
+        <div style="font-size: 48px; margin-bottom: 15px;">🚀</div>
+        <div style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">
+            Updating to Latest Version...
         </div>
-        <div>
-            <button class="update-btn" onclick="window.__forceRefresh()">Update Now</button>
-            <button class="later-btn" onclick="window.__dismissUpdate()">Later</button>
+        <div style="font-size: 14px; opacity: 0.9; margin-bottom: 20px;">
+            Loading improvements
         </div>
+        <div style="width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; margin: 0 auto; animation: spin 1s linear infinite;"></div>
     `;
 
-    // Add to body
+    // Add backdrop
+    const backdrop = document.createElement('div');
+    backdrop.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    `;
+
+    document.body.appendChild(backdrop);
     document.body.appendChild(notification);
 
-    // Set up global functions for buttons
-    (window as any).__forceRefresh = () => {
+    // Automatically refresh after 1.5 seconds
+    setTimeout(() => {
         forceRefresh();
-    };
-
-    (window as any).__dismissUpdate = () => {
-        notification.remove();
-        // Show again after 10 minutes if they dismiss
-        setTimeout(() => {
-            if (hasVersionChanged()) {
-                showUpdateNotification();
-            }
-        }, 10 * 60 * 1000);
-    };
+    }, 1500);
 };
 
 /**
@@ -171,27 +149,21 @@ export const showUpdateNotification = () => {
  * Call this in your main App component
  */
 export const initializeVersionChecker = () => {
-    // Check version on load
+    // Check version on load - auto-update immediately if version changed
     if (hasVersionChanged()) {
-        console.log('New version detected! Current:', APP_VERSION);
+        console.log('New version detected! Auto-updating to:', APP_VERSION);
         showUpdateNotification();
+        return; // Exit early, we're about to refresh
     } else {
         storeCurrentVersion();
     }
-
-    // Periodically check for version changes
-    setInterval(() => {
-        if (hasVersionChanged()) {
-            showUpdateNotification();
-        }
-    }, VERSION_CHECK_INTERVAL);
 
     // Listen for service worker updates
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.addEventListener('message', (event) => {
             if (event.data && event.data.type === 'SW_UPDATED') {
                 console.log('Service Worker updated to:', event.data.version);
-                // Check if app version changed
+                // Auto-update immediately
                 if (hasVersionChanged()) {
                     showUpdateNotification();
                 }
@@ -201,7 +173,7 @@ export const initializeVersionChecker = () => {
         // Check for waiting service worker on load
         navigator.serviceWorker.ready.then((registration) => {
             if (registration.waiting) {
-                console.log('Service Worker waiting to activate');
+                console.log('Service Worker waiting to activate - auto-updating');
                 showUpdateNotification();
             }
         });
