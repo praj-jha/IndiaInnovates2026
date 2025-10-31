@@ -24,6 +24,8 @@ const SchoolCompetitionRegistration = lazy(() => import("./pages/SchoolCompetiti
 const UniversityCompetitionRegistration = lazy(() => import("./pages/UniversityCompetitionRegistration"));
 const Agenda = lazy(() => import("./pages/Agenda"));
 const AllSpeakers = lazy(() => import("./pages/AllSpeakers"));
+const Highlights = lazy(() => import("./pages/Highlights"));
+const JoinOurTeam = lazy(() => import("./pages/JoinOurTeam"));
 
 // Ultra-lightweight loading fallback
 const PageLoader = () => (
@@ -103,6 +105,8 @@ const App = () => {
                     <Route path="/university-competitions-register" element={<UniversityCompetitionRegistration />} />
                     <Route path="/agenda" element={<Agenda />} />
                     <Route path="/all-speakers" element={<AllSpeakers />} />
+                    <Route path="/highlights" element={<Highlights />} />
+                    <Route path="/join-our-team" element={<JoinOurTeam />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Routes>

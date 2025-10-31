@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+.env.production
+*.log
+.DS_Store
+
+# Google Cloud Service Account Credentials - NEVER COMMIT THESE!
+*.json
+!package.json
+!package-lock.json

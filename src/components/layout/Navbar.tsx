@@ -113,6 +113,22 @@ const Navbar = () => {
               </div>
             </div>
 
+            <div className="group relative">
+              <button className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${isActiveLink("/highlights") || isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}>
+                More <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-1 w-56 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-1">
+                  <PrefetchLink to="/highlights" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}>
+                    Highlights
+                  </PrefetchLink>
+                  <PrefetchLink to="/join-our-team" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}>
+                    Join Our Team
+                  </PrefetchLink>
+                </div>
+              </div>
+            </div>
+
 
           </div>
         </div>
@@ -220,6 +236,23 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Universities + Professionals
+              </PrefetchLink>
+            </div>
+            <div className="space-y-2">
+              <div className="text-sm font-medium text-muted-foreground">More</div>
+              <PrefetchLink
+                to="/highlights"
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Highlights
+              </PrefetchLink>
+              <PrefetchLink
+                to="/join-our-team"
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Join Our Team
               </PrefetchLink>
             </div>
             <div className="pt-4 border-t space-y-2">
