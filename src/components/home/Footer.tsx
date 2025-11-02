@@ -80,9 +80,18 @@ const Footer: React.FC = () => {
                 <Icon icon="lucide:mail" className="text-foreground/60" width={16} />
                 <span className="text-sm font-light">contact@indiainnovates.org</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Icon icon="lucide:map-pin" className="text-foreground/60" width={16} />
-                <span className="text-sm font-light">Bharat Mandapam, New Delhi</span>
+              <div className="flex items-start gap-2">
+                <Icon icon="lucide:map-pin" className="text-foreground/60 mt-0.5" width={16} />
+                <div className="flex flex-col gap-2">
+                  <div>
+                    <span className="text-sm font-medium">Registered address:</span>
+                    <span className="text-sm font-light"> Pole No-39 Vill Kangan Heri New Delhi, 110043</span>
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium">Operating address:</span>
+                    <span className="text-sm font-light"> 2151/11, near Shadipur, New Patel Nagar, Pandu Nagar, Central Delhi, Delhi, 110008</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

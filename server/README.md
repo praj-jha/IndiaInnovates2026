@@ -7,11 +7,18 @@ This is the backend server for India Innovates 2026 that handles volunteer and s
 - ✅ RESTful API with Express.js
 - ✅ MongoDB database with Mongoose ODM
 - ✅ Automatic Google Sheets synchronization
-- ✅ Input validation and sanitization
+- ✅ Comprehensive input validation and sanitization
+- ✅ Rate limiting to prevent abuse and DDoS attacks
+- ✅ MongoDB injection protection
+- ✅ XSS protection with input sanitization
 - ✅ Separate sheets for volunteers and sponsors
 - ✅ Status tracking and analytics
-- ✅ Secure with Helmet and CORS
-- ✅ Compression for better performance
+- ✅ Enhanced security with Helmet, CORS, and security headers
+- ✅ Response compression for better performance
+- ✅ Connection pooling for scalability
+- ✅ Graceful shutdown handling
+- ✅ Production-ready error handling
+- ✅ Request logging with performance metrics
 
 ## Prerequisites
 - Node.js (v18 or higher)
@@ -68,7 +75,8 @@ The server will start on http://localhost:5000
 - `GET /api/sponsors/analytics/stats` - Get sponsor statistics
 
 ### Health Check
-- `GET /health` - Check server status
+- `GET /health` - Check server status and uptime
+- `GET /ready` - Readiness probe for Kubernetes/Docker deployments
 
 ## Google Sheets Integration
 
@@ -127,11 +135,29 @@ If you prefer to use your own spreadsheet:
 - Google Sheets errors are logged but don't fail the request
 
 ## Security Features
-- Helmet.js for security headers
-- CORS configured for frontend origin
-- Input sanitization and validation
-- Environment variables for sensitive data
-- Request size limits (10MB)
+
+### Enhanced Security Middleware
+- **Helmet.js** - Comprehensive security headers including:
+  - Content Security Policy (CSP)
+  - HTTP Strict Transport Security (HSTS)
+  - X-Frame-Options
+  - X-Content-Type-Options
+- **CORS** - Strict origin validation with production safeguards
+- **Rate Limiting** - Multiple tiers:
+  - General API: 100 requests per 15 minutes
+  - Registration endpoints: 5 requests per hour
+  - Admin operations: 50 requests per 15 minutes
+- **MongoDB Injection Protection** - express-mongo-sanitize
+- **Input Validation** - Comprehensive validation rules:
+  - Name: 2-100 characters, letters only
+  - Email: Valid format, max 255 characters, unique
+  - Mobile: 10-15 digits, international format support
+  - Message: 10-1000 characters
+  - All text fields have length limits
+- **Request Size Limits** - 1MB max payload
+- **JSON Validation** - Malformed JSON rejected
+- **Environment Variable Validation** - Required vars checked on startup
+- **Unique Constraints** - Email uniqueness enforced at DB level
 
 ## Monitoring
 - All requests logged with timestamps
@@ -157,12 +183,58 @@ If you prefer to use your own spreadsheet:
 
 ## Production Deployment
 
-1. Set environment variables on your hosting platform
-2. Update FRONTEND_URL to production URL
-3. Set NODE_ENV=production
-4. Use a process manager like PM2
-5. Set up SSL/TLS certificates
-6. Configure reverse proxy (nginx)
+### Environment Setup
+1. Set environment variables on your hosting platform:
+   ```bash
+   NODE_ENV=production
+   MONGODB_URI=your_production_mongodb_uri
+   FRONTEND_URL=https://your-production-domain.com
+   GOOGLE_SHEET_ID=your_spreadsheet_id
+   PORT=5000
+   ```
+
+2. Install production dependencies:
+   ```bash
+   npm install --production
+   ```
+
+3. Use a process manager like PM2:
+   ```bash
+   npm install -g pm2
+   pm2 start index.js --name india-innovates-api
+   pm2 save
+   pm2 startup
+   ```
+
+### Security Checklist
+- [ ] Set NODE_ENV=production
+- [ ] Use HTTPS/SSL certificates
+- [ ] Configure reverse proxy (nginx/Apache)
+- [ ] Enable firewall rules
+- [ ] Set up MongoDB authentication
+- [ ] Whitelist only necessary IPs in MongoDB Atlas
+- [ ] Use strong passwords and rotate credentials
+- [ ] Enable MongoDB encryption at rest
+- [ ] Set up monitoring and alerting
+- [ ] Configure log rotation
+- [ ] Enable rate limiting (automatically enabled)
+- [ ] Review and update CORS origins
+
+### Scalability Features
+- Connection pooling (10 max, 2 min connections)
+- Response compression
+- Database indexing on frequently queried fields
+- Pagination support (max 100 items per page)
+- Non-blocking Google Sheets sync
+- Graceful shutdown for zero-downtime deployments
+- Auto-reconnect for MongoDB
+
+### Monitoring
+- Request logging with timestamps, status codes, and response times
+- MongoDB connection status monitoring
+- Error tracking with stack traces (dev mode only)
+- Health check endpoints for uptime monitoring
+- Performance metrics in logs
 
 ## Support
 For issues or questions, contact the development team.

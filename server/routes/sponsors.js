@@ -7,12 +7,38 @@ const router = express.Router();
 
 // Validation rules
 const sponsorValidation = [
-    body('name').trim().notEmpty().withMessage('Name is required'),
-    body('email').isEmail().normalizeEmail().withMessage('Valid email is required'),
-    body('mobile').trim().notEmpty().withMessage('Mobile number is required'),
-    body('companyName').trim().notEmpty().withMessage('Company name is required'),
-    body('designation').trim().notEmpty().withMessage('Designation is required'),
+    body('name')
+        .trim()
+        .notEmpty().withMessage('Name is required')
+        .isLength({ min: 2, max: 100 }).withMessage('Name must be between 2 and 100 characters')
+        .matches(/^[a-zA-Z\s.'-]+$/).withMessage('Name contains invalid characters'),
+    body('email')
+        .trim()
+        .notEmpty().withMessage('Email is required')
+        .isEmail().withMessage('Valid email is required')
+        .normalizeEmail()
+        .isLength({ max: 255 }).withMessage('Email is too long'),
+    body('mobile')
+        .trim()
+        .notEmpty().withMessage('Mobile number is required')
+        .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/)
+        .withMessage('Invalid mobile number format')
+        .isLength({ min: 10, max: 15 }).withMessage('Mobile number must be between 10 and 15 digits'),
+    body('companyName')
+        .trim()
+        .notEmpty().withMessage('Company name is required')
+        .isLength({ min: 2, max: 200 }).withMessage('Company name must be between 2 and 200 characters'),
+    body('designation')
+        .trim()
+        .notEmpty().withMessage('Designation is required')
+        .isLength({ min: 2, max: 100 }).withMessage('Designation must be between 2 and 100 characters'),
+    body('companyWebsite')
+        .optional()
+        .trim()
+        .isURL({ require_protocol: true }).withMessage('Invalid website URL')
+        .isLength({ max: 255 }).withMessage('Website URL is too long'),
     body('sponsorshipType')
+        .notEmpty().withMessage('Sponsorship type is required')
         .isIn([
             'title',
             'platinum',
@@ -25,11 +51,19 @@ const sponsorValidation = [
             'stall',
             'other',
         ])
-        .withMessage('Valid sponsorship type is required'),
-    body('marketingGoals').trim().notEmpty().withMessage('Marketing goals are required'),
+        .withMessage('Invalid sponsorship type'),
+    body('marketingGoals')
+        .trim()
+        .notEmpty().withMessage('Marketing goals are required')
+        .isLength({ min: 10, max: 1000 }).withMessage('Marketing goals must be between 10 and 1000 characters'),
     body('budgetRange')
         .optional()
-        .isIn(['under50k', '50k-1l', '1l-3l', '3l-5l', '5l-10l', 'above10l', 'discuss']),
+        .isIn(['under50k', '50k-1l', '1l-3l', '3l-5l', '5l-10l', 'above10l', 'discuss'])
+        .withMessage('Invalid budget range'),
+    body('message')
+        .optional()
+        .trim()
+        .isLength({ max: 1000 }).withMessage('Message is too long'),
 ];
 
 // POST /api/sponsors - Create new sponsor registration
@@ -38,9 +72,14 @@ router.post('/', sponsorValidation, async (req, res) => {
         // Check for validation errors
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            console.warn('⚠️ Validation errors:', errors.array());
             return res.status(400).json({
                 success: false,
-                errors: errors.array(),
+                message: 'Validation failed',
+                errors: errors.array().map(err => ({
+                    field: err.path,
+                    message: err.msg,
+                })),
             });
         }
 
@@ -57,10 +96,13 @@ router.post('/', sponsorValidation, async (req, res) => {
             message,
         } = req.body;
 
-        // Check if sponsor already exists
-        const existingSponsor = await Sponsor.findOne({ email });
+        // Check if sponsor already exists (case-insensitive)
+        const existingSponsor = await Sponsor.findOne({ 
+            email: email.toLowerCase() 
+        });
         if (existingSponsor) {
-            return res.status(400).json({
+            console.warn(`⚠️ Duplicate sponsor registration attempt: ${email}`);
+            return res.status(409).json({
                 success: false,
                 message: 'A registration with this email already exists',
             });
@@ -80,13 +122,14 @@ router.post('/', sponsorValidation, async (req, res) => {
             message,
         });
 
-        // Save to MongoDB
+        // Save to MongoDB with error handling
         await sponsor.save();
+        console.log(`✅ New sponsor registered: ${sponsor.companyName} - ${sponsor.name} (${sponsor.email})`);
 
         // Add to Google Sheets (non-blocking)
         addSponsorToSheet(sponsor.toObject())
             .catch((error) => {
-                console.error('Failed to add to Google Sheets:', error);
+                console.error('❌ Failed to add to Google Sheets:', error.message);
                 // Don't fail the request if sheets update fails
             });
 
@@ -103,6 +146,23 @@ router.post('/', sponsorValidation, async (req, res) => {
         });
     } catch (error) {
         console.error('❌ Error creating sponsor:', error);
+        
+        // Handle specific MongoDB errors
+        if (error.code === 11000) {
+            return res.status(409).json({
+                success: false,
+                message: 'A registration with this email already exists',
+            });
+        }
+        
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({
+                success: false,
+                message: 'Validation failed',
+                errors: Object.values(error.errors).map(e => e.message),
+            });
+        }
+        
         res.status(500).json({
             success: false,
             message: 'Failed to submit registration. Please try again.',
@@ -114,8 +174,8 @@ router.post('/', sponsorValidation, async (req, res) => {
 // GET /api/sponsors - Get all sponsors (with pagination and filtering)
 router.get('/', async (req, res) => {
     try {
-        const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 10;
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10)); // Max 100 items per page
         const status = req.query.status;
         const type = req.query.type;
 
@@ -153,6 +213,14 @@ router.get('/', async (req, res) => {
 // GET /api/sponsors/:id - Get single sponsor
 router.get('/:id', async (req, res) => {
     try {
+        // Validate MongoDB ObjectId format
+        if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid sponsor ID format',
+            });
+        }
+        
         const sponsor = await Sponsor.findById(req.params.id).select('-__v');
 
         if (!sponsor) {
@@ -178,12 +246,20 @@ router.get('/:id', async (req, res) => {
 // PATCH /api/sponsors/:id/status - Update sponsor status
 router.patch('/:id/status', async (req, res) => {
     try {
-        const { status } = req.body;
-
-        if (!['pending', 'reviewing', 'negotiating', 'confirmed', 'rejected'].includes(status)) {
+        // Validate MongoDB ObjectId format
+        if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
             return res.status(400).json({
                 success: false,
-                message: 'Invalid status value',
+                message: 'Invalid sponsor ID format',
+            });
+        }
+        
+        const { status } = req.body;
+
+        if (!status || !['pending', 'reviewing', 'negotiating', 'confirmed', 'rejected'].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid status value. Must be one of: pending, reviewing, negotiating, confirmed, rejected',
             });
         }
 
@@ -192,6 +268,8 @@ router.patch('/:id/status', async (req, res) => {
             { status, updatedAt: Date.now() },
             { new: true, runValidators: true }
         );
+        
+        console.log(`✅ Sponsor status updated: ${req.params.id} -> ${status}`);
 
         if (!sponsor) {
             return res.status(404).json({
