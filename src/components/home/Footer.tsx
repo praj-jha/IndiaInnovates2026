@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-foreground/60 font-light">
-            © {currentYear} India Innovates. All rights reserved.
+            © {currentYear} Hansa Ai Technologies Private Limited. All rights reserved.
           </p>
 
           <div className="flex gap-6">
