@@ -13,65 +13,49 @@ const competitions = [
     {
         id: "drone-obstacle",
         name: "Drone Obstacle Crossing",
-        nameHindi: "ड्रोन ऑब्सटेकल क्रॉसिंग",
         description: "Navigate drones through challenging obstacle courses",
-        descriptionHindi: "ड्रोन को निर्धारित बाधाओं से पार कराने की प्रतियोगिता",
         icon: "🚁",
     },
     {
         id: "agritech",
         name: "Agritech – Smart Farming Models",
-        nameHindi: "एग्रीटेक – स्मार्ट फार्मिंग मॉडल",
         description: "Showcase innovative smart farming solutions",
-        descriptionHindi: "स्मार्ट खेती से जुड़े इनोवेशन मॉडल",
         icon: "🌾",
     },
     {
         id: "robots-war",
         name: "Robots War",
-        nameHindi: "रोबोट्स वॉर",
         description: "Robot fighting and task performance competition",
-        descriptionHindi: "रोबोट्स की फाइटिंग या टास्क परफॉर्मेंस प्रतियोगिता",
         icon: "🤖",
     },
     {
         id: "zero-waste",
         name: "Zero Waste Innovation",
-        nameHindi: "जीरो वेस्ट इनोवेशन",
         description: "Create useful products from waste materials",
-        descriptionHindi: "कचरे को पुनः उपयोग कर नई उपयोगी वस्तुएँ बनाना",
         icon: "♻️",
     },
     {
         id: "reelbaaz",
         name: "ReelBaaz (30s Reel Making)",
-        nameHindi: "रीलबाज़ (30 सेकंड रील मेकिंग)",
         description: "Create engaging 30-second reels",
-        descriptionHindi: "30 सेकंड की आकर्षक रील बनाएं",
         icon: "📱",
     },
     {
         id: "clickkarr",
         name: "Clickkarr – Photography Contest",
-        nameHindi: "क्लिककर – फोटोग्राफी कॉन्टेस्ट",
         description: "Showcase photography and digital media creation skills",
-        descriptionHindi: "फोटोग्राफी या डिजिटल मीडिया क्रिएशन कॉन्टेस्ट",
         icon: "📸",
     },
     {
         id: "ad-mad-show",
         name: "AD Mad Show",
-        nameHindi: "एडी मैड शो",
         description: "Create and present innovative advertisements",
-        descriptionHindi: "विज्ञापन बनाने और प्रस्तुत करने की प्रतियोगिता",
         icon: "🎬",
     },
     {
         id: "debate",
         name: "Debate Competition",
-        nameHindi: "वाद-विवाद प्रतियोगिता",
         description: "Showcase debating skills on contemporary topics",
-        descriptionHindi: "समकालीन विषयों पर वाद-विवाद प्रतियोगिता",
         icon: "🎤",
     },
 ];
@@ -173,11 +157,10 @@ const SchoolCompetitionRegistration = () => {
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             const registrationType = formData.registrationType === "school" ? "School" : "Individual/Team";
-            const fee = formData.registrationType === "school" ? "₹2,200" : `₹${500 * (formData.teamMembers ? formData.teamMembers.split(',').length + 1 : 1)}`;
 
             toast({
                 title: "Registration Successful! 🎉",
-                description: `${registrationType} registration completed for ${formData.selectedCompetitions.length} competition(s). Total fee: ${fee}. You will receive a confirmation email shortly.`,
+                description: `${registrationType} registration completed for ${formData.selectedCompetitions.length} competition(s). You will receive a confirmation email shortly.`,
             });
 
             // Reset form or redirect
@@ -216,13 +199,8 @@ const SchoolCompetitionRegistration = () => {
                             School Competition Registration
                         </h1>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                            Register for exciting competitions at India Innovates Summit 2025
+                            Register for exciting competitions at India Innovates Summit 2025 - FREE Registration!
                         </p>
-                        <div className="mt-4 inline-flex items-center gap-2 bg-orange-100 dark:bg-orange-900/30 px-6 py-3 rounded-full">
-                            <span className="text-xl font-bold text-orange-600 dark:text-orange-400">
-                                School: ₹2,200 | Individual: ₹500 per student
-                            </span>
-                        </div>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-8">
@@ -241,8 +219,8 @@ const SchoolCompetitionRegistration = () => {
                                         type="button"
                                         onClick={() => setFormData(prev => ({ ...prev, registrationType: "school" }))}
                                         className={`p-6 rounded-xl border-2 transition-all ${formData.registrationType === "school"
-                                                ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
-                                                : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
+                                            ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
+                                            : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
                                             }`}
                                     >
                                         <Building2 className={`w-8 h-8 mb-3 ${formData.registrationType === "school" ? "text-orange-600" : "text-gray-400"
@@ -251,14 +229,14 @@ const SchoolCompetitionRegistration = () => {
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
                                             Register on behalf of your school
                                         </p>
-                                        <p className="text-sm font-semibold text-orange-600 mt-2">₹2,200</p>
+                                        <p className="text-sm font-semibold text-green-600 mt-2">Free</p>
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => setFormData(prev => ({ ...prev, registrationType: "individual" }))}
                                         className={`p-6 rounded-xl border-2 transition-all ${formData.registrationType === "individual"
-                                                ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
-                                                : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
+                                            ? "border-orange-500 bg-orange-50 dark:bg-orange-950/30"
+                                            : "border-gray-200 dark:border-gray-700 hover:border-orange-300"
                                             }`}
                                     >
                                         <GraduationCap className={`w-8 h-8 mb-3 ${formData.registrationType === "individual" ? "text-orange-600" : "text-gray-400"
@@ -267,7 +245,7 @@ const SchoolCompetitionRegistration = () => {
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
                                             Register as individual or with friends
                                         </p>
-                                        <p className="text-sm font-semibold text-orange-600 mt-2">₹500 per student</p>
+                                        <p className="text-sm font-semibold text-green-600 mt-2">Free</p>
                                     </button>
                                 </div>
                             </CardContent>
@@ -593,15 +571,12 @@ const SchoolCompetitionRegistration = () => {
                                                         className="flex-1 cursor-pointer"
                                                         onClick={() => handleCompetitionToggle(competition.id)}
                                                     >
-                                                        <div className="flex items-center gap-2 mb-1">
+                                                        <div className="flex items-center gap-2 mb-2">
                                                             <span className="text-2xl">{competition.icon}</span>
                                                             <h3 className="font-semibold text-sm">{competition.name}</h3>
                                                         </div>
-                                                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                                                            {competition.nameHindi}
-                                                        </p>
-                                                        <p className="text-xs text-gray-500 dark:text-gray-500">
-                                                            {competition.descriptionHindi}
+                                                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                                                            {competition.description}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -627,10 +602,10 @@ const SchoolCompetitionRegistration = () => {
                                     disabled={isSubmitting || !formData.registrationType}
                                     className="w-full md:w-auto px-12 py-6 text-lg bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600"
                                 >
-                                    {isSubmitting ? "Submitting..." : formData.registrationType === "school" ? "Register School (₹2,200)" : "Register as Individual/Team (₹500 per student)"}
+                                    {isSubmitting ? "Submitting..." : "Complete Registration"}
                                 </Button>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 text-center max-w-md">
-                                    By registering, you agree to our terms and conditions. You will receive a payment link via email after submission.
+                                    By registering, you agree to our terms and conditions. You will receive a confirmation email shortly.
                                 </p>
                             </div>
                         )}

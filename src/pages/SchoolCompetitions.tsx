@@ -94,11 +94,6 @@ const SchoolCompetitions = () => {
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 font-light">
               Participate in exciting competitions and showcase your talents!
             </p>
-            <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 px-6 py-3 rounded-full">
-              <span className="text-lg font-medium bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
-                Registration Fee: ₹2,200 per school
-              </span>
-            </div>
           </div>
 
           {/* Competitions Grid */}
