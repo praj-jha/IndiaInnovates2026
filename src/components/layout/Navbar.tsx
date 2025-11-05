@@ -17,25 +17,25 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const getLinkClassName = useCallback((path: string) => {
-    const baseClasses = "text-sm font-medium transition-colors hover:text-primary";
-    const activeClasses = "text-purple-600 font-semibold";
-    return isActiveLink(path) ? `${baseClasses} ${activeClasses}` : baseClasses;
+    const baseClasses = "text-sm font-medium transition-colors hover:text-white/90";
+    const activeClasses = "text-white font-semibold border-b-2 border-white";
+    return isActiveLink(path) ? `${baseClasses} ${activeClasses}` : `${baseClasses} text-white/80`;
   }, [isActiveLink]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full border-b border-purple-900 bg-purple-800">
+      <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <PrefetchLink to="/" className="flex items-center md:mr-6 -ml-4 md:ml-0">
           <img
-            src="https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005444/iil_flk4xg.avif"
+            src="/iilw.svg"
             alt="India Innovates 2026 Logo"
-            className="h-40 w-auto"
+            className="h-48 w-auto"
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            width="200"
-            height="160"
+            width="240"
+            height="192"
           />
         </PrefetchLink>
 
@@ -54,7 +54,7 @@ const Navbar = () => {
 
             <a
               href="/#testimonials"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors text-white/80 hover:text-white/90"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
@@ -65,7 +65,7 @@ const Navbar = () => {
 
             <a
               href="/#faq"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors text-white/80 hover:text-white/90"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +75,7 @@ const Navbar = () => {
             </a>
             <a
               href="/#faq"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors text-white/80 hover:text-white/90"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
@@ -85,7 +85,7 @@ const Navbar = () => {
             </a>
             <a
               href="/#faq"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors text-white/80 hover:text-white/90"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
@@ -98,15 +98,15 @@ const Navbar = () => {
             </PrefetchLink>
 
             <div className="group relative">
-              <button className={`flex items-center transition-colors hover:text-primary ${isActiveLink("/school-competitions") || isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}>
+              <button className={`flex items-center transition-colors ${isActiveLink("/school-competitions") || isActiveLink("/university-competitions") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}>
                 Themes <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-1 w-56 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-1">
-                  <PrefetchLink to="/school-competitions" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}>
+                  <PrefetchLink to="/school-competitions" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}>
                     School
                   </PrefetchLink>
-                  <PrefetchLink to="/university-competitions" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}>
+                  <PrefetchLink to="/university-competitions" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}>
                     Universities + Professionals
                   </PrefetchLink>
                 </div>
@@ -114,15 +114,15 @@ const Navbar = () => {
             </div>
 
             <div className="group relative">
-              <button className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${isActiveLink("/highlights") || isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}>
+              <button className={`flex items-center text-sm font-medium transition-colors ${isActiveLink("/highlights") || isActiveLink("/join-our-team") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}>
                 More <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-1 w-56 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-1">
-                  <PrefetchLink to="/highlights" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}>
+                  <PrefetchLink to="/highlights" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}>
                     Highlights
                   </PrefetchLink>
-                  <PrefetchLink to="/join-our-team" className={`block px-4 py-2 text-sm hover:bg-muted transition-colors ${isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}>
+                  <PrefetchLink to="/join-our-team" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}>
                     Join Our Team
                   </PrefetchLink>
                 </div>
@@ -138,10 +138,10 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="hidden md:flex items-center space-x-4">
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" asChild className="hover:bg-purple-50 hover:text-purple-600">
+            <Button variant="ghost" asChild className="text-white hover:bg-purple-700 hover:text-white">
               <PrefetchLink to="/agenda">Agenda</PrefetchLink>
             </Button>
-            <Button asChild className="bg-purple-600 hover:bg-purple-700">
+            <Button asChild className="bg-white text-purple-800 hover:bg-white/90 hover:text-purple-900">
               <PrefetchLink to="/delegate-pass">Delegate Pass</PrefetchLink>
             </Button>
           </div>
@@ -152,6 +152,7 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
+            className="text-white hover:bg-purple-700 hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -161,18 +162,18 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className="md:hidden border-t border-purple-900 bg-purple-800">
           <div className="container py-4 space-y-4">
             <PrefetchLink
               to="/"
-              className={`block py-2 text-sm font-medium ${isActiveLink("/") ? "text-purple-600 font-semibold" : ""}`}
+              className={`block py-2 text-sm font-medium ${isActiveLink("/") ? "text-white font-semibold" : "text-white/80"}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </PrefetchLink>
             <a
               href="/#testimonials"
-              className="block py-2 text-sm font-medium"
+              className="block py-2 text-sm font-medium text-white/80"
               onClick={(e) => {
                 e.preventDefault();
                 setIsMobileMenuOpen(false);
@@ -183,7 +184,7 @@ const Navbar = () => {
             </a>
             <a
               href="/#faq"
-              className="block py-2 text-sm font-medium"
+              className="block py-2 text-sm font-medium text-white/80"
               onClick={(e) => {
                 e.preventDefault();
                 setIsMobileMenuOpen(false);
@@ -194,7 +195,7 @@ const Navbar = () => {
             </a>
             <a
               href="/#faq"
-              className="block py-2 text-sm font-medium"
+              className="block py-2 text-sm font-medium text-white/80"
               onClick={(e) => {
                 e.preventDefault();
                 setIsMobileMenuOpen(false);
@@ -205,7 +206,7 @@ const Navbar = () => {
             </a>
             <a
               href="/#faq"
-              className="block py-2 text-sm font-medium"
+              className="block py-2 text-sm font-medium text-white/80"
               onClick={(e) => {
                 e.preventDefault();
                 setIsMobileMenuOpen(false);
@@ -216,56 +217,56 @@ const Navbar = () => {
             </a>
             <PrefetchLink
               to="/exhibitor-registration"
-              className={`block py-2 text-sm font-medium ${isActiveLink("/exhibitor-registration") ? "text-purple-600 font-semibold" : ""}`}
+              className={`block py-2 text-sm font-medium ${isActiveLink("/exhibitor-registration") ? "text-white font-semibold" : "text-white/80"}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Expo
             </PrefetchLink>
             <div className="space-y-2">
-              <div className="text-sm font-medium text-muted-foreground">Themes</div>
+              <div className="text-sm font-medium text-white/60">Themes</div>
               <PrefetchLink
                 to="/school-competitions"
-                className={`block py-1 pl-4 text-sm ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/school-competitions") ? "text-white font-semibold" : "text-white/80"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 School
               </PrefetchLink>
               <PrefetchLink
                 to="/university-competitions"
-                className={`block py-1 pl-4 text-sm ${isActiveLink("/university-competitions") ? "text-purple-600 font-semibold" : ""}`}
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/university-competitions") ? "text-white font-semibold" : "text-white/80"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Universities + Professionals
               </PrefetchLink>
             </div>
             <div className="space-y-2">
-              <div className="text-sm font-medium text-muted-foreground">More</div>
+              <div className="text-sm font-medium text-white/60">More</div>
               <PrefetchLink
                 to="/highlights"
-                className={`block py-1 pl-4 text-sm ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/highlights") ? "text-white font-semibold" : "text-white/80"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Highlights
               </PrefetchLink>
               <PrefetchLink
                 to="/join-our-team"
-                className={`block py-1 pl-4 text-sm ${isActiveLink("/join-our-team") ? "text-purple-600 font-semibold" : ""}`}
+                className={`block py-1 pl-4 text-sm ${isActiveLink("/join-our-team") ? "text-white font-semibold" : "text-white/80"}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Join Our Team
               </PrefetchLink>
             </div>
-            <div className="pt-4 border-t space-y-2">
+            <div className="pt-4 border-t border-purple-700 space-y-2">
               <PrefetchLink
                 to="/agenda"
-                className="block py-2 text-sm font-medium hover:text-purple-600"
+                className="block py-2 text-sm font-medium text-white/80 hover:text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Agenda
               </PrefetchLink>
               <PrefetchLink
                 to="/delegate-pass"
-                className="block py-2 text-sm font-medium text-purple-600 hover:text-purple-700"
+                className="block py-2 px-4 text-sm font-medium bg-white text-purple-800 hover:bg-white/90 rounded-md text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Delegate Pass

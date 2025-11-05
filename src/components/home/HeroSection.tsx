@@ -137,8 +137,8 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="/niti.png"
-                    alt="NITI"
+                    src="/sims.png"
+                    alt="SIMS"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -146,8 +146,8 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="/Dl.png"
-                    alt="Delhi"
+                    src="/GGSIPU.webp"
+                    alt="GGSIPU"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -202,8 +202,8 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="/niti.png"
-                    alt="NITI"
+                    src="/sims.png"
+                    alt="SIMS"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -211,8 +211,73 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="/Dl.png"
-                    alt="Delhi"
+                    src="/GGSIPU.webp"
+                    alt="GGSIPU"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/ay.jpeg"
+                    alt="Ayushman Bharat"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+
+                {/* Third set for smoother infinite loop */}
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/mcdlogo.png"
+                    alt="MCD"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/jnu.png"
+                    alt="JNU"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/nsut.png"
+                    alt="NSUT"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/ddu2.jpeg"
+                    alt="DDU"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/sims.png"
+                    alt="SIMS"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="/GGSIPU.webp"
+                    alt="GGSIPU"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"

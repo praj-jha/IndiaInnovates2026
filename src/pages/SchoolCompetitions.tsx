@@ -131,27 +131,7 @@ const SchoolCompetitions = () => {
             ))}
           </div>
 
-          {/* CTA Section */}
-          <div className="text-center mb-16">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950/30 dark:to-purple-900/20 p-8 md:p-12 rounded-3xl shadow-sm border border-purple-200 dark:border-purple-800">
-              <h3 className="text-2xl sm:text-3xl font-medium text-black dark:text-white mb-4 tracking-tight">
-                Ready to Register Your School?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                Join us for an exciting showcase of innovation and talent. Register now and be part of India Innovates 2025!
-              </p>
-              <Button
-                onClick={handleRegisterAll}
-                size="lg"
-                className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-800 dark:from-purple-600 dark:to-purple-700 dark:hover:from-purple-500 dark:hover:to-purple-600 text-white font-medium px-8 text-base tracking-wide hover:scale-[1.02] transition-all rounded-full shadow-lg shadow-purple-500/20"
-              >
-                Register Your School Now
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Individual/Team Participation Section */}
+          {/* Competition Details Section */}
           <div className="mb-16">
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-900/20 p-8 md:p-12 rounded-3xl shadow-sm border-2 border-blue-200 dark:border-blue-800">
               <div className="text-center mb-8">
@@ -159,61 +139,63 @@ const SchoolCompetitions = () => {
                   <Trophy className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-3xl sm:text-4xl font-medium text-black dark:text-white mb-4 tracking-tight">
-                  Independent Students & Teams Welcome!
+                  Competition Details
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-3xl mx-auto font-light leading-relaxed text-lg">
-                  Not representing a school? No problem! Individual students and independent teams can also participate in all competitions.
+                  <strong>Important:</strong> These competitions are exclusively for school students only.
+                  You can participate individually or as a team of up to 5 students from the same or different schools.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl">
                   <div className="text-4xl mb-3">👨‍🎓</div>
-                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Individual Students</h4>
+                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Solo Participation</h4>
                   <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                    Compete as a solo participant and showcase your unique talents and innovations
+                    School students can compete individually and showcase their unique talents
                   </p>
                 </div>
                 <div className="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl">
                   <div className="text-4xl mb-3">👥</div>
-                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Independent Teams</h4>
+                  <h4 className="font-semibold text-black dark:text-white mb-2 text-xl">Team Participation</h4>
                   <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                    Form your own team with friends from different schools and compete together
+                    Form teams of 2-5 school students from the same or different schools
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white/60 dark:bg-gray-900/60 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl mb-8">
+              <div className="bg-white/60 dark:bg-gray-900/60 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl">
                 <h4 className="font-semibold text-black dark:text-white mb-3 text-lg flex items-center gap-2">
-                  <span className="text-2xl">💡</span> Registration Details
+                  <span className="text-2xl">💡</span> What You Get
                 </h4>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
-                    <span><strong>Same competitions:</strong> Access to all 8 exciting competitions</span>
+                    <span><strong>8 exciting competitions:</strong> Choose from drone racing, robotics, debates, and more</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
-                    <span><strong>Flexible registration:</strong> Register as an individual or form teams of 2-5 members</span>
+                    <span><strong>Flexible team size:</strong> Participate solo or with up to 5 members total</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
-                    <span><strong>Same benefits:</strong> Certificates, prizes, and recognition for all winners</span>
+                    <span><strong>Recognition & prizes:</strong> Certificates, trophies, and exciting rewards for winners</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
-                    <span><strong>Individual fee:</strong> ₹500 per student (individual or team member)</span>
+                    <span><strong>FREE registration:</strong> No participation fees - completely free for all school students!</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="text-center">
+              {/* Register Button */}
+              <div className="mt-8 text-center">
                 <Button
                   onClick={handleRegisterAll}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium px-8 text-base tracking-wide hover:scale-[1.02] transition-all rounded-full shadow-lg shadow-blue-500/20"
+                  className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-800 dark:from-purple-600 dark:to-purple-700 dark:hover:from-purple-500 dark:hover:to-purple-600 text-white font-medium px-8 text-base tracking-wide hover:scale-[1.02] transition-all rounded-full shadow-lg shadow-purple-500/20"
                 >
-                  Register as Individual/Team
+                  Register Your Team
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </div>

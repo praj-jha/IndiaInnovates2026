@@ -189,6 +189,22 @@ const themes = [
         motto: "One nation, many voices — one AI that listens to all.",
         icon: "💬",
     },
+    {
+        id: "pollution",
+        name: "Pollution Control & Environmental Solutions",
+        tagline: "Innovating for a cleaner, healthier planet.",
+        description: "Solutions addressing air, water, and soil pollution through technology, policy, and community engagement. From smart monitoring systems to waste management innovations.",
+        motto: "Because clean air and water are not luxuries — they're rights.",
+        icon: "🌍",
+    },
+    {
+        id: "women-safety",
+        name: "Women Safety & Empowerment",
+        tagline: "Technology that protects, empowers, and uplifts.",
+        description: "Innovative solutions for women's safety including smart devices, emergency response systems, awareness platforms, and empowerment tools leveraging AI and IoT.",
+        motto: "Safety first, empowerment always — innovation for every woman.",
+        icon: "👩",
+    },
 ];
 
 const UniversityCompetitions = () => {
@@ -235,7 +251,7 @@ const UniversityCompetitions = () => {
                         </p>
                         <div className="inline-flex items-center gap-2 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 px-6 py-3 rounded-full">
                             <span className="text-lg font-medium bg-gradient-to-r from-purple-500 to-purple-700 bg-clip-text text-transparent">
-                                23 Innovation Themes • Open to All
+                                25 Innovation Themes • Open to All
                             </span>
                         </div>
                     </div>
@@ -284,6 +300,62 @@ const UniversityCompetitions = () => {
                                 <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-950/20 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                             </Card>
                         ))}
+                    </div>
+
+                    {/* Custom Category Section */}
+                    <div className="mb-16">
+                        <div className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/30 dark:to-emerald-900/20 p-8 md:p-12 rounded-3xl shadow-sm border-2 border-green-200 dark:border-green-800">
+                            <div className="text-center mb-6">
+                                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full mb-4 shadow-lg shadow-green-500/20">
+                                    <span className="text-4xl">✨</span>
+                                </div>
+                                <h3 className="text-2xl sm:text-3xl font-medium text-black dark:text-white mb-4 tracking-tight">
+                                    Project in a Different Category?
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
+                                    Have a unique innovation that doesn't fit into any of the above themes? We welcome innovations across all domains!
+                                    Register with your custom category and our team will review your submission.
+                                </p>
+                            </div>
+
+                            <div className="bg-white dark:bg-gray-900 border-2 border-dashed border-green-300 dark:border-green-700 p-6 rounded-2xl max-w-2xl mx-auto mb-6">
+                                <h4 className="font-semibold text-black dark:text-white mb-3 text-lg flex items-center gap-2">
+                                    <span className="text-2xl">💡</span> What You Can Submit
+                                </h4>
+                                <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
+                                        <span>Innovations in emerging fields not covered by existing themes</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
+                                        <span>Interdisciplinary projects spanning multiple domains</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
+                                        <span>Novel solutions in specialized or niche areas</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
+                                        <span>Any groundbreaking innovation that defies traditional categorization</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="text-center">
+                                <Button
+                                    onClick={() => navigate("/university-competitions-register?theme=custom-category")}
+                                    size="lg"
+                                    className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-medium px-8 text-base tracking-wide hover:scale-[1.02] transition-all rounded-full shadow-lg shadow-green-500/20"
+                                >
+                                    Register Custom Category
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                                    You'll be able to describe your project category during registration
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     {/* CTA Section */}

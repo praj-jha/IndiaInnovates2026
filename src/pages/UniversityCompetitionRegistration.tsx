@@ -76,6 +76,16 @@ const themes = [
         name: "Advanced Materials & Critical Minerals",
         icon: "⚗️",
     },
+    {
+        id: "pollution",
+        name: "Pollution Control & Environmental Solutions",
+        icon: "🌍",
+    },
+    {
+        id: "women-safety",
+        name: "Women Safety & Empowerment",
+        icon: "👩",
+    },
 ];
 
 interface FormData {
@@ -232,8 +242,8 @@ const UniversityCompetitionRegistration = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div
                                         className={`p-6 border-2 rounded-xl cursor-pointer transition-all ${formData.participantType === "university"
-                                                ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
-                                                : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
+                                            ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
+                                            : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
                                             }`}
                                         onClick={() => setFormData((prev) => ({ ...prev, participantType: "university" }))}
                                     >
@@ -247,8 +257,8 @@ const UniversityCompetitionRegistration = () => {
                                     </div>
                                     <div
                                         className={`p-6 border-2 rounded-xl cursor-pointer transition-all ${formData.participantType === "professional"
-                                                ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
-                                                : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
+                                            ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
+                                            : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
                                             }`}
                                         onClick={() => setFormData((prev) => ({ ...prev, participantType: "professional" }))}
                                     >
@@ -397,46 +407,6 @@ const UniversityCompetitionRegistration = () => {
                             </CardContent>
                         </Card>
 
-                        {/* Project Information */}
-                        <Card className="border-gray-200 dark:border-gray-800">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Trophy className="w-5 h-5 text-purple-600" />
-                                    Project Information
-                                </CardTitle>
-                                <CardDescription>Tell us about your innovation</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="projectTitle">Project Title *</Label>
-                                    <Input
-                                        id="projectTitle"
-                                        name="projectTitle"
-                                        value={formData.projectTitle}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Enter your project title"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="projectDescription">Project Description *</Label>
-                                    <Textarea
-                                        id="projectDescription"
-                                        name="projectDescription"
-                                        value={formData.projectDescription}
-                                        onChange={handleInputChange}
-                                        required
-                                        placeholder="Describe your innovation, its objectives, methodology, and expected impact (minimum 100 words)"
-                                        rows={6}
-                                        className="resize-none"
-                                    />
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                                        {formData.projectDescription.split(" ").filter((w) => w).length} words
-                                    </p>
-                                </div>
-                            </CardContent>
-                        </Card>
-
                         {/* Theme Selection */}
                         <Card className="border-gray-200 dark:border-gray-800">
                             <CardHeader>
@@ -452,8 +422,8 @@ const UniversityCompetitionRegistration = () => {
                                         <div
                                             key={theme.id}
                                             className={`p-4 border-2 rounded-xl cursor-pointer transition-all hover:shadow-md ${formData.selectedTheme === theme.id
-                                                    ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
-                                                    : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
+                                                ? "border-purple-500 bg-purple-50 dark:bg-purple-950/20"
+                                                : "border-gray-200 dark:border-gray-800 hover:border-purple-300 dark:hover:border-purple-700"
                                                 }`}
                                             onClick={() => handleThemeSelect(theme.id)}
                                         >
@@ -476,6 +446,152 @@ const UniversityCompetitionRegistration = () => {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Project Information - For Regular Themes */}
+                        {formData.selectedTheme && formData.selectedTheme !== "custom-category" && (
+                            <Card className="border-gray-200 dark:border-gray-800">
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2">
+                                        <Trophy className="w-5 h-5 text-purple-600" />
+                                        Project Information
+                                    </CardTitle>
+                                    <CardDescription>Tell us about your innovation</CardDescription>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="projectTitle">Project Title *</Label>
+                                        <Input
+                                            id="projectTitle"
+                                            name="projectTitle"
+                                            value={formData.projectTitle}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Enter your project title"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="projectDescription">Project Description *</Label>
+                                        <Textarea
+                                            id="projectDescription"
+                                            name="projectDescription"
+                                            value={formData.projectDescription}
+                                            onChange={handleInputChange}
+                                            required
+                                            placeholder="Describe your innovation, its objectives, methodology, and expected impact (minimum 100 words)"
+                                            rows={6}
+                                            className="resize-none"
+                                        />
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                                            {formData.projectDescription.split(" ").filter((w) => w).length} words
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                        {/* Custom Category Section */}
+                        <Card className="border-2 border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/10">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <Trophy className="w-5 h-5 text-green-600" />
+                                    Project in a Different Category?
+                                </CardTitle>
+                                <CardDescription>
+                                    If your innovation doesn't fit into any of the above themes, register here with your custom category
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg border-2 border-dashed border-green-300 dark:border-green-700">
+                                    <h4 className="font-medium text-black dark:text-white mb-3">
+                                        Have a unique innovation that doesn't match our listed themes?
+                                    </h4>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                                        We welcome innovations across all domains! If your project falls under a different category not mentioned above,
+                                        you can still register and our team will review your submission. Select the "Other - Custom Category" option
+                                        below and provide detailed information about your innovation theme.
+                                    </p>
+                                    <div
+                                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all hover:shadow-md ${formData.selectedTheme === "custom-category"
+                                            ? "border-green-600 bg-green-50 dark:bg-green-950/20"
+                                            : "border-gray-200 dark:border-gray-800 hover:border-green-300 dark:hover:border-green-700"
+                                            }`}
+                                        onClick={() => handleThemeSelect("custom-category")}
+                                    >
+                                        <div className="flex items-start gap-3">
+                                            <div className="text-3xl">✨</div>
+                                            <div className="flex-1">
+                                                <h4 className="font-medium text-sm text-black dark:text-white leading-tight">
+                                                    Other - Custom Category
+                                                </h4>
+                                                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                                                    My innovation belongs to a different category
+                                                </p>
+                                            </div>
+                                            {formData.selectedTheme === "custom-category" && (
+                                                <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                                                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                    {formData.selectedTheme === "custom-category" && (
+                                        <div className="mt-6 space-y-6">
+                                            {/* Project Information - Only for Custom Category */}
+                                            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
+                                                <h4 className="font-semibold text-lg text-black dark:text-white mb-4 flex items-center gap-2">
+                                                    <Trophy className="w-5 h-5 text-green-600" />
+                                                    Project Information
+                                                </h4>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                                                    Tell us about your innovation
+                                                </p>
+                                                <div className="space-y-4">
+                                                    <div className="space-y-2">
+                                                        <Label htmlFor="projectTitle">Project Title *</Label>
+                                                        <Input
+                                                            id="projectTitle"
+                                                            name="projectTitle"
+                                                            value={formData.projectTitle}
+                                                            onChange={handleInputChange}
+                                                            required={formData.selectedTheme === "custom-category"}
+                                                            placeholder="Enter your project title"
+                                                        />
+                                                    </div>
+                                                    <div className="space-y-2">
+                                                        <Label htmlFor="projectDescription">Project Description *</Label>
+                                                        <Textarea
+                                                            id="projectDescription"
+                                                            name="projectDescription"
+                                                            value={formData.projectDescription}
+                                                            onChange={handleInputChange}
+                                                            required={formData.selectedTheme === "custom-category"}
+                                                            placeholder="Describe your innovation, its objectives, methodology, expected impact, and importantly - specify your project's category (minimum 100 words)"
+                                                            rows={6}
+                                                            className="resize-none"
+                                                        />
+                                                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                            {formData.projectDescription.split(" ").filter((w) => w).length} words
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="p-4 bg-green-100 dark:bg-green-950/30 rounded-lg border border-green-200 dark:border-green-800">
+                                                <p className="text-sm text-green-800 dark:text-green-300">
+                                                    <strong>Note:</strong> Please clearly mention your project's category in the description above.
+                                                    Our evaluation team will review your submission and contact you with further details.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </CardContent>
                         </Card>
