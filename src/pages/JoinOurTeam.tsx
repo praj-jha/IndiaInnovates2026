@@ -119,15 +119,18 @@ const JoinOurTeam = () => {
     } finally {
       setIsSubmitting(false);
     }
-  }; const renderTeamMemberFields = () => (
+  };
+
+  const renderTeamMemberFields = () => (
     <>
       <div className="space-y-2">
-        <Label htmlFor="studentStatus">Are you a student?</Label>
+        <Label htmlFor="studentStatus">Are you a student? *</Label>
         <Select
           value={formData.studentStatus || ""}
           onValueChange={(value) => handleSelectChange("studentStatus", value)}
+          required
         >
-          <SelectTrigger>
+          <SelectTrigger id="studentStatus">
             <SelectValue placeholder="Select status" />
           </SelectTrigger>
           <SelectContent>
@@ -169,8 +172,9 @@ const JoinOurTeam = () => {
               <Select
                 value={formData.yearOfStudy || ""}
                 onValueChange={(value) => handleSelectChange("yearOfStudy", value)}
+                required
               >
-                <SelectTrigger>
+                <SelectTrigger id="yearOfStudy">
                   <SelectValue placeholder="Select year" />
                 </SelectTrigger>
                 <SelectContent>
@@ -191,8 +195,9 @@ const JoinOurTeam = () => {
         <Select
           value={formData.department || ""}
           onValueChange={(value) => handleSelectChange("department", value)}
+          required
         >
-          <SelectTrigger>
+          <SelectTrigger id="department">
             <SelectValue placeholder="Select department" />
           </SelectTrigger>
           <SelectContent>
@@ -226,8 +231,9 @@ const JoinOurTeam = () => {
         <Select
           value={formData.availability || ""}
           onValueChange={(value) => handleSelectChange("availability", value)}
+          required
         >
-          <SelectTrigger>
+          <SelectTrigger id="availability">
             <SelectValue placeholder="Select your availability" />
           </SelectTrigger>
           <SelectContent>
@@ -286,8 +292,9 @@ const JoinOurTeam = () => {
         <Select
           value={formData.sponsorshipType || ""}
           onValueChange={(value) => handleSelectChange("sponsorshipType", value)}
+          required
         >
-          <SelectTrigger>
+          <SelectTrigger id="sponsorshipType">
             <SelectValue placeholder="Select partnership type" />
           </SelectTrigger>
           <SelectContent>
@@ -311,7 +318,7 @@ const JoinOurTeam = () => {
           value={formData.budgetRange || ""}
           onValueChange={(value) => handleSelectChange("budgetRange", value)}
         >
-          <SelectTrigger>
+          <SelectTrigger id="budgetRange">
             <SelectValue placeholder="Select budget range" />
           </SelectTrigger>
           <SelectContent>

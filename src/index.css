@@ -229,4 +229,44 @@
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
+
+  /* Select dropdown mobile optimizations */
+  [data-radix-popper-content-wrapper] {
+    z-index: 9999 !important;
+    position: fixed !important;
+  }
+  
+  /* Ensure select content is touchable on mobile */
+  [role="listbox"],
+  [role="option"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Prevent body scroll when select is open on mobile */
+  body:has([data-state="open"]) {
+    overflow: hidden;
+  }
+  
+  /* Mobile-specific select styles */
+  @media (max-width: 768px) {
+    [data-radix-select-content] {
+      max-height: 60vh !important;
+      width: calc(100vw - 2rem) !important;
+      max-width: 400px !important;
+    }
+    
+    /* Larger touch targets on mobile */
+    [data-radix-select-item] {
+      min-height: 48px !important;
+      padding: 0.75rem 2rem 0.75rem 2rem !important;
+      font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    
+    [data-radix-select-trigger] {
+      min-height: 48px !important;
+      font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+  }
 }
+
