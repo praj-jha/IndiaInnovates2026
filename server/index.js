@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -55,10 +56,25 @@ app.use((req, res, next) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-    res.json({
-        status: 'ok',
+    const dbStatus = {
+        0: 'disconnected',
+        1: 'connected',
+        2: 'connecting',
+        3: 'disconnecting',
+    };
+
+    const isHealthy = mongoose.connection.readyState === 1;
+
+    res.status(isHealthy ? 200 : 503).json({
+        status: isHealthy ? 'ok' : 'degraded',
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
+        database: {
+            status: dbStatus[mongoose.connection.readyState],
+            readyState: mongoose.connection.readyState,
+            host: mongoose.connection.host || 'N/A',
+            name: mongoose.connection.name || 'N/A',
+        },
     });
 });
 

@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import { body, validationResult } from 'express-validator';
 import Volunteer from '../models/Volunteer.js';
 import { addVolunteerToSheet } from '../services/googleSheets.js';
@@ -52,6 +53,15 @@ router.post('/', volunteerValidation, async (req, res) => {
             message,
         } = req.body;
 
+        // Check database connection
+        if (!mongoose.connection.readyState) {
+            console.error('❌ Database not connected');
+            return res.status(503).json({
+                success: false,
+                message: 'Database connection unavailable. Please try again later.',
+            });
+        }
+
         // Check if volunteer already exists
         const existingVolunteer = await Volunteer.findOne({ email });
         if (existingVolunteer) {
@@ -98,6 +108,7 @@ router.post('/', volunteerValidation, async (req, res) => {
         });
     } catch (error) {
         console.error('❌ Error creating volunteer:', error);
+        console.error('Error stack:', error.stack);
         res.status(500).json({
             success: false,
             message: 'Failed to submit registration. Please try again.',

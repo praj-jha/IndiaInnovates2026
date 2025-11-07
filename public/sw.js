@@ -1,5 +1,5 @@
 // Enhanced Service Worker with advanced caching strategies
-const CACHE_VERSION = 'india-innovates-v3.0.0'; // IMPORTANT: Increment this version with every deployment
+const CACHE_VERSION = 'india-innovates-v3.1.0'; // IMPORTANT: Increment this version with every deployment
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -96,16 +96,22 @@ const cacheFirst = async (request, cacheName) => {
 
     try {
         const fresh = await fetch(request);
-        if (fresh.status === 200) {
+        if (fresh.ok && fresh.status === 200) {
             const cache = await caches.open(cacheName);
-            const clonedResponse = fresh.clone();
-            const headers = new Headers(clonedResponse.headers);
+            // Clone the response before reading it
+            const responseToCache = fresh.clone();
+
+            // Read the body as blob to avoid cloning issues
+            const blob = await responseToCache.blob();
+            const headers = new Headers(fresh.headers);
             headers.append('sw-cached-time', Date.now().toString());
-            const modifiedResponse = new Response(clonedResponse.body, {
-                status: clonedResponse.status,
-                statusText: clonedResponse.statusText,
+
+            const modifiedResponse = new Response(blob, {
+                status: fresh.status,
+                statusText: fresh.statusText,
                 headers: headers
             });
+
             cache.put(request, modifiedResponse);
             await limitCacheSize(cacheName, MAX_CACHE_SIZE);
         }
@@ -119,9 +125,12 @@ const cacheFirst = async (request, cacheName) => {
 const networkFirst = async (request, cacheName) => {
     try {
         const fresh = await fetch(request);
-        if (fresh.status === 200) {
+        if (fresh.ok && fresh.status === 200) {
             const cache = await caches.open(cacheName);
-            cache.put(request, fresh.clone());
+            // Only cache successful responses and properly clone them
+            cache.put(request, fresh.clone()).catch(err => {
+                console.warn('[SW] Failed to cache:', err);
+            });
             await limitCacheSize(cacheName, MAX_CACHE_SIZE);
         }
         return fresh;
@@ -169,9 +178,11 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.match(request).then(cached => {
                 const fetchPromise = fetch(request).then(fresh => {
-                    if (fresh.status === 200) {
+                    if (fresh.ok && fresh.status === 200) {
                         caches.open(STATIC_CACHE).then(cache => {
-                            cache.put(request, fresh.clone());
+                            cache.put(request, fresh.clone()).catch(err => {
+                                console.warn('[SW] Failed to cache JS/CSS:', err);
+                            });
                         });
                     }
                     return fresh;
@@ -187,9 +198,12 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             fetch(request)
                 .then(response => {
-                    if (response.status === 200) {
-                        const cache = caches.open(DYNAMIC_CACHE);
-                        cache.then(c => c.put(request, response.clone()));
+                    if (response.ok && response.status === 200) {
+                        caches.open(DYNAMIC_CACHE).then(cache => {
+                            cache.put(request, response.clone()).catch(err => {
+                                console.warn('[SW] Failed to cache document:', err);
+                            });
+                        });
                     }
                     return response;
                 })
