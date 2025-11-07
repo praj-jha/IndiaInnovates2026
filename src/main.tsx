@@ -2,10 +2,9 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Performance monitoring only in development
-if (import.meta.env.DEV) {
-  import('./utils/performance.ts');
-}
+// Performance monitoring enabled in ALL environments
+// Critical for tracking real user metrics in production
+import('./utils/performance.ts');
 
 // Non-blocking initialization of performance features
 const initializeApp = async () => {

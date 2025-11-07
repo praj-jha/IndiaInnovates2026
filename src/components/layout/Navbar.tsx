@@ -98,10 +98,13 @@ const Navbar = () => {
             </PrefetchLink>
 
             <div className="group relative">
-              <button className={`flex items-center transition-colors ${isActiveLink("/school-competitions") || isActiveLink("/university-competitions") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}>
+              <button 
+                className={`flex items-center transition-colors touch-manipulation ${isActiveLink("/school-competitions") || isActiveLink("/university-competitions") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}
+                aria-label="Themes menu"
+              >
                 Themes <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50">
                 <div className="py-1">
                   <PrefetchLink to="/school-competitions" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/school-competitions") ? "text-purple-600 font-semibold" : ""}`}>
                     School
@@ -114,10 +117,13 @@ const Navbar = () => {
             </div>
 
             <div className="group relative">
-              <button className={`flex items-center text-sm font-medium transition-colors ${isActiveLink("/highlights") || isActiveLink("/join-our-team") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}>
+              <button 
+                className={`flex items-center text-sm font-medium transition-colors touch-manipulation ${isActiveLink("/highlights") || isActiveLink("/join-our-team") ? "text-white font-semibold" : "text-white/80 hover:text-white/90"}`}
+                aria-label="More menu"
+              >
                 More <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50">
                 <div className="py-1">
                   <PrefetchLink to="/highlights" className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors ${isActiveLink("/highlights") ? "text-purple-600 font-semibold" : ""}`}>
                     Highlights

@@ -9,7 +9,14 @@
     "build:dev": "vite build --mode development",
     "optimize:images": "node scripts/optimize-images.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:performance": "node tests/performance.test.js",
+    "test:load": "artillery run tests/load-test.yml",
+    "test:load:report": "artillery run --output report.json tests/load-test.yml && artillery report report.json",
+    "test:lighthouse": "lhci autorun",
+    "test:lighthouse:manual": "lighthouse http://localhost:4173 --view",
+    "test:all": "npm run test:performance && npm run test:lighthouse",
+    "test:quick": "lighthouse http://localhost:4173 --only-categories=performance --preset=desktop"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

@@ -53,7 +53,10 @@ export default defineConfig(({ mode }) => ({
             return 'form-vendor';
           }
 
-          // Animation and motion
+          // Animation and motion - split core from features
+          if (id.includes('node_modules/motion/dist/es/render')) {
+            return 'motion-core';
+          }
           if (id.includes('node_modules/framer-motion') || id.includes('node_modules/motion')) {
             return 'animation';
           }

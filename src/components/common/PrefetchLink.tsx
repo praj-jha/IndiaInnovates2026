@@ -26,9 +26,8 @@ export const prefetchRoute = (path: string): void => {
     const loader = routeChunkMap[path];
     if (loader) {
         prefetchedRoutes.add(path);
-        loader().catch((err) => {
-            console.warn(`Failed to prefetch route: ${path}`, err);
-            // Remove from set so it can be retried
+        loader().catch(() => {
+            // Prefetch failed - remove from set to allow retry
             prefetchedRoutes.delete(path);
         });
     }

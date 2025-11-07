@@ -103,6 +103,14 @@
     backface-visibility: hidden; /* Optimize for mobile */
   }
   
+  /* Optimized seamless scroll with single set of logos */
+  .animate-scroll-seamless {
+    animation: scroll var(--animation-duration, 20s) linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
   .animate-scroll-reverse {
     animation: scroll-reverse var(--animation-duration, 100s) linear infinite;
     will-change: transform;
@@ -199,5 +207,26 @@
         transform: none !important;
       }
     }
+  }
+  
+  /* Touch-friendly interactions */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Larger touch targets for mobile */
+  @media (pointer: coarse) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Smooth touch scrolling */
+  .touch-scrollable {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 }

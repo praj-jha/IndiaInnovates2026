@@ -92,10 +92,11 @@ const HeroSection = () => {
               <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
 
+              {/* Optimized: Two sets for seamless infinite scroll */}
               <div
-                className="flex animate-scroll"
+                className="flex animate-scroll-seamless"
                 style={{
-                  '--animation-duration': '15s', // SPEED CONTROL: Lower value = faster scroll. Examples: 10s (very fast), 15s (fast), 20s (moderate), 30s (slow)
+                  '--animation-duration': '20s',
                 } as React.CSSProperties}
               >
                 {/* First set of logos */}
@@ -103,6 +104,8 @@ const HeroSection = () => {
                   <img
                     src="/mcdlogo.png"
                     alt="MCD"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -112,6 +115,8 @@ const HeroSection = () => {
                   <img
                     src="/jnu.png"
                     alt="JNU"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -121,6 +126,8 @@ const HeroSection = () => {
                   <img
                     src="/nsut.png"
                     alt="NSUT"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -130,6 +137,8 @@ const HeroSection = () => {
                   <img
                     src="/ddu2.jpeg"
                     alt="DDU"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -139,6 +148,8 @@ const HeroSection = () => {
                   <img
                     src="/sims.png"
                     alt="SIMS"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -148,6 +159,8 @@ const HeroSection = () => {
                   <img
                     src="/GGSIPU.webp"
                     alt="GGSIPU"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
@@ -157,136 +170,87 @@ const HeroSection = () => {
                   <img
                     src="/ay.jpeg"
                     alt="Ayushman Bharat"
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
 
-                {/* Duplicate set for seamless loop */}
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                {/* Duplicate set for seamless loop - aria-hidden to avoid duplicate announcements */}
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/mcdlogo.png"
-                    alt="MCD"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/jnu.png"
-                    alt="JNU"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/nsut.png"
-                    alt="NSUT"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/ddu2.jpeg"
-                    alt="DDU"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/sims.png"
-                    alt="SIMS"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/GGSIPU.webp"
-                    alt="GGSIPU"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
                   />
                 </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24" aria-hidden="true">
                   <img
                     src="/ay.jpeg"
-                    alt="Ayushman Bharat"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-
-                {/* Third set for smoother infinite loop */}
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/mcdlogo.png"
-                    alt="MCD"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/jnu.png"
-                    alt="JNU"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/nsut.png"
-                    alt="NSUT"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/ddu2.jpeg"
-                    alt="DDU"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/sims.png"
-                    alt="SIMS"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/GGSIPU.webp"
-                    alt="GGSIPU"
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
-                  />
-                </div>
-                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
-                  <img
-                    src="/ay.jpeg"
-                    alt="Ayushman Bharat"
+                    alt=""
+                    width="128"
+                    height="80"
                     loading="lazy"
                     decoding="async"
                     className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"

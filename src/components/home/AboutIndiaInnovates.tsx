@@ -22,16 +22,16 @@ const AboutIndiaInnovates = () => {
         if (videoRef.current) {
             const video = videoRef.current;
 
-            video.play().catch(error => {
-                console.log("Video autoplay failed:", error);
+            video.play().catch(() => {
+                // Autoplay failed - browser policy or user preference
                 setIsPlaying(false);
             });
 
             // Only prevent pause on desktop
             const handlePause = () => {
                 if (!isMobile) {
-                    video.play().catch(error => {
-                        console.log("Video play failed:", error);
+                    video.play().catch(() => {
+                        // Play failed - silently handled
                     });
                 }
             };
@@ -49,9 +49,8 @@ const AboutIndiaInnovates = () => {
         if (videoRef.current && !isMobile) {
             videoRef.current.muted = false;
             setIsMuted(false);
-            // Ensure video continues playing
-            videoRef.current.play().catch(error => {
-                console.log("Video play failed:", error);
+            videoRef.current.play().catch(() => {
+                // Play failed - silently handled
             });
         }
     };
@@ -60,9 +59,8 @@ const AboutIndiaInnovates = () => {
         if (videoRef.current && !isMobile) {
             videoRef.current.muted = true;
             setIsMuted(true);
-            // Ensure video continues playing
-            videoRef.current.play().catch(error => {
-                console.log("Video play failed:", error);
+            videoRef.current.play().catch(() => {
+                // Play failed - silently handled
             });
         }
     };
@@ -70,16 +68,14 @@ const AboutIndiaInnovates = () => {
     const togglePlayPause = () => {
         if (videoRef.current) {
             if (isPlaying) {
-                // Pause: pause video and mute it
                 videoRef.current.pause();
                 videoRef.current.muted = true;
                 setIsPlaying(false);
                 setIsMuted(true);
             } else {
-                // Play: play video with sound
                 videoRef.current.muted = false;
-                videoRef.current.play().catch(error => {
-                    console.log("Video play failed:", error);
+                videoRef.current.play().catch(() => {
+                    // Play failed - silently handled
                 });
                 setIsPlaying(true);
                 setIsMuted(false);
@@ -156,16 +152,15 @@ const AboutIndiaInnovates = () => {
                                     playsInline
                                     preload="metadata"
                                     controls={isMobile}
-                                    onError={(e) => {
-                                        console.error("Video failed to load:", e);
-                                        // Fallback: show poster image if video fails
-                                        if (videoRef.current) {
-                                            videoRef.current.style.display = 'block';
-                                        }
-                                    }}
-                                    onLoadedData={() => {
-                                        console.log("Video loaded successfully");
-                                    }}
+                    onError={() => {
+                        // Video failed to load - gracefully handled
+                        if (videoRef.current) {
+                            videoRef.current.style.display = 'block';
+                        }
+                    }}
+                    onLoadedData={() => {
+                        // Video loaded successfully
+                    }}
                                 >
                                     <source src="/mudi.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
