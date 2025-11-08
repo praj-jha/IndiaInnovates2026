@@ -3,13 +3,6 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Briefcase, CheckCircle2 } from "lucide-react";
@@ -125,19 +118,18 @@ const JoinOurTeam = () => {
     <>
       <div className="space-y-2">
         <Label htmlFor="studentStatus">Are you a student? *</Label>
-        <Select
+        <select
+          id="studentStatus"
+          name="studentStatus"
           value={formData.studentStatus || ""}
-          onValueChange={(value) => handleSelectChange("studentStatus", value)}
+          onChange={(e) => handleSelectChange("studentStatus", e.target.value)}
           required
+          className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
-          <SelectTrigger id="studentStatus">
-            <SelectValue placeholder="Select status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="yes">Yes, I'm a student</SelectItem>
-            <SelectItem value="no">No, I'm a professional</SelectItem>
-          </SelectContent>
-        </Select>
+          <option value="" disabled>Select status</option>
+          <option value="yes">Yes, I'm a student</option>
+          <option value="no">No, I'm a professional</option>
+        </select>
       </div>
 
       {formData.studentStatus === "yes" && (
@@ -151,6 +143,7 @@ const JoinOurTeam = () => {
               onChange={handleInputChange}
               placeholder="Enter your institution name"
               required
+              className="h-12 text-base md:text-sm"
             />
           </div>
 
@@ -164,27 +157,27 @@ const JoinOurTeam = () => {
                 onChange={handleInputChange}
                 placeholder="e.g., B.Tech, MBA"
                 required
+                className="h-12 text-base md:text-sm"
               />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="yearOfStudy">Year of Study *</Label>
-              <Select
+              <select
+                id="yearOfStudy"
+                name="yearOfStudy"
                 value={formData.yearOfStudy || ""}
-                onValueChange={(value) => handleSelectChange("yearOfStudy", value)}
+                onChange={(e) => handleSelectChange("yearOfStudy", e.target.value)}
                 required
+                className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
               >
-                <SelectTrigger id="yearOfStudy">
-                  <SelectValue placeholder="Select year" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1st">1st Year</SelectItem>
-                  <SelectItem value="2nd">2nd Year</SelectItem>
-                  <SelectItem value="3rd">3rd Year</SelectItem>
-                  <SelectItem value="4th">4th Year</SelectItem>
-                  <SelectItem value="postgrad">Postgraduate</SelectItem>
-                </SelectContent>
-              </Select>
+                <option value="" disabled>Select year</option>
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+                <option value="postgrad">Postgraduate</option>
+              </select>
             </div>
           </div>
         </>
@@ -192,25 +185,24 @@ const JoinOurTeam = () => {
 
       <div className="space-y-2">
         <Label htmlFor="department">Department/Area of Interest *</Label>
-        <Select
+        <select
+          id="department"
+          name="department"
           value={formData.department || ""}
-          onValueChange={(value) => handleSelectChange("department", value)}
+          onChange={(e) => handleSelectChange("department", e.target.value)}
           required
+          className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
-          <SelectTrigger id="department">
-            <SelectValue placeholder="Select department" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="marketing">Marketing & Social Media</SelectItem>
-            <SelectItem value="content">Content Creation</SelectItem>
-            <SelectItem value="design">Design & Graphics</SelectItem>
-            <SelectItem value="tech">Technology & Development</SelectItem>
-            <SelectItem value="operations">Operations & Logistics</SelectItem>
-            <SelectItem value="pr">Public Relations</SelectItem>
-            <SelectItem value="event">Event Management</SelectItem>
-            <SelectItem value="research">Research & Documentation</SelectItem>
-          </SelectContent>
-        </Select>
+          <option value="" disabled>Select department</option>
+          <option value="marketing">Marketing & Social Media</option>
+          <option value="content">Content Creation</option>
+          <option value="design">Design & Graphics</option>
+          <option value="tech">Technology & Development</option>
+          <option value="operations">Operations & Logistics</option>
+          <option value="pr">Public Relations</option>
+          <option value="event">Event Management</option>
+          <option value="research">Research & Documentation</option>
+        </select>
       </div>
 
       <div className="space-y-2">
@@ -223,26 +215,26 @@ const JoinOurTeam = () => {
           placeholder="Tell us about your skills, tools you're proficient in, etc."
           rows={3}
           required
+          className="text-base md:text-sm"
         />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="availability">Availability *</Label>
-        <Select
+        <select
+          id="availability"
+          name="availability"
           value={formData.availability || ""}
-          onValueChange={(value) => handleSelectChange("availability", value)}
+          onChange={(e) => handleSelectChange("availability", e.target.value)}
           required
+          className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
-          <SelectTrigger id="availability">
-            <SelectValue placeholder="Select your availability" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="fulltime">Full-time (20+ hours/week)</SelectItem>
-            <SelectItem value="parttime">Part-time (10-20 hours/week)</SelectItem>
-            <SelectItem value="flexible">Flexible (As needed)</SelectItem>
-            <SelectItem value="remote">Remote only</SelectItem>
-          </SelectContent>
-        </Select>
+          <option value="" disabled>Select your availability</option>
+          <option value="fulltime">Full-time (20+ hours/week)</option>
+          <option value="parttime">Part-time (10-20 hours/week)</option>
+          <option value="flexible">Flexible (As needed)</option>
+          <option value="remote">Remote only</option>
+        </select>
       </div>
     </>
   );
@@ -258,6 +250,7 @@ const JoinOurTeam = () => {
           onChange={handleInputChange}
           placeholder="Enter company name"
           required
+          className="h-12 text-base md:text-sm"
         />
       </div>
 
@@ -271,6 +264,7 @@ const JoinOurTeam = () => {
             onChange={handleInputChange}
             placeholder="e.g., Marketing Manager"
             required
+            className="h-12 text-base md:text-sm"
           />
         </div>
 
@@ -283,54 +277,53 @@ const JoinOurTeam = () => {
             onChange={handleInputChange}
             placeholder="https://example.com"
             type="url"
+            className="h-12 text-base md:text-sm"
           />
         </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="sponsorshipType">Type of Partnership *</Label>
-        <Select
+        <select
+          id="sponsorshipType"
+          name="sponsorshipType"
           value={formData.sponsorshipType || ""}
-          onValueChange={(value) => handleSelectChange("sponsorshipType", value)}
+          onChange={(e) => handleSelectChange("sponsorshipType", e.target.value)}
           required
+          className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
-          <SelectTrigger id="sponsorshipType">
-            <SelectValue placeholder="Select partnership type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="title">Title Sponsor</SelectItem>
-            <SelectItem value="platinum">Platinum Sponsor</SelectItem>
-            <SelectItem value="gold">Gold Sponsor</SelectItem>
-            <SelectItem value="silver">Silver Sponsor</SelectItem>
-            <SelectItem value="bronze">Bronze Sponsor</SelectItem>
-            <SelectItem value="inkind">In-kind Sponsor</SelectItem>
-            <SelectItem value="media">Media Partner</SelectItem>
-            <SelectItem value="marketing">Marketing Collaboration</SelectItem>
-            <SelectItem value="stall">Exhibition Stall</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
+          <option value="" disabled>Select partnership type</option>
+          <option value="title">Title Sponsor</option>
+          <option value="platinum">Platinum Sponsor</option>
+          <option value="gold">Gold Sponsor</option>
+          <option value="silver">Silver Sponsor</option>
+          <option value="bronze">Bronze Sponsor</option>
+          <option value="inkind">In-kind Sponsor</option>
+          <option value="media">Media Partner</option>
+          <option value="marketing">Marketing Collaboration</option>
+          <option value="stall">Exhibition Stall</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="budgetRange">Budget Range (Optional)</Label>
-        <Select
+        <select
+          id="budgetRange"
+          name="budgetRange"
           value={formData.budgetRange || ""}
-          onValueChange={(value) => handleSelectChange("budgetRange", value)}
+          onChange={(e) => handleSelectChange("budgetRange", e.target.value)}
+          className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
-          <SelectTrigger id="budgetRange">
-            <SelectValue placeholder="Select budget range" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="under50k">Under ₹50,000</SelectItem>
-            <SelectItem value="50k-1l">₹50,000 - ₹1,00,000</SelectItem>
-            <SelectItem value="1l-3l">₹1,00,000 - ₹3,00,000</SelectItem>
-            <SelectItem value="3l-5l">₹3,00,000 - ₹5,00,000</SelectItem>
-            <SelectItem value="5l-10l">₹5,00,000 - ₹10,00,000</SelectItem>
-            <SelectItem value="above10l">Above ₹10,00,000</SelectItem>
-            <SelectItem value="discuss">Prefer to discuss</SelectItem>
-          </SelectContent>
-        </Select>
+          <option value="">Select budget range</option>
+          <option value="under50k">Under ₹50,000</option>
+          <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+          <option value="1l-3l">₹1,00,000 - ₹3,00,000</option>
+          <option value="3l-5l">₹3,00,000 - ₹5,00,000</option>
+          <option value="5l-10l">₹5,00,000 - ₹10,00,000</option>
+          <option value="above10l">Above ₹10,00,000</option>
+          <option value="discuss">Prefer to discuss</option>
+        </select>
       </div>
 
       <div className="space-y-2">
@@ -343,6 +336,7 @@ const JoinOurTeam = () => {
           placeholder="What do you hope to achieve through this partnership?"
           rows={4}
           required
+          className="text-base md:text-sm"
         />
       </div>
     </>
@@ -487,6 +481,7 @@ const JoinOurTeam = () => {
                       onChange={handleInputChange}
                       placeholder="Enter your full name"
                       required
+                      className="h-12 text-base md:text-sm"
                     />
                   </div>
 
@@ -501,6 +496,7 @@ const JoinOurTeam = () => {
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
                         required
+                        className="h-12 text-base md:text-sm"
                       />
                     </div>
 
@@ -514,6 +510,7 @@ const JoinOurTeam = () => {
                         onChange={handleInputChange}
                         placeholder="+91 XXXXX XXXXX"
                         required
+                        className="h-12 text-base md:text-sm"
                       />
                     </div>
                   </div>
@@ -541,13 +538,14 @@ const JoinOurTeam = () => {
                       }
                       rows={4}
                       required
+                      className="text-base md:text-sm"
                     />
                   </div>
 
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-6 text-lg"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-6 text-lg min-h-[48px]"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Submitting..." : "Submit Application"}
