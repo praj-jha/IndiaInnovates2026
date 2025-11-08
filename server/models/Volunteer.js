@@ -69,7 +69,7 @@ const volunteerSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Message is required'],
         trim: true,
-        minlength: [10, 'Message is too short'],
+        minlength: [1, 'Message is too short'],
         maxlength: [1000, 'Message is too long'],
     },
 
