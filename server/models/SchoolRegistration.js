@@ -103,7 +103,7 @@ const schoolRegistrationSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'reviewing', 'accepted', 'rejected'],
+        enum: ['pending', 'reviewing', 'approved', 'rejected'],
         default: 'pending',
     },
     submittedAt: {

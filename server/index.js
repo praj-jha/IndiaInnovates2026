@@ -5,6 +5,8 @@ import helmet from 'helmet';
 import compression from 'compression';
 import dotenv from 'dotenv';
 import connectDB from './config/database.js';
+import Logger from './utils/logger.js';
+import { apiLimiter, registrationLimiter } from './middleware/rateLimiter.js';
 import volunteersRouter from './routes/volunteers.js';
 import sponsorsRouter from './routes/sponsors.js';
 import schoolRegistrationsRouter from './routes/schoolRegistrations.js';
@@ -13,18 +15,29 @@ import themeRegistrationsRouter from './routes/themeRegistrations.js';
 // Load environment variables
 dotenv.config();
 
+// Validate required environment variables
+const requiredEnvVars = ['MONGODB_URI'];
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+if (missingEnvVars.length > 0) {
+    Logger.error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
+    process.exit(1);
+}
+
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB
 connectDB();
 
-// Middleware
-app.use(helmet()); // Security headers
-app.use(compression()); // Compress responses
+// Security middleware
+app.use(helmet({
+    contentSecurityPolicy: process.env.NODE_ENV === 'production',
+    crossOriginEmbedderPolicy: false,
+}));
+app.use(compression());
 
-// CORS configuration - allow both Vite default port and custom port
+// CORS configuration
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:8080',
@@ -34,9 +47,7 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps or curl requests)
         if (!origin) return callback(null, true);
-
         if (allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -47,14 +58,23 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
+// Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Request logging middleware
 app.use((req, res, next) => {
-    console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+    const start = Date.now();
+    res.on('finish', () => {
+        const duration = Date.now() - start;
+        Logger.request(req.method, req.path, res.statusCode, duration);
+    });
     next();
 });
+
+// Apply rate limiting to all API routes
+app.use('/api/', apiLimiter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -80,11 +100,11 @@ app.get('/health', (req, res) => {
     });
 });
 
-// API Routes
-app.use('/api/volunteers', volunteersRouter);
-app.use('/api/sponsors', sponsorsRouter);
-app.use('/api/schools', schoolRegistrationsRouter);
-app.use('/api/themes', themeRegistrationsRouter);
+// API Routes (with rate limiting on registration endpoints)
+app.use('/api/volunteers', registrationLimiter, volunteersRouter);
+app.use('/api/sponsors', registrationLimiter, sponsorsRouter);
+app.use('/api/schools', registrationLimiter, schoolRegistrationsRouter);
+app.use('/api/themes', registrationLimiter, themeRegistrationsRouter);
 
 // 404 handler
 app.use((req, res) => {
@@ -96,28 +116,34 @@ app.use((req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
-    console.error('❌ Global error handler:', err);
+    Logger.error('Global error handler', err);
+
+    // Don't leak error details in production
+    const message = process.env.NODE_ENV === 'production' && err.status !== 400
+        ? 'Internal server error'
+        : err.message;
 
     res.status(err.status || 500).json({
         success: false,
-        message: err.message || 'Internal server error',
-        error: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+        message,
+        ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
     });
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`
-🚀 Server running on port ${PORT}
-📝 Environment: ${process.env.NODE_ENV || 'development'}
-🌐 CORS enabled for: ${allowedOrigins.join(', ')}
-  `);
+    Logger.startup(`Server running on port ${PORT}`);
+    Logger.startup(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    Logger.info(`CORS enabled for: ${allowedOrigins.join(', ')}`);
+    
+    if (process.env.NODE_ENV === 'production') {
+        Logger.startup('Rate limiting ENABLED');
+    }
 });
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-    console.error('❌ Unhandled Promise Rejection:', err);
-    // Close server & exit process
+    Logger.error('Unhandled Promise Rejection', err);
     process.exit(1);
 });
 

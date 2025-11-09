@@ -64,7 +64,7 @@ const themeRegistrationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Pincode is required'],
         trim: true,
-        match: [/^\d{5,6}$/, 'Pincode must be 5 or 6 digits'],
+        match: [/^\d{6}$/, 'Pincode must be exactly 6 digits'],
     },
     projectTitle: {
         type: String,
@@ -93,7 +93,7 @@ const themeRegistrationSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'reviewing', 'accepted', 'rejected'],
+        enum: ['pending', 'reviewing', 'shortlisted', 'approved', 'rejected'],
         default: 'pending',
     },
     submittedAt: {

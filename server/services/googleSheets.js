@@ -1,6 +1,7 @@
 import { google } from 'googleapis';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import Logger from '../utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,7 +19,7 @@ const initializeSheets = async () => {
 
         return sheets;
     } catch (error) {
-        console.error('❌ Error initializing Google Sheets:', error);
+        Logger.error('Error initializing Google Sheets', error);
         throw error;
     }
 };
@@ -62,8 +63,8 @@ const getOrCreateSpreadsheet = async (sheets) => {
         },
     });
 
-    console.log('📊 Created new spreadsheet:', response.data.spreadsheetId);
-    console.log('⚠️ Add this to your .env file: GOOGLE_SHEET_ID=' + response.data.spreadsheetId);
+    Logger.success(`Created new spreadsheet: ${response.data.spreadsheetId}`);
+    Logger.warn(`Add this to your .env file: GOOGLE_SHEET_ID=${response.data.spreadsheetId}`);
 
     return response.data.spreadsheetId;
 };
@@ -99,7 +100,7 @@ const initializeVolunteerSheet = async (sheets, spreadsheetId) => {
                 sheetName = volunteerSheet.properties.title;
             }
         } catch (e) {
-            console.log('Using default sheet name: Volunteers');
+            Logger.debug('Using default sheet name: Volunteers');
         }
 
         // Check if headers already exist
@@ -164,7 +165,7 @@ const initializeVolunteerSheet = async (sheets, spreadsheetId) => {
 
         return sheetName;
     } catch (error) {
-        console.error('❌ Error initializing volunteer sheet:', error);
+        Logger.error('Error initializing volunteer sheet', error);
     }
 };
 
@@ -198,7 +199,7 @@ const initializeSponsorSheet = async (sheets, spreadsheetId) => {
                 sheetName = sponsorSheet.properties.title;
             }
         } catch (e) {
-            console.log('Using default sheet name: Sponsors');
+            Logger.debug('Using default sheet name: Sponsors');
         }
 
         // Check if headers already exist
@@ -263,7 +264,7 @@ const initializeSponsorSheet = async (sheets, spreadsheetId) => {
 
         return sheetName;
     } catch (error) {
-        console.error('❌ Error initializing sponsor sheet:', error);
+        Logger.error('Error initializing sponsor sheet', error);
         throw error;
     }
 };
@@ -352,11 +353,10 @@ export const addVolunteerToSheet = async (volunteerData) => {
             },
         });
 
-        console.log(`✅ Volunteer added to Google Sheets (${sheetName}) at row ${nextRow}`);
+        Logger.success(`Volunteer added to Google Sheets (${sheetName}) at row ${nextRow}`);
         return true;
     } catch (error) {
-        console.error('❌ Error adding volunteer to sheet:', error);
-        console.error('Error details:', error.message);
+        Logger.error('Error adding volunteer to sheet', error);
         throw error;
     }
 };
@@ -444,11 +444,10 @@ export const addSponsorToSheet = async (sponsorData) => {
             },
         });
 
-        console.log(`✅ Sponsor added to Google Sheets (${sheetName}) at row ${nextRow}`);
+        Logger.success(`Sponsor added to Google Sheets (${sheetName}) at row ${nextRow}`);
         return true;
     } catch (error) {
-        console.error('❌ Error adding sponsor to sheet:', error);
-        console.error('Error details:', error.message);
+        Logger.error('Error adding sponsor to sheet', error);
         throw error;
     }
 };
@@ -478,8 +477,10 @@ const initializeSchoolSheet = async (sheets, spreadsheetId) => {
             'Status',
         ];
 
-        // Try to find the sheet by name
+        // Try to find or create the sheet
         let sheetName = 'School Competitions';
+        let sheetExists = false;
+        
         try {
             const spreadsheet = await sheets.spreadsheets.get({ spreadsheetId });
             const schoolSheet = spreadsheet.data.sheets.find(s =>
@@ -488,18 +489,52 @@ const initializeSchoolSheet = async (sheets, spreadsheetId) => {
             );
             if (schoolSheet) {
                 sheetName = schoolSheet.properties.title;
+                sheetExists = true;
             }
-        } catch {
-            // default
+        } catch (err) {
+            Logger.debug('Could not get spreadsheet info');
+        }
+
+        // Create sheet if it doesn't exist
+        if (!sheetExists) {
+            try {
+                await sheets.spreadsheets.batchUpdate({
+                    spreadsheetId,
+                    requestBody: {
+                        requests: [{
+                            addSheet: {
+                                properties: {
+                                    title: sheetName,
+                                }
+                            }
+                        }]
+                    }
+                });
+                Logger.success(`Created sheet: ${sheetName}`);
+            } catch (createError) {
+                Logger.debug(`Sheet might already exist: ${sheetName}`);
+            }
         }
 
         // Check if headers already exist
-        const response = await sheets.spreadsheets.values.get({
-            spreadsheetId,
-            range: `${sheetName}!A1:N1`,
-        });
+        try {
+            const response = await sheets.spreadsheets.values.get({
+                spreadsheetId,
+                range: `${sheetName}!A1:N1`,
+            });
 
-        if (!response.data.values || response.data.values.length === 0) {
+            if (!response.data.values || response.data.values.length === 0) {
+                await sheets.spreadsheets.values.update({
+                    spreadsheetId,
+                    range: `${sheetName}!A1:N1`,
+                    valueInputOption: 'RAW',
+                    requestBody: {
+                        values: [headers],
+                    },
+                });
+                Logger.success(`Added headers to sheet: ${sheetName}`);
+            }
+        } catch (headerError) {
             await sheets.spreadsheets.values.update({
                 spreadsheetId,
                 range: `${sheetName}!A1:N1`,
@@ -508,11 +543,12 @@ const initializeSchoolSheet = async (sheets, spreadsheetId) => {
                     values: [headers],
                 },
             });
+            Logger.success(`Added headers to sheet: ${sheetName}`);
         }
 
         return sheetName;
     } catch (error) {
-        console.error('❌ Error initializing school sheet:', error);
+        Logger.error('Error initializing school sheet', error);
         throw error;
     }
 };
@@ -539,7 +575,10 @@ const initializeThemeSheet = async (sheets, spreadsheetId) => {
             'Status',
         ];
 
+        // Try to find or create the sheet
         let sheetName = 'Theme Registrations';
+        let sheetExists = false;
+        
         try {
             const spreadsheet = await sheets.spreadsheets.get({ spreadsheetId });
             const themeSheet = spreadsheet.data.sheets.find(s =>
@@ -547,17 +586,52 @@ const initializeThemeSheet = async (sheets, spreadsheetId) => {
             );
             if (themeSheet) {
                 sheetName = themeSheet.properties.title;
+                sheetExists = true;
             }
-        } catch {
-            // default
+        } catch (err) {
+            Logger.debug('Could not get spreadsheet info');
         }
 
-        const response = await sheets.spreadsheets.values.get({
-            spreadsheetId,
-            range: `${sheetName}!A1:P1`,
-        });
+        // Create sheet if it doesn't exist
+        if (!sheetExists) {
+            try {
+                await sheets.spreadsheets.batchUpdate({
+                    spreadsheetId,
+                    requestBody: {
+                        requests: [{
+                            addSheet: {
+                                properties: {
+                                    title: sheetName,
+                                }
+                            }
+                        }]
+                    }
+                });
+                Logger.success(`Created sheet: ${sheetName}`);
+            } catch (createError) {
+                Logger.debug(`Sheet might already exist: ${sheetName}`);
+            }
+        }
 
-        if (!response.data.values || response.data.values.length === 0) {
+        // Check if headers already exist
+        try {
+            const response = await sheets.spreadsheets.values.get({
+                spreadsheetId,
+                range: `${sheetName}!A1:P1`,
+            });
+
+            if (!response.data.values || response.data.values.length === 0) {
+                await sheets.spreadsheets.values.update({
+                    spreadsheetId,
+                    range: `${sheetName}!A1:P1`,
+                    valueInputOption: 'RAW',
+                    requestBody: {
+                        values: [headers],
+                    },
+                });
+                Logger.success(`Added headers to sheet: ${sheetName}`);
+            }
+        } catch (headerError) {
             await sheets.spreadsheets.values.update({
                 spreadsheetId,
                 range: `${sheetName}!A1:P1`,
@@ -566,11 +640,12 @@ const initializeThemeSheet = async (sheets, spreadsheetId) => {
                     values: [headers],
                 },
             });
+            Logger.success(`Added headers to sheet: ${sheetName}`);
         }
 
         return sheetName;
     } catch (error) {
-        console.error('❌ Error initializing theme sheet:', error);
+        Logger.error('Error initializing theme sheet', error);
         throw error;
     }
 };
@@ -612,10 +687,10 @@ export const addSchoolRegistrationToSheet = async (data) => {
             requestBody: { values: [row] },
         });
 
-        console.log(`✅ School registration added to Google Sheets (${sheetName})`);
+        Logger.success(`School registration added to Google Sheets (${sheetName})`);
         return true;
     } catch (error) {
-        console.error('❌ Error adding school registration to sheet:', error);
+        Logger.error('Error adding school registration to sheet', error);
         throw error;
     }
 };
@@ -654,10 +729,10 @@ export const addThemeRegistrationToSheet = async (data) => {
             requestBody: { values: [row] },
         });
 
-        console.log(`✅ Theme registration added to Google Sheets (${sheetName})`);
+        Logger.success(`Theme registration added to Google Sheets (${sheetName})`);
         return true;
     } catch (error) {
-        console.error('❌ Error adding theme registration to sheet:', error);
+        Logger.error('Error adding theme registration to sheet', error);
         throw error;
     }
 };
