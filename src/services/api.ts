@@ -178,3 +178,51 @@ export default {
   getVolunteerStats,
   getSponsorStats,
 };
+
+// School Competition Registration
+export const submitSchoolCompetitionRegistration = async (data: any) => {
+  try {
+    const response = await fetchWithRetry(`${API_BASE_URL}/schools`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || 'Failed to submit registration');
+    }
+
+    return result;
+  } catch (error) {
+    console.error('Error submitting school competition registration:', error);
+    throw error;
+  }
+};
+
+// Theme Registration (Universities & Professionals)
+export const submitThemeRegistration = async (data: any) => {
+  try {
+    const response = await fetchWithRetry(`${API_BASE_URL}/themes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || 'Failed to submit registration');
+    }
+
+    return result;
+  } catch (error) {
+    console.error('Error submitting theme registration:', error);
+    throw error;
+  }
+};

@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Trophy, Building2, Users, Phone, Mail, MapPin, Briefcase, GraduationCap } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import { submitThemeRegistration } from "@/services/api";
 
 const themes = [
     {
@@ -167,11 +168,7 @@ const UniversityCompetitionRegistration = () => {
         setIsSubmitting(true);
 
         try {
-            // Here you would typically send the data to your backend
-            console.log("Form Data:", formData);
-
-            // Simulate API call
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await submitThemeRegistration(formData);
 
             const selectedThemeName = themes.find((t) => t.id === formData.selectedTheme)?.name || "Selected theme";
 
@@ -184,10 +181,10 @@ const UniversityCompetitionRegistration = () => {
             setTimeout(() => {
                 navigate("/");
             }, 2000);
-        } catch (error) {
+        } catch (error: any) {
             toast({
                 title: "Registration Failed",
-                description: "Something went wrong. Please try again.",
+                description: error?.message || "Something went wrong. Please try again.",
                 variant: "destructive",
             });
         } finally {

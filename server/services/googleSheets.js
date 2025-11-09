@@ -48,6 +48,16 @@ const getOrCreateSpreadsheet = async (sheets) => {
                         title: 'Sponsors',
                     },
                 },
+                {
+                    properties: {
+                        title: 'School Competitions',
+                    },
+                },
+                {
+                    properties: {
+                        title: 'Theme Registrations',
+                    },
+                },
             ],
         },
     });
@@ -446,4 +456,208 @@ export const addSponsorToSheet = async (sponsorData) => {
 export default {
     addVolunteerToSheet,
     addSponsorToSheet,
+};
+
+// Initialize school sheet with headers
+const initializeSchoolSheet = async (sheets, spreadsheetId) => {
+    try {
+        const headers = [
+            'Timestamp',
+            'School Name',
+            'Team Name',
+            'Team Lead Name',
+            'Team Lead Email',
+            'Team Lead Phone',
+            'Team Lead Age',
+            'Parent/Guardian Name',
+            'Parent/Guardian Phone',
+            'City',
+            'State',
+            'Team Members (Name|Age|Phone ...)',
+            'Selected Competitions (IDs)',
+            'Status',
+        ];
+
+        // Try to find the sheet by name
+        let sheetName = 'School Competitions';
+        try {
+            const spreadsheet = await sheets.spreadsheets.get({ spreadsheetId });
+            const schoolSheet = spreadsheet.data.sheets.find(s =>
+                s.properties.title.toLowerCase().includes('school') ||
+                s.properties.title.toLowerCase().includes('competition')
+            );
+            if (schoolSheet) {
+                sheetName = schoolSheet.properties.title;
+            }
+        } catch {
+            // default
+        }
+
+        // Check if headers already exist
+        const response = await sheets.spreadsheets.values.get({
+            spreadsheetId,
+            range: `${sheetName}!A1:N1`,
+        });
+
+        if (!response.data.values || response.data.values.length === 0) {
+            await sheets.spreadsheets.values.update({
+                spreadsheetId,
+                range: `${sheetName}!A1:N1`,
+                valueInputOption: 'RAW',
+                requestBody: {
+                    values: [headers],
+                },
+            });
+        }
+
+        return sheetName;
+    } catch (error) {
+        console.error('❌ Error initializing school sheet:', error);
+        throw error;
+    }
+};
+
+// Initialize theme sheet with headers
+const initializeThemeSheet = async (sheets, spreadsheetId) => {
+    try {
+        const headers = [
+            'Timestamp',
+            'Participant Type',
+            'Organization Name',
+            'Participant Name',
+            'Designation/Course',
+            'Email',
+            'Phone',
+            'Address',
+            'City',
+            'State',
+            'Pincode',
+            'Project Title',
+            'Project Description',
+            'Team Size',
+            'Selected Theme',
+            'Status',
+        ];
+
+        let sheetName = 'Theme Registrations';
+        try {
+            const spreadsheet = await sheets.spreadsheets.get({ spreadsheetId });
+            const themeSheet = spreadsheet.data.sheets.find(s =>
+                s.properties.title.toLowerCase().includes('theme')
+            );
+            if (themeSheet) {
+                sheetName = themeSheet.properties.title;
+            }
+        } catch {
+            // default
+        }
+
+        const response = await sheets.spreadsheets.values.get({
+            spreadsheetId,
+            range: `${sheetName}!A1:P1`,
+        });
+
+        if (!response.data.values || response.data.values.length === 0) {
+            await sheets.spreadsheets.values.update({
+                spreadsheetId,
+                range: `${sheetName}!A1:P1`,
+                valueInputOption: 'RAW',
+                requestBody: {
+                    values: [headers],
+                },
+            });
+        }
+
+        return sheetName;
+    } catch (error) {
+        console.error('❌ Error initializing theme sheet:', error);
+        throw error;
+    }
+};
+
+// Add school competition registration to sheet
+export const addSchoolRegistrationToSheet = async (data) => {
+    try {
+        const sheets = await initializeSheets();
+        const spreadsheetId = await getOrCreateSpreadsheet(sheets);
+        const sheetName = await initializeSchoolSheet(sheets, spreadsheetId);
+
+        const teamMembersStr = (data.teamMembers || [])
+            .map(m => `${m.name}|${m.age}|${m.phone}`)
+            .join(' ; ');
+        const competitionsStr = (data.selectedCompetitions || []).join(', ');
+
+        const row = [
+            new Date().toISOString(),
+            data.schoolName,
+            data.teamName,
+            data.teamLeadName,
+            data.teamLeadEmail,
+            data.teamLeadPhone,
+            String(data.teamLeadAge),
+            data.parentGuardianName,
+            data.parentGuardianPhone,
+            data.city,
+            data.state,
+            teamMembersStr || 'N/A',
+            competitionsStr,
+            data.status || 'pending',
+        ];
+
+        await sheets.spreadsheets.values.append({
+            spreadsheetId,
+            range: `${sheetName}!A:N`,
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: { values: [row] },
+        });
+
+        console.log(`✅ School registration added to Google Sheets (${sheetName})`);
+        return true;
+    } catch (error) {
+        console.error('❌ Error adding school registration to sheet:', error);
+        throw error;
+    }
+};
+
+// Add theme registration to sheet
+export const addThemeRegistrationToSheet = async (data) => {
+    try {
+        const sheets = await initializeSheets();
+        const spreadsheetId = await getOrCreateSpreadsheet(sheets);
+        const sheetName = await initializeThemeSheet(sheets, spreadsheetId);
+
+        const row = [
+            new Date().toISOString(),
+            data.participantType,
+            data.organizationName,
+            data.participantName,
+            data.designation,
+            data.email,
+            data.phone,
+            data.address,
+            data.city,
+            data.state,
+            data.pincode,
+            data.projectTitle,
+            data.projectDescription,
+            String(data.teamSize),
+            data.selectedTheme,
+            data.status || 'pending',
+        ];
+
+        await sheets.spreadsheets.values.append({
+            spreadsheetId,
+            range: `${sheetName}!A:P`,
+            valueInputOption: 'USER_ENTERED',
+            insertDataOption: 'INSERT_ROWS',
+            requestBody: { values: [row] },
+        });
+
+        console.log(`✅ Theme registration added to Google Sheets (${sheetName})`);
+        return true;
+    } catch (error) {
+        console.error('❌ Error adding theme registration to sheet:', error);
+        throw error;
+    }
 };

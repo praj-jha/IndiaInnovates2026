@@ -7,6 +7,8 @@ import dotenv from 'dotenv';
 import connectDB from './config/database.js';
 import volunteersRouter from './routes/volunteers.js';
 import sponsorsRouter from './routes/sponsors.js';
+import schoolRegistrationsRouter from './routes/schoolRegistrations.js';
+import themeRegistrationsRouter from './routes/themeRegistrations.js';
 
 // Load environment variables
 dotenv.config();
@@ -81,6 +83,8 @@ app.get('/health', (req, res) => {
 // API Routes
 app.use('/api/volunteers', volunteersRouter);
 app.use('/api/sponsors', sponsorsRouter);
+app.use('/api/schools', schoolRegistrationsRouter);
+app.use('/api/themes', themeRegistrationsRouter);
 
 // 404 handler
 app.use((req, res) => {

@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Trophy, Rocket, Users, Phone, Mail, GraduationCap, Plus, Trash2, AlertCircle } from "lucide-react";
+import { submitSchoolCompetitionRegistration } from "@/services/api";
 
 const competitions = [
     {
@@ -163,10 +164,7 @@ const SchoolCompetitionRegistration = () => {
         setIsSubmitting(true);
 
         try {
-            console.log("Form Data:", formData);
-
-            // Simulate API call
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await submitSchoolCompetitionRegistration(formData);
 
             toast({
                 title: "Registration Successful! 🎉",
@@ -177,10 +175,10 @@ const SchoolCompetitionRegistration = () => {
             setTimeout(() => {
                 navigate("/");
             }, 2000);
-        } catch (error) {
+        } catch (error: any) {
             toast({
                 title: "Registration Failed",
-                description: "Something went wrong. Please try again.",
+                description: error?.message || "Something went wrong. Please try again.",
                 variant: "destructive",
             });
         } finally {
