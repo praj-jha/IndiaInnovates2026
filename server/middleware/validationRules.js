@@ -213,12 +213,13 @@ export const themeRegistrationRules = [
         .trim()
         .notEmpty()
         .withMessage('Project description is required')
-        .isLength({ min: 50, max: 5000 })
-        .withMessage('Project description must be between 50 and 5000 characters'),
+        .isLength({ min: 50 })
+        .withMessage('Project description must be at least 50 characters'),
 
     body('teamSize')
         .notEmpty()
         .withMessage('Team size is required')
+        .toInt()
         .isInt({ min: 1, max: 10 })
         .withMessage('Team size must be between 1 and 10 members'),
 
