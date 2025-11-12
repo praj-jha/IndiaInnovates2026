@@ -189,17 +189,6 @@ const UniversityCompetitionRegistration = () => {
             return;
         }
 
-        // Validate word count for project description
-        const wordCount = formData.projectDescription.trim().split(/\s+/).filter((w) => w).length;
-        if (wordCount < 100) {
-            toast({
-                title: "Description Too Short",
-                description: `Your project description must be at least 100 words. Current: ${wordCount} words`,
-                variant: "destructive",
-            });
-            return;
-        }
-
         setIsSubmitting(true);
 
         try {
@@ -228,7 +217,6 @@ const UniversityCompetitionRegistration = () => {
     };
 
     const selectedThemeData = themes.find((t) => t.id === formData.selectedTheme);
-    const wordCount = formData.projectDescription.trim().split(/\s+/).filter((w) => w).length;
 
     return (
         <>
@@ -583,22 +571,12 @@ const UniversityCompetitionRegistration = () => {
                                                 required
                                                 placeholder={
                                                     formData.selectedTheme === "custom-category"
-                                                        ? "Describe your innovation, its objectives, methodology, expected impact, and importantly - specify your project's custom category (minimum 100 words)"
-                                                        : "Describe your innovation, its objectives, methodology, and expected impact (minimum 100 words)"
+                                                        ? "Describe your innovation, its objectives, methodology, expected impact, and importantly - specify your project's custom category"
+                                                        : "Describe your innovation, its objectives, methodology, and expected impact"
                                                 }
                                                 rows={8}
                                                 className="resize-none"
                                             />
-                                            <div className="flex items-center justify-between">
-                                                <p className={`text-xs ${
-                                                    wordCount < 100 ? "text-orange-600 dark:text-orange-400" : "text-green-600 dark:text-green-400"
-                                                }`}>
-                                                    {wordCount} / 100 words minimum
-                                                </p>
-                                                {wordCount >= 100 && (
-                                                    <CheckCircle2 className="w-4 h-4 text-green-600" />
-                                                )}
-                                            </div>
                                         </div>
 
                                         {formData.selectedTheme === "custom-category" && (
