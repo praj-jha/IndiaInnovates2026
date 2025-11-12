@@ -15,6 +15,9 @@ export const validateRequest = (req, res, next) => {
             value: err.value,
         }));
 
+        console.log('❌ Validation failed for:', req.method, req.path);
+        console.log('Validation errors:', JSON.stringify(formattedErrors, null, 2));
+
         Logger.warn('Validation failed', {
             path: req.path,
             method: req.method,

@@ -206,23 +206,39 @@ export const submitSchoolCompetitionRegistration = async (data: any) => {
 // Theme Registration (Universities & Professionals)
 export const submitThemeRegistration = async (data: any) => {
   try {
+    console.log('📤 Submitting theme registration:', data);
+    
+    // Ensure teamSize is a number
+    const payload = {
+      ...data,
+      teamSize: typeof data.teamSize === 'string' ? parseInt(data.teamSize, 10) : data.teamSize,
+    };
+
+    console.log('📦 Final payload:', payload);
+
     const response = await fetchWithRetry(`${API_BASE_URL}/themes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(payload),
     });
 
     const result = await response.json();
+    console.log('📥 Server response:', result);
 
     if (!response.ok) {
+      // Format validation errors if present
+      if (result.errors && Array.isArray(result.errors)) {
+        const errorMessages = result.errors.map((err: any) => `${err.field}: ${err.message}`).join(', ');
+        throw new Error(errorMessages || result.message || 'Failed to submit registration');
+      }
       throw new Error(result.message || 'Failed to submit registration');
     }
 
     return result;
-  } catch (error) {
-    console.error('Error submitting theme registration:', error);
+  } catch (error: any) {
+    console.error('❌ Error submitting theme registration:', error);
     throw error;
   }
 };

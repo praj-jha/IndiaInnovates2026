@@ -77,7 +77,7 @@ const themeRegistrationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Project description is required'],
         trim: true,
-        minlength: [5, 'Project description is too short'],
+        minlength: [50, 'Project description must be at least 50 characters'],
         maxlength: [5000, 'Project description is too long'],
     },
     teamSize: {
