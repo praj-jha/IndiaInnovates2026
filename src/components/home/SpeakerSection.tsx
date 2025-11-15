@@ -17,19 +17,17 @@ interface Speaker {
 // kapil mishra , shehzad poonawala , sunil bansal , bagga , 
 
 const SPEAKERS_DATA: Speaker[] = [
-  
-   
     {
-        id: 3,
+        id: 1,
         name: "Rekha Gupta",
         title: "Chief Minister of Delhi",
-        followers: "5M+ Followers",
+        followers: "500K+ Followers",
         category: "POLITICAL LEADER",
         image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/rekha_sjg3hd.avif",
-        description: "Rekha Gupta is the Chief Minister of Delhi, leading initiatives in urban development, education reform, and digital governance. Her leadership focuses on making Delhi a model smart city."
+        description: "Rekha Gupta is the Chief Minister of Delhi, leading the state government with a focus on urban development, education reform, digital governance, and women's empowerment. Her administration is working to transform Delhi into a model smart city."
     },
     {
-        id: 4,
+        id: 2,
         name: "Piyush Goyal",
         title: "Union Minister for Commerce & Industry",
         followers: "15M+ Followers",
@@ -37,9 +35,71 @@ const SPEAKERS_DATA: Speaker[] = [
         image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/piyush_brqefi.avif",
         description: "Piyush Goyal is the Union Minister for Commerce & Industry, Railways and Consumer Affairs. He has been instrumental in driving India's trade policies and infrastructure development."
     },
-   
+    {
+        id: 3,
+        name: "Om Birla",
+        title: "Speaker of Lok Sabha",
+        followers: "2M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198414/ba207a2a-4063-4af7-9f37-f70f0ec65200.png",
+        description: "Om Birla is the Speaker of the 17th Lok Sabha. A seasoned parliamentarian from Rajasthan, he has been instrumental in maintaining parliamentary decorum and strengthening democratic institutions in India."
+    },
+    {
+        id: 4,
+        name: "Parvesh Verma",
+        title: "Cabinet Minister, Government of Delhi",
+        followers: "1.5M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198546/dd8e09dc-0ead-469c-a59d-d20daea668e2.png",
+        description: "Parvesh Verma is a Cabinet Minister in the Government of Delhi. Son of former Delhi CM Sahib Singh Verma, he has been actively involved in key development projects and social welfare initiatives for Delhi's progress."
+    },
+    {
+        id: 5,
+        name: "Kapil Mishra",
+        title: "Minister for Art, Culture & Language, Delhi",
+        followers: "3M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198512/6aa0b965-db65-4331-b20f-3360de15daa8.png",
+        description: "Kapil Mishra is the Minister for Art, Culture and Language in the Government of Delhi. He has been instrumental in promoting Delhi's rich cultural heritage, supporting artists, and developing cultural infrastructure in the capital."
+    },
     {
         id: 6,
+        name: "Manoj Tiwari",
+        title: "Member of Parliament & Actor",
+        followers: "12M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198487/42fbe97c-5e90-43b5-a801-fe8c0ab7f3ac.png",
+        description: "Manoj Tiwari is a Member of Parliament from North-East Delhi and a renowned Bhojpuri actor-singer. He has successfully bridged entertainment and politics, representing the voice of Purvanchali community in Delhi."
+    },
+    {
+        id: 7,
+        name: "Shehzad Poonawala",
+        title: "BJP National Spokesperson",
+        followers: "2.5M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198919/532243aa-4d83-4e27-8884-c6fc97a1c33c.png",
+        description: "Shehzad Poonawala is the National Spokesperson of BJP and a prominent political commentator. Known for his articulate media presence, he actively represents BJP's viewpoint on national television and social media platforms."
+    },
+    {
+        id: 8,
+        name: "Manjinder Singh Sirsa",
+        title: "Minister for Environment, Forest & Wildlife, Delhi",
+        followers: "1M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198586/d00f313b-0ddb-4dd0-a829-9ae711f0fe48.png",
+        description: "Manjinder Singh Sirsa is the Minister for Environment, Forest and Wild Life in the Government of Delhi. A dedicated leader, he has been working on environmental conservation, pollution control, and sustainable development initiatives for the capital."
+    },
+    {
+        id: 9,
+        name: "Tajinder Pal Singh Bagga",
+        title: "BJP Spokesperson & Youth Leader",
+        followers: "2M+ Followers",
+        category: "POLITICAL LEADER",
+        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/v1763198688/3184314b-9f62-42d3-8f75-12389bcbed98.png",
+        description: "Tajinder Pal Singh Bagga is a BJP Spokesperson and prominent youth leader. Known for his aggressive social media presence and grassroots activism, he represents the new generation of political communicators in India."
+    },
+    {
+        id: 10,
         name: "Aman Gupta",
         title: "Co-founder & CMO, boAt",
         followers: "8M+ Followers",
@@ -48,15 +108,15 @@ const SPEAKERS_DATA: Speaker[] = [
         description: "Aman Gupta is the co-founder and CMO of boAt, India's leading consumer electronics brand. Known for his appearance on Shark Tank India, he has revolutionized the audio accessories market in India."
     },
     {
-        id: 7,
+        id: 11,
         name: "Annamalai K",
-        title: "Political Leader & Former IPS Officer",
+        title: "BJP Tamil Nadu President & Former IPS",
         followers: "3M+ Followers",
         category: "POLITICAL LEADER",
         image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/anna_vwandt.avif",
-        description: "Annamalai K is a prominent political leader and former IPS officer. His transition from civil services to politics has brought a unique perspective to governance and public service."
+        description: "Annamalai K is the Tamil Nadu BJP President and former IPS officer. His transition from civil services to politics has brought a unique perspective to governance and public service in Tamil Nadu."
     },
-    
+
 ];
 
 export const SpeakerSection = () => {

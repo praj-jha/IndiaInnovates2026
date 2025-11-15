@@ -113,6 +113,17 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
+                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763199235/lomata_jkujga.png"
+                    alt="Lokmata"
+                    width="128"
+                    height="80"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
                     src="/jnu.png"
                     alt="JNU"
                     width="128"
@@ -183,6 +194,17 @@ const HeroSection = () => {
                   <img
                     src="/mcdlogo.png"
                     alt=""
+                    width="128"
+                    height="80"
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-12 sm:max-h-14 md:max-h-16 max-w-24 sm:max-w-28 md:max-w-32 object-contain"
+                  />
+                </div>
+                <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
+                  <img
+                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763199235/lomata_jkujga.png"
+                    alt="Lokmata"
                     width="128"
                     height="80"
                     loading="lazy"
