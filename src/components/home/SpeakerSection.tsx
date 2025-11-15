@@ -17,24 +17,8 @@ interface Speaker {
 // kapil mishra , shehzad poonawala , sunil bansal , bagga , 
 
 const SPEAKERS_DATA: Speaker[] = [
-    {
-        id: 1,
-        name: "Narendra Modi",
-        title: "Prime Minister of India",
-        followers: "100M+ Followers",
-        category: "POLITICAL LEADER",
-        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/modi_xrej0s.avif",
-        description: "Narendra Modi is the Prime Minister of India and one of the most influential political leaders globally. His leadership has transformed India's digital infrastructure, economic policies, and international relations. Known for his vision of Digital India and Make in India initiatives."
-    },
-    {
-        id: 2,
-        name: "Amit Shah",
-        title: "Union Home Minister of India",
-        followers: "20M+ Followers",
-        category: "POLITICAL LEADER",
-        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/shah_vcnki2.avif",
-        description: "Amit Shah serves as the Union Home Minister of India and is a prominent political strategist. He has played a crucial role in India's internal security policies and administrative reforms."
-    },
+  
+   
     {
         id: 3,
         name: "Rekha Gupta",
@@ -53,15 +37,7 @@ const SPEAKERS_DATA: Speaker[] = [
         image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/piyush_brqefi.avif",
         description: "Piyush Goyal is the Union Minister for Commerce & Industry, Railways and Consumer Affairs. He has been instrumental in driving India's trade policies and infrastructure development."
     },
-    {
-        id: 5,
-        name: "Sultan Al Jaber",
-        title: "Minister of Information Technology, UAE",
-        followers: "2M+ Followers",
-        category: "TECHNOLOGY LEADER",
-        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/dubai_j7gahz.avif",
-        description: "Leading Dubai's digital transformation initiatives and smart city projects. Spearheading the emirate's vision to become a global hub for artificial intelligence and blockchain technology."
-    },
+   
     {
         id: 6,
         name: "Aman Gupta",
@@ -80,15 +56,7 @@ const SPEAKERS_DATA: Speaker[] = [
         image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/anna_vwandt.avif",
         description: "Annamalai K is a prominent political leader and former IPS officer. His transition from civil services to politics has brought a unique perspective to governance and public service."
     },
-    {
-        id: 8,
-        name: "Shashi Tharoor",
-        title: "Member of Parliament & Author",
-        followers: "25M+ Followers",
-        category: "POLITICAL LEADER",
-        image: "https://res.cloudinary.com/dgo3wykbm/image/upload/f_auto,q_auto/v1761005445/shashi_xtmsn0.avif",
-        description: "Shashi Tharoor is a Member of Parliament, accomplished author, and former UN diplomat. Known for his eloquent speeches and writings on Indian politics, history, and international relations."
-    }
+    
 ];
 
 export const SpeakerSection = () => {
