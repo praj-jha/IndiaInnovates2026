@@ -113,7 +113,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763199235/lomata_jkujga.png"
+                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763200024/WhatsApp_Image_2025-11-15_at_15.16.05_attaa3.jpg"
                     alt="Lokmata"
                     width="128"
                     height="80"
@@ -203,7 +203,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex items-center justify-center p-3 sm:p-4 md:p-5 bg-white/80 dark:bg-white/90 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm border border-gray-100 dark:border-gray-200 w-28 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24">
                   <img
-                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763199235/lomata_jkujga.png"
+                    src="https://res.cloudinary.com/dgo3wykbm/image/upload/v1763200024/WhatsApp_Image_2025-11-15_at_15.16.05_attaa3.jpg"
                     alt="Lokmata"
                     width="128"
                     height="80"
