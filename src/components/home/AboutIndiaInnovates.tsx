@@ -107,9 +107,7 @@ const AboutIndiaInnovates = () => {
                                 Through expert-led fellowships in Technology, Innovation, Entrepreneurship, and Strategy, we're building the talent that will create India's future - <span className="font-semibold text-green-700">Made in India, for the World</span>.
                             </p>
 
-                            <p>
-                                With mentors from <span className="font-semibold text-green-700">KPMG, EY Parthenon, Deloitte, PwC, OYO, Tech Mahindra</span>, and more, we're transforming ambitious students into industry-ready professionals who will lead India's innovation revolution.
-                            </p>
+                           
                         </div>
 
                         <div className="pt-6 gap-4 flex flex-col sm:flex-row">
