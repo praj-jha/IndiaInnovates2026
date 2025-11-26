@@ -5,7 +5,6 @@ import { HeroSection } from "@/components/home";
 const AboutIndiaInnovates = lazy(() => import("@/components/home/AboutIndiaInnovates").then(m => ({ default: m.AboutIndiaInnovates })));
 const NumberTicker = lazy(() => import("@/components/home/NumberTicker"));
 const SpeakerSection = lazy(() => import("@/components/home/SpeakerSection").then(m => ({ default: m.SpeakerSection })));
-const DelegatePassesSection = lazy(() => import("@/components/home/DelegatePassesSection").then(m => ({ default: m.DelegatePassesSection })));
 const VideoTestimonialsSection = lazy(() => import("@/components/home/VideoTestimonialsSection").then(m => ({ default: m.VideoTestimonialsSection })));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const Footer = lazy(() => import("@/components/home/Footer"));
@@ -32,12 +31,7 @@ const Index = () => {
       <Suspense fallback={<SectionLoader />}>
         <SpeakerSection />
       </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <DelegatePassesSection />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <VideoTestimonialsSection />
-      </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <FAQSection />
       </Suspense>

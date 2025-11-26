@@ -188,13 +188,6 @@ export default function AllSpeakers() {
 
                                 {/* Content Section */}
                                 <div className="relative p-3 bg-card">
-                                    {/* Followers Count */}
-                                    <div className="mb-1">
-                                        <span className="text-purple-600 dark:text-purple-400 text-[10px] sm:text-xs font-semibold tracking-wide">
-                                            {speaker.followers}
-                                        </span>
-                                    </div>
-
                                     {/* Name */}
                                     <h3 className="text-foreground text-xs sm:text-sm md:text-base font-bold mb-1 tracking-tight uppercase line-clamp-2">
                                         {speaker.name}
@@ -278,9 +271,6 @@ export default function AllSpeakers() {
                                     </p>
 
                                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                                        <span className="bg-purple-600 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold">
-                                            {selectedSpeaker.followers}
-                                        </span>
                                         <span className="bg-muted text-foreground px-2.5 py-0.5 rounded-full text-xs font-semibold">
                                             {selectedSpeaker.category}
                                         </span>

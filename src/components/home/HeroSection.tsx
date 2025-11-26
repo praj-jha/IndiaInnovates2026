@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
         <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-14">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-4 sm:mb-5 md:mb-6 leading-[1.1] tracking-tight text-black">
+            <h1 className="text-3xl michroma-heading sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-normal mb-4 sm:mb-5 md:mb-6 leading-[1.1] tracking-tight text-black">
               World's <span className="bg-purple-700 bg-clip-text text-transparent">biggest youth innovation</span>{" "}
               <span className="inline-block bg-purple-700 px-3 sm:px-4 md:px-5 py-1 sm:py-2 rounded-lg shadow-lg">
                 <TextRotate

@@ -29,10 +29,10 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-24">
+    <section id="faqs" className="py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-semibold mb-4">Frequently Asked <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Questions</span></h2>
+          <h2 className="michroma-heading text-3xl lg:text-4xl font-semibold mb-4">Frequently Asked <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Questions</span></h2>
           <p className="text-xl text-muted-foreground">
             Everything you need to know about India Innovates 2026
           </p>

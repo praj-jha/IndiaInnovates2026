@@ -26,6 +26,11 @@ const Agenda = lazy(() => import("./pages/Agenda"));
 const AllSpeakers = lazy(() => import("./pages/AllSpeakers"));
 const Highlights = lazy(() => import("./pages/Highlights"));
 const JoinOurTeam = lazy(() => import("./pages/JoinOurTeam"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
+const CodeOfConduct = lazy(() => import("./pages/CodeOfConduct"));
 
 // Ultra-lightweight loading fallback
 const PageLoader = () => (
@@ -107,6 +112,11 @@ const App = () => {
                     <Route path="/all-speakers" element={<AllSpeakers />} />
                     <Route path="/highlights" element={<Highlights />} />
                     <Route path="/join-our-team" element={<JoinOurTeam />} />
+                    <Route path="/terms-of-service" element={<TermsOfService />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/cookie-policy" element={<CookiePolicy />} />
+                    <Route path="/refund-policy" element={<RefundPolicy />} />
+                    <Route path="/code-of-conduct" element={<CodeOfConduct />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Routes>

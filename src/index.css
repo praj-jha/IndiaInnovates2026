@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Michroma Font */
+@font-face {
+  font-family: 'Michroma';
+  src: url('/Michroma-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,6 +82,10 @@
 
   body {
     @apply bg-background text-foreground font-poppins;
+  }
+
+  .michroma-heading {
+    font-family: 'Michroma', sans-serif;
   }
 }
 

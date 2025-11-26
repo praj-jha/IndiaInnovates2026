@@ -84,7 +84,7 @@ export default function NumberTickerSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col items-center space-y-2">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-black dark:text-white">
+              <div className="text-3xl michroma-heading md:text-3xl lg:text-4xl font-extrabold text-black dark:text-white">
                 <NumberTicker 
                   value={stat.value} 
                   suffix={stat.suffix}

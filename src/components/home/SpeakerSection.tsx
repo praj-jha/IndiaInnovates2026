@@ -197,10 +197,10 @@ export const SpeakerSection = () => {
     }, [isAutoPlaying]);
 
     return (
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-800 to-purple-900 dark:from-purple-950 dark:to-black">
+        <section id="speakers" className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-800 to-purple-900 dark:from-purple-950 dark:to-black">
             {/* Section Header */}
             <div className="max-w-7xl mx-auto mb-8 text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">
+                <h2 className="michroma-heading text-2xl font-bold sm:text-3xl md:text-4xl mb-2 text-white">
                     Distinguished <span className="text-orange-400">Speakers</span>
                 </h2>
                 <p className="text-base text-purple-200 max-w-2xl mx-auto">
@@ -244,7 +244,7 @@ export const SpeakerSection = () => {
                                 }}
                             >
                                 <div
-                                    className="group relative cursor-pointer overflow-hidden rounded-xl bg-card border-2 border-orange-300 hover:border-orange-500 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                    className="group relative cursor-pointer overflow-hidden rounded-xl bg-card shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                     onMouseEnter={() => setHoveredCard(speaker.id)}
                                     onMouseLeave={() => setHoveredCard(null)}
                                     onClick={() => setSelectedSpeaker(speaker)}
@@ -388,9 +388,6 @@ export const SpeakerSection = () => {
                                     </p>
 
                                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                                        <span className="bg-purple-600 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold">
-                                            {selectedSpeaker.followers}
-                                        </span>
                                         <span className="bg-muted text-foreground px-2.5 py-0.5 rounded-full text-xs font-semibold">
                                             {selectedSpeaker.category}
                                         </span>

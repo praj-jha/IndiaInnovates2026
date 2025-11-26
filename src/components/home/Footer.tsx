@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         { name: "Speakers", href: "/#speakers" },
         { name: "Agenda", href: "/agenda" },
         { name: "Delegate Pass", href: "/delegate-pass" },
-        { name: "FAQ", href: "/#faq" }
+        { name: "FAQ", href: "/#faqs" }
       ]
     },
     {
@@ -23,18 +23,18 @@ const Footer: React.FC = () => {
         { name: "School Competitions", href: "/school-competitions" },
         { name: "Exhibitor Registration", href: "/exhibitor-registration" },
         { name: "Delegate Registration", href: "/delegate-registration" },
-        { name: "Sponsors & Partners", href: "/#partners" },
-        { name: "Testimonials", href: "/#testimonials" }
+        { name: "Sponsors & Partners", href: "/join-our-team" },
+        { name: "Testimonials", href: "/#about" }
       ]
     },
     {
       title: "Legal",
       links: [
-        { name: "Terms of Service", href: "#" },
-        { name: "Privacy Policy", href: "#" },
-        { name: "Cookie Policy", href: "#" },
-        { name: "Refund Policy", href: "#" },
-        { name: "Code of Conduct", href: "#" }
+        { name: "Terms of Service", href: "/terms-of-service" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
+        { name: "Cookie Policy", href: "/cookie-policy" },
+        { name: "Refund Policy", href: "/refund-policy" },
+        { name: "Code of Conduct", href: "/code-of-conduct" }
       ]
     }
   ];
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-content2/50 pt-16 pb-8">
+    <footer id="footer" className="bg-content2/50 pt-16 pb-8">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-sm font-medium">Operating address:</span>
-                    <span className="text-sm font-light"> 2151/11, near Shadipur, New Patel Nagar, Pandu Nagar, Central Delhi, Delhi, 110008</span>
+                    <span className="text-sm font-light"> 2151/11, New Patel Nagar, Pandu Nagar, Central Delhi, Delhi, 110008</span>
                   </div>
                 </div>
               </div>
@@ -102,9 +102,15 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a href={link.href} className="text-foreground/70 hover:text-primary transition-colors text-sm">
-                      {link.name}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <RouterLink to={link.href} className="text-foreground/70 hover:text-primary transition-colors text-sm">
+                        {link.name}
+                      </RouterLink>
+                    ) : (
+                      <a href={link.href} className="text-foreground/70 hover:text-primary transition-colors text-sm">
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -120,15 +126,15 @@ const Footer: React.FC = () => {
           </p>
 
           <div className="flex gap-6">
-            <a href="#" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
+            <RouterLink to="/terms-of-service" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
               Terms
-            </a>
-            <a href="#" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
+            </RouterLink>
+            <RouterLink to="/privacy-policy" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
               Privacy
-            </a>
-            <a href="#" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
+            </RouterLink>
+            <RouterLink to="/cookie-policy" className="text-sm text-foreground/60 hover:text-primary transition-colors font-light">
               Cookies
-            </a>
+            </RouterLink>
           </div>
         </div>
       </div>
