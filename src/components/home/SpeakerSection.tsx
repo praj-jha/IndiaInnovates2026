@@ -304,8 +304,8 @@ export const SpeakerSection = () => {
                     </div>
                 </div>
 
-                {/* Slider Dots Indicator */}
-                <div className="flex justify-center gap-2 mt-6">
+                {/* Slider Dots Indicator (hidden on mobile) */}
+                <div className="hidden sm:flex justify-center gap-2 mt-6">
                     {Array.from({ length: totalSlides }).map((_, index) => (
                         <button
                             key={index}
