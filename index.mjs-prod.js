@@ -45,7 +45,7 @@ app.post("/api/verify", cors(corsOptions), async (req, res) => {
 
 app.use(express.static(path.join(__dirname, "dist")));
 app.get(
-  ["/", "/about", "/set1", "/set2", "/events", "/guidelines"],
+  ["/", "/about", "/set1", "/events", "/guidelines"],
   (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "dist", "index.html"));
   }

@@ -3,7 +3,6 @@ export { default as Footer } from "./footer/footer.jsx";
 export { default as Guildelines } from "./guidelines/guildelines.jsx";
 export { default as Hero } from "./hero/hero.jsx";
 export { default as Set1 } from "./projects/set1.jsx";
-export { default as Set2 } from "./projects/set2.jsx";
 export { default as Navbar } from "./navbar/navbar.jsx";
 export { default as About } from "./about/about.jsx";
 export { default as Verify } from "./qr/verify.jsx";

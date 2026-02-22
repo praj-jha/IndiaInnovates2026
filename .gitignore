@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+sheets_creds.jsongit rm --cached sheets_creds.json
 
 node_modules
 dist

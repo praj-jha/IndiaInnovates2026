@@ -4,11 +4,11 @@ import ReactGA from "react-ga";
 
 const set1 = () => {
   const [activeCategory, setActiveCategory] = useState("all");
-  
+
   useEffect(() => {
     document.title = "Problem Statements | India Innovates 2026";
   });
-  
+
   const handleSoftwareView = (Element) => {
     ReactGA.event({
       category: "Button",
@@ -112,16 +112,16 @@ const set1 = () => {
         <p className="projects-disclaimer">
           Each domain includes an Open Innovation category - bring your unique ideas to transform India!
         </p>
-        
+
         {/* Category Filter */}
-        <div className="category-filter" style={{ 
-          display: "flex", 
-          justifyContent: "center", 
-          gap: "1rem", 
+        <div className="category-filter" style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
           marginBottom: "2rem",
           flexWrap: "wrap"
         }}>
-          <button 
+          <button
             onClick={() => handleCategoryFilter("all")}
             style={{
               padding: "0.8rem 1.5rem",
@@ -136,7 +136,7 @@ const set1 = () => {
           >
             All Domains
           </button>
-          <button 
+          <button
             onClick={() => handleCategoryFilter("dataMining")}
             style={{
               padding: "0.8rem 1.5rem",
@@ -151,7 +151,7 @@ const set1 = () => {
           >
             Data Mining
           </button>
-          <button 
+          <button
             onClick={() => handleCategoryFilter("cybersecurity")}
             style={{
               padding: "0.8rem 1.5rem",
@@ -166,7 +166,7 @@ const set1 = () => {
           >
             Cybersecurity
           </button>
-          <button 
+          <button
             onClick={() => handleCategoryFilter("aiInnovation")}
             style={{
               padding: "0.8rem 1.5rem",
@@ -187,35 +187,35 @@ const set1 = () => {
           const category = problemStatements[categoryKey];
           return (
             <div key={categoryKey} style={{ marginBottom: "3rem" }}>
-              <h2 style={{ 
-                color: "#ffd700", 
-                textAlign: "center", 
+              <h2 style={{
+                color: "#ffd700",
+                textAlign: "center",
                 marginBottom: "0.5rem",
                 fontSize: "1.8rem"
               }}>
                 {category.title}
               </h2>
-              <p style={{ 
-                color: "#aaa", 
-                textAlign: "center", 
+              <p style={{
+                color: "#aaa",
+                textAlign: "center",
                 marginBottom: "1.5rem",
                 fontStyle: "italic"
               }}>
                 {category.subtitle}
               </p>
-              
+
               <div className="software-container">
                 {category.problems.map((problem, index) => (
-                  <div 
-                    key={index} 
-                    className="software-content" 
+                  <div
+                    key={index}
+                    className="software-content"
                     onClick={handleSoftwareView}
                     style={{
-                      background: problem.title === "Open Innovation" 
-                        ? "linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.2))" 
+                      background: problem.title === "Open Innovation"
+                        ? "linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.2))"
                         : undefined,
-                      border: problem.title === "Open Innovation" 
-                        ? "2px solid #ffd700" 
+                      border: problem.title === "Open Innovation"
+                        ? "2px solid #ffd700"
                         : undefined
                     }}
                   >
@@ -231,10 +231,10 @@ const set1 = () => {
             </div>
           );
         })}
-        
-        <div style={{ 
-          textAlign: "center", 
-          marginTop: "2rem", 
+
+        <div style={{
+          textAlign: "center",
+          marginTop: "2rem",
           padding: "2rem",
           background: "rgba(255,215,0,0.1)",
           borderRadius: "15px",

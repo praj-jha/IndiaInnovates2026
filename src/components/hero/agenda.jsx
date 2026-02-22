@@ -58,12 +58,12 @@ const section2 = () => {
             <div className="agenda-des">
               <strong style={{ color: "#ffd700", fontSize: "1.2em" }}>Building for the Nation | Contributing to Viksit Bharat 2047</strong>
               <br /><br />
-              India Innovates 2026 is India's Biggest Tech Innovation Summit — Where Code Meets Constitution. 
-              We invite India's brightest student innovators to bring working products, prototypes, and 
+              India Innovates 2026 is India's Biggest Tech Innovation Summit — Where Code Meets Constitution.
+              We invite India's brightest student innovators to bring working products, prototypes, and
               breakthrough ideas that can transform governance, security, and national systems.
               <br /><br />
-              This is your chance to showcase at a national stage where policy meets innovation, 
-              in front of investors, government leaders, bureaucrats, diplomats, founders, and ecosystem builders 
+              This is your chance to showcase at a national stage where policy meets innovation,
+              in front of investors, government leaders, bureaucrats, diplomats, founders, and ecosystem builders
               at Bharat Mandapam, New Delhi.
             </div>
           </div>
@@ -80,10 +80,10 @@ const section2 = () => {
               Vision
             </div>
             <div className="about-vision-description" id="agenda-right">
-              Contributing to Viksit Bharat 2047 — a developed India by its centenary of independence. 
-              Our vision is to empower young innovators to build solutions that transform governance, 
-              strengthen democracy, enhance citizen services, and secure our digital future. 
-              Through collaboration between technology and policy, we aim to create lasting impact 
+              Contributing to Viksit Bharat 2047 — a developed India by its centenary of independence.
+              Our vision is to empower young innovators to build solutions that transform governance,
+              strengthen democracy, enhance citizen services, and secure our digital future.
+              Through collaboration between technology and policy, we aim to create lasting impact
               on national systems and inspire the next generation of nation-builders.
             </div>
           </div>
@@ -98,10 +98,10 @@ const section2 = () => {
               Mission
             </div>
             <div className="about-mission-description" id="agenda-left">
-              To bridge the gap between innovation and implementation by bringing together 
-              student innovators, government bodies, and industry leaders under one roof at 
-              Bharat Mandapam. Our mission is to identify breakthrough ideas across Data Mining, 
-              Cybersecurity, and AI Innovation that can be adopted at scale to serve the nation. 
+              To bridge the gap between innovation and implementation by bringing together
+              student innovators, government bodies, and industry leaders under one roof at
+              Bharat Mandapam. Our mission is to identify breakthrough ideas across Data Mining,
+              Cybersecurity, and AI Innovation that can be adopted at scale to serve the nation.
               Together, we build solutions that shape India's technological future.
             </div>
           </div>

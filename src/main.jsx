@@ -9,7 +9,6 @@ import {
   Events,
   Guildelines,
   Set1,
-  Set2,
   About,
   Verify,
   Login,
@@ -55,15 +54,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <div className="guidelines-bg">
               <Navbar />
               <Guildelines />
-            </div>
-          }
-        />
-        <Route
-          path="/set2"
-          element={
-            <div className="set2-bg">
-              <Navbar />
-              <Set2 />
             </div>
           }
         />
