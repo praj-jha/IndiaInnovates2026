@@ -10,7 +10,6 @@ import {
   Guildelines,
   Set1,
   Set2,
-  Judges,
   About,
   Verify,
   Login,
@@ -83,15 +82,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <div>
               <Navbar />
               <About />
-            </div>
-          }
-        />
-        <Route
-          path="/judges"
-          element={
-            <div>
-              <Navbar />
-              <Judges />
             </div>
           }
         />

@@ -63,18 +63,18 @@ const faqs = () => {
 
           <div className="faqs-content" onClick={handleArrow}>
             <h1 className="faqs-content-title">
-              What is “Hack-A-Tank”?
+              What is India Innovates 2026?
               <ChevronRightIcon
                 style={styles.container}
                 className="faqs-arrow"
               />
             </h1>
             <p className="faqs-content-description">
-              Hack-A-Tank is the first 24-hour national-level hackathon
-              organized by the SRM Valliammai engineering college in
-              collaboration with Whitehatians – Club of the Department of Cyber
-              Security and the Student Branch of Computer Society of India (CSI-
-              SB).
+              India Innovates 2026 is India's Biggest Tech Innovation Summit
+              where Code Meets Constitution. Organized by MCD, DDU, IIT Kharagpur,
+              DTC, NSUT, GGSIPU, THE FISTA, and CBPACS at Bharat Mandapam,
+              New Delhi. It invites India's brightest student innovators to
+              bring working products and breakthrough ideas.
             </p>
           </div>
 
@@ -87,8 +87,10 @@ const faqs = () => {
               />
             </h1>
             <p className="faqs-content-description">
-              Hack-A-Tank is open to all undergraduate students from all
-              colleges across India.
+              India Innovates 2026 is open to all students, professionals, and
+              tech enthusiasts from across India. Whether you are a student,
+              working professional, or startup founder, you are welcome to
+              participate.
             </p>
           </div>
 
@@ -101,32 +103,25 @@ const faqs = () => {
               />
             </h1>
             <p className="faqs-content-description">
-              After the scrutiny process, the organizing committee will release
-              the shortlisted teams for the finale. The selected team must pay a
-              registration fee of Rs. 1000/- per team, which includes GST. It
-              contributes to goodie bags, food, and refreshments served during
-              the event. The registration fee is non-refundable and
-              non-transferable. Teams are advised to complete the registration
-              process as soon as possible to secure their participation in the
-              event. Upon successful completion of the registration, teams will
-              receive further instructions from the organizing committee.
+              Registration details and fee information will be available on
+              the Unstop platform. Please visit the registration link for
+              complete details about participation fees and what is included.
             </p>
           </div>
 
           <div className="faqs-content" onClick={handleArrow}>
             <h1 className="faqs-content-title">
-              Is the hackathon online or offline?
+              Where is the venue?
               <ChevronRightIcon
                 style={styles.container}
                 className="faqs-arrow"
               />
             </h1>
             <p className="faqs-content-description">
-              The first round will be abstract submission which is completely
-              done in virtual mode. Further upon registration, you will be
-              contacted by our team and given a brief on the process of abstract
-              submission. The shortlisted team should appear physically for the
-              final.
+              India Innovates 2026 will be held at Bharat Mandapam, Pragati
+              Maidan, New Delhi. This state-of-the-art venue hosted the G20
+              Summit in 2023 and offers world-class facilities for this
+              grand event.
             </p>
           </div>
           <div className="faqs-content" onClick={handleArrow}>
@@ -138,10 +133,10 @@ const faqs = () => {
               />
             </h1>
             <p className="faqs-content-description">
-              Click the register button on the home page and you will be
-              directed to the respective Google form. Kindly submit the required
-              details and our organizing team will contact you as soon as
-              possible.
+              Click the Register button on the home page and you will be
+              directed to the Unstop registration page. Complete your
+              registration there and our organizing team will contact you
+              with further details.
             </p>
           </div>
           <div className="faqs-content" onClick={handleArrow}>
@@ -153,20 +148,21 @@ const faqs = () => {
               />
             </h1>
             <p className="faqs-content-description">
-              The event has a prize pool of Rs 25,000 for the winners.
+              India Innovates 2026 has an exciting prize pool of Rs. 10,05,000
+              for winners across various domains!
             </p>
           </div>
           <div className="faqs-content" onClick={handleArrow}>
             <h1 className="faqs-content-title">
-              What is the team size to participate in the Hack-A-Tank?
+              What is the team size to participate?
               <ChevronRightIcon
                 style={styles.container}
                 className="faqs-arrow"
               />
             </h1>
             <p className="faqs-content-description">
-              The teams must have a minimum of 2 members and a maximum of 3
-              members.
+              Teams must have 3-6 members. Please check the Unstop platform
+              for detailed eligibility criteria and team composition guidelines.
             </p>
           </div>
           <div className="faqs-content" onClick={handleArrow}>

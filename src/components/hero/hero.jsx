@@ -20,7 +20,7 @@ const hero = () => {
       action: "click",
       label: "register",
     });
-    window.open("https://forms.gle/mqHSf1kpoTUiMURH6");
+    window.open("https://unstop.com/conferences/india-innovates-2026-municipal-corporation-of-delhi-1625920");
   };
   const handleCardClicks = (card) => {
     ReactGA.event({
@@ -37,7 +37,7 @@ const hero = () => {
     seconds: 0,
   });
   const handleCountdown = () => {
-    const countDate = new Date("September 8, 2023 10:00:00").getTime();
+    const countDate = new Date("March 28, 2026 09:00:00").getTime();
     const now = new Date().getTime();
     const diff = countDate - now;
     {
@@ -94,21 +94,20 @@ const hero = () => {
         {/* <div className="progress_bar"></div> */}
         <div className=" tag-hero-mobile">
           <img
-            src="/images/srm.webp"
-            alt="srm logo"
+            src="/images/diamond.webp"
+            alt="India Innovates logo"
             width="40vw"
             className="hero-srm-logo"
           />
           <div className="tag">
             <div>
-              <div>Celebrating 25</div>
-              <span>th</span>
+              <div>India Innovates</div>
             </div>
-            Foundation Day of SRMVEC
+            2026 - Bharat Mandapam
           </div>
           <img
-            src="/images/srmvec.webp"
-            alt="srmvec logo"
+            src="/images/diamond.webp"
+            alt="MCD logo"
             width="60vw"
             className="hero-srmvec-logo"
           />
@@ -120,14 +119,14 @@ const hero = () => {
             <div className="curve"></div>
 
             <div className="title1">
-              <span className="hackathon"> {"Hack - A - Tank"}</span>
+              <span className="hackathon"> {"India Innovates 2026"}</span>
               <br />
-              {/* <p className="tag1"> A National Level 24 Hour Hackathon</p> */}
+              {/* <p className="tag1"> Where Code Meets Constitution</p> */}
               {/* <span className="hackathon">Hackathon</span> */}
               <p className="description">
-                National <span> Level 24 hour Hackathon </span>
-                showcasing innovative solutions
-                <br /> and tech talents from across the country
+                India's Biggest <span> Tech Innovation Summit </span>
+                — Where Code Meets Constitution
+                <br /> Prizes worth ₹10,05,000 | Team Size: 3-6 Members
               </p>
             </div>
 
@@ -175,9 +174,9 @@ const hero = () => {
               <h3 className="text">
                 <div>
                   <div>
-                    <div> 8</div> <div> th</div>{" "}
+                    <div> 28</div> <div> th</div>{" "}
                   </div>{" "}
-                  September
+                  March
                 </div>
                 <Calender className="calender-icon" />
               </h3>
@@ -200,8 +199,8 @@ const hero = () => {
                 About
                 <ArrowRightWhite className="arrow-right-icon" />
               </p>
-              <p className="text6" onClick={() => handleCardClicks("/judges")}>
-                Judge Panel
+              <p className="text6" onClick={() => handleCardClicks("/guidelines")}>
+                Guidelines
                 <ArrowRightWhite className="arrow-right-icon" />
               </p>
             </div>
@@ -211,17 +210,17 @@ const hero = () => {
                 <h3 className="text7">Problem Statements</h3>
               </div>
               <p className="text8" onClick={() => handleCardClicks("/set1")}>
-                Collection 1 <ArrowRightBlack className="arrow-right-icon" />
+                View All Domains <ArrowRightBlack className="arrow-right-icon" />
               </p>
-              <p className="text9" onClick={() => handleCardClicks("/set2")}>
-                Collection 2 <ArrowRightBlack className="arrow-right-icon" />
+              <p className="text9" onClick={() => handleCardClicks("/events")}>
+                3 Rounds Info <ArrowRightBlack className="arrow-right-icon" />
               </p>
             </div>
             {/* -------------------------- Column 4  ---------------------------------- */}
             <div
               className="col4 animated-div"
               onClick={() =>
-                window.open("https://goo.gl/maps/iaE4Kko8wqqHs4jx9")
+                window.open("https://goo.gl/maps/BharatMandapamDelhi")
               }
             >
               <h3 className="text10">
@@ -229,11 +228,10 @@ const hero = () => {
               </h3>
               <div className="flex flex-col ">
                 <p className="text-white pt-[2vh] text-[1vw] venue-text-mobile">
-                  SRM Valliammai Engineering College
+                  Bharat Mandapam, New Delhi
                 </p>
                 {/* <p className="text-white  text-[0.8vw] ">
-                  National Highway 45, Potheri, SRM Nagar, Kattankulathur, Tamil
-                  Nadu - 603203
+                  Pragati Maidan, New Delhi - 110001
                 </p> */}
                 <div className="round"></div>
               </div>
@@ -247,8 +245,8 @@ const hero = () => {
                 <div className="flex justify-center items-center gap-1"></div>
               </h3>
               <div className="flex items-start justify-between flex-col">
-                <p className="text14">SRMVEC CSI Student Branch </p>
-                <p className="text15">Whitehatians Cyber Club - VEC</p>
+                <p className="text14">MCD | DDU | IIT Kharagpur</p>
+                <p className="text15">NSUT | GGSIPU | DTC & More</p>
                 <div className="round2"></div>
               </div>
             </div>

@@ -36,11 +36,11 @@ const contact = () => {
             <div className="contact-container">
               <div className="contact-card">
                 <div className="contact-card-front">
-                  <img src="/images/shree.webp" alt="shree - president CSI" />
+                  <img src="/images/diamond.webp" alt="India Innovates Event Support" />
                   <div className="contact-card-details">
-                    <h1 className="contact-card-name">Shree N</h1>
+                    <h1 className="contact-card-name">Event Support</h1>
                     <h2 className="contact-card-description">
-                      President - CSI
+                      India Innovates 2026
                     </h2>
                     <h3
                       className="contact-card-options"
@@ -58,7 +58,7 @@ const contact = () => {
                 </div>
                 <div className="contact-card-back">
                   <div className="contact-card-details">
-                    <h1 className="contact-card-name">Shree N</h1>
+                    <h1 className="contact-card-name">Event Support</h1>
                     <h2 className="contact-card-description">
                       <span
                         className="contact-card-phone"
@@ -94,7 +94,7 @@ const contact = () => {
                         onClick={() => {
                           handleLaunch("contact-card-launch2");
                           setTimeout(() => {
-                            window.open("mailto:shree@hackatank.tech");
+                            window.open("mailto:contact@indiainnovates.in");
                           }, 2000);
                         }}
                       >
@@ -105,7 +105,7 @@ const contact = () => {
                             height: "35px",
                           }}
                         />
-                        shree@hackatank.tech
+                        contact@indiainnovates.in
                         <span id="contact-card-launch2">
                           <RocketLaunchIcon
                             className="rocketLaunch"
@@ -194,13 +194,13 @@ const contact = () => {
               <div className="contact-card1">
                 <div className="contact-card-front">
                   <img
-                    src="/images/kishore.webp"
-                    alt="Kishore President - Whitehatians"
+                    src="/images/diamond.webp"
+                    alt="India Innovates Team"
                   />
                   <div className="contact-card-details">
-                    <h1 className="contact-card-name">Kishore R</h1>
+                    <h1 className="contact-card-name">Technical Support</h1>
                     <h2 className="contact-card-description">
-                      President - whitehatians
+                      India Innovates 2026
                     </h2>
                     <h3
                       className="contact-card-options"
@@ -218,7 +218,7 @@ const contact = () => {
                 </div>
                 <div className="contact-card-back1">
                   <div className="contact-card-details">
-                    <h1 className="contact-card-name">Kishore R</h1>
+                    <h1 className="contact-card-name">Technical Support</h1>
                     <h2 className="contact-card-description">
                       <span
                         className="contact-card-phone"
@@ -254,7 +254,7 @@ const contact = () => {
                         onClick={() => {
                           handleLaunch("contact-card-launch12");
                           setTimeout(() => {
-                            window.open("mailto:kishore@hackatank.tech");
+                            window.open("mailto:support@indiainnovates.in");
                           }, 2000);
                         }}
                       >
@@ -265,7 +265,7 @@ const contact = () => {
                             height: "35px",
                           }}
                         />
-                        kishore@hackatank.tech
+                        support@indiainnovates.in
                         <span id="contact-card-launch12">
                           <RocketLaunchIcon
                             className="rocketLaunch"

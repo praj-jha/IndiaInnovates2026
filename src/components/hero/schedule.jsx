@@ -31,107 +31,102 @@ const schedule = () => {
             <img src="/images/rrr.webp" alt="arrow-logo" />
             Schedule
           </div>
+          <p style={{ textAlign: "center", color: "#ffd700", marginBottom: "2rem", fontSize: "1.1rem" }}>
+            India Innovates 2026 | Bharat Mandapam, New Delhi
+          </p>
           <div className="timeline" id="timeline">
             <div className="container" id="timeline-container">
               <h2 className="date">
                 <div>
-                  Aug
+                  Jan
                   <div>
-                    <div> 17</div> <div>th</div>
+                    <div>24</div> <div>th</div>
                   </div>
                 </div>
               </h2>
-              <h2 className="container-title">Registration opens</h2>
+              <h2 className="container-title">Registration Opens</h2>
               <p className="container-description">
-                Registration is open for tech enthusiasts, developers, and
-                problem solvers from all backgrounds. Join us for an
-                exhilarating 24 hours of coding, collaboration, and competition
-                as we tackle real-world challenges and develop cutting-edge
-                solutions
+                Registration is now open for India's brightest student innovators! 
+                Join us at India's Biggest Tech Innovation Summit where code meets 
+                constitution. Team size: 3-6 members. Register on Unstop to participate.
               </p>
               <span className="circle"></span>
             </div>
             <div className="container ">
-              <h2 className="container-title">Abstract Submission</h2>
-              <h1 className="date">
-                <div>
-                  Aug
-                  <div>
-                    <div>17</div> <div>th</div>
-                  </div>
-                  -Aug
-                  <div>
-                    <div>28</div> <div>th</div>
-                  </div>
-                </div>
-              </h1>
-              <p className="container-description">
-                Submit your abstracts and be a part of the forefront of
-                innovation! We invite you to share your groundbreaking ideas and
-                research at our esteemed hackathon event. This is your
-                opportunity to present your unique insights and solutions 🚀👩‍💻
-              </p>
-              <span className="circle"></span>
-            </div>
-            <div className="container ">
-              <h1 className="date">
-                <div>
-                  Aug
-                  <div>
-                    <div>28</div> <div>th</div>
-                  </div>
-                </div>
-              </h1>
               <h2 className="container-title">Registration Closes</h2>
+              <h1 className="date">
+                <div>
+                  Mar
+                  <div>
+                    <div>10</div> <div>th</div>
+                  </div>
+                </div>
+              </h1>
               <p className="container-description">
-                Last call for registration! Time is running out to be a part of
-                our extraordinary hackathon event. Don't miss this incredible
-                opportunity to join a community of tech enthusiasts, developers,
-                and innovators from around the world. Registration will close
-                soon, so act fast and secure your spot
+                Last call for registration! Don't miss this incredible opportunity 
+                to showcase your innovation at a national stage in front of investors, 
+                government leaders, bureaucrats, diplomats, founders, and ecosystem builders.
+              </p>
+              <span className="circle"></span>
+            </div>
+            <div className="container ">
+              <h1 className="date">
+                <div>
+                  Mar
+                  <div>
+                    <div>11</div> <div>th</div>
+                  </div>
+                  -Mar
+                  <div>
+                    <div>15</div> <div>th</div>
+                  </div>
+                </div>
+              </h1>
+              <h2 className="container-title">Round 1: PPT Submission</h2>
+              <p className="container-description">
+                Submit your presentation around the solution you have built. 
+                Teams must submit their PPT in format: TeamName_DomainName.ppt/.pdf 
+                describing your idea, approach, and expected impact. This won't be 
+                an elimination round, but the best solutions will be provided an 
+                exhibition space.
               </p>
 
               <span className="circle"></span>
             </div>
             <div className="container ">
-              <h2 className="container-title">Finalists Announcements</h2>
+              <h2 className="container-title">Round 2: Evaluation</h2>
               <h1 className="date">
                 <div>
-                  Sep
+                  Mar
                   <div>
-                    <div>1</div> <div>st</div>
+                    <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description">
-                Step into the limelight – the moment we've all been waiting for
-                is here! We're thrilled to announce the finalists of our highly
-                competitive hackathon event. After meticulous evaluation and
-                deliberation, we've handpicked the most promising and innovative
-                teams to move forward to the final round
+                The Core Committee members and mentors will thoroughly review all 
+                submitted PPTs during the evaluation phase. Teams will be shortlisted 
+                based on quality, feasibility, innovation, and impact. Only filtered 
+                teams will move forward to the final showcase round.
               </p>
               <span className="circle"></span>
             </div>
 
             <div className="container ">
-              <h2 className="container-title">Hackathon Finale</h2> <br />
+              <h2 className="container-title">Round 3: The Grand Finale</h2> <br />
               <h1 className="date">
                 <div>
-                  sep
+                  Mar
                   <div>
-                    <div>8</div> <div>th</div>
-                  </div>
-                  - sep
-                  <div>
-                    <div>9</div> <div>th</div>
+                    <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description">
-                Get ready for the moment of triumph – the Hackathon Finale is
-                just around the corner! After an intense and exhilarating
-                journey, we've arrived at the grand finale, where the most
-                ingenious minds will showcase their remarkable solutions.
+                The solutions will be presented to our judges at Bharat Mandapam, 
+                New Delhi. On-the-spot evaluation by judges along with ministries 
+                will declare the winners from all domains. Display your product to 
+                investors, founders, policy makers, politicians, and industry leaders.
               </p>
               <span className="circle"></span>
             </div>
@@ -139,18 +134,16 @@ const schedule = () => {
               <h2 className="container-title">Award Ceremony</h2>
               <h1 className="date">
                 <div>
-                  sep
+                  Mar
                   <div>
-                    <div>9</div> <div>th</div>
+                    <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description">
-                The judges deliberate, and winners are announced in various
-                categories, celebrating outstanding projects, creativity, and
-                teamwork. The successful conclusion of the hackathon is
-                commemorated with an awards ceremony and well-deserved
-                celebrations.
+                Winners are announced across all domains with prizes worth ₹10,05,000! 
+                Celebrate outstanding innovations that contribute to Viksit Bharat 2047. 
+                Recognition from government leaders, industry experts, and the innovation ecosystem.
               </p>
               <span className="circle"></span>
             </div>
@@ -163,107 +156,93 @@ const schedule = () => {
             <img src="/images/rrr.webp" alt="arrow-logo" />
             Schedule
           </div>
+          <p style={{ textAlign: "center", color: "#ffd700", marginBottom: "1.5rem", fontSize: "0.9rem", padding: "0 1rem" }}>
+            India Innovates 2026 | Bharat Mandapam, New Delhi
+          </p>
           <div className="timeline-mobile" id="timeline">
             <div className="container-mobile" id="timeline-container">
-              <h2 className="container-title-mobile">Registration opens</h2>{" "}
+              <h2 className="container-title-mobile">Registration Opens</h2>{" "}
               <h2 className="date-mobile">
                 <div>
-                  Aug
+                  Jan
                   <div>
-                    <div>17</div> <div>th</div>
+                    <div>24</div> <div>th</div>
                   </div>
                 </div>
               </h2>
               <p className="container-description-mobile">
-                Registration is open for tech enthusiasts, developers, and
-                problem solvers from all backgrounds. Join us for an
-                exhilarating 24 hours of coding, collaboration, and competition
-                as we tackle real-world challenges and develop cutting-edge
-                solutions
+                Registration is now open for India's brightest student innovators! 
+                Team size: 3-6 members. Register on Unstop to participate in India's 
+                Biggest Tech Innovation Summit.
               </p>
               <span className="circle-mobile"></span>
             </div>
             <div className="container-mobile" id="timeline-container">
-              <h2 className="container-title-mobile">Abstract Submission</h2>
+              <h2 className="container-title-mobile">Registration Closes</h2>
               <h1 className="date-mobile">
-                {" "}
                 <div>
-                  Aug
+                  Mar
                   <div>
-                    <div>17</div> <div>th</div>
-                  </div>
-                  -Aug
-                  <div>
-                    <div>28</div> <div>th</div>
+                    <div>10</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description-mobile">
-                Submit your abstracts and be a part of the forefront of
-                innovation! We invite you to share your groundbreaking ideas and
-                research at our esteemed hackathon event. This is your
-                opportunity to present your unique insights and solutions 🚀👩‍💻
+                Last call for registration! Don't miss this incredible opportunity 
+                to showcase your innovation at a national stage.
               </p>
               <span className="circle-mobile "></span>
             </div>
             <div className="container-mobile ">
-              <h2 className="container-title-mobile">Finalists Annoncements</h2>
+              <h2 className="container-title-mobile">Round 1: PPT Submission</h2>
               <h1 className="date-mobile">
                 <div>
-                  Sep
+                  Mar
                   <div>
-                    <div>1</div> <div>st</div>
+                    <div>11</div> <div>th</div>
+                  </div>
+                  -Mar
+                  <div>
+                    <div>15</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description-mobile">
-                Step into the limelight – the moment we've all been waiting for
-                is here! We're thrilled to announce the finalists of our highly
-                competitive hackathon event. After meticulous evaluation and
-                deliberation, we've handpicked the most promising and innovative
-                teams to move forward to the final round
+                Submit your presentation in format: TeamName_DomainName.ppt/.pdf 
+                describing your idea, approach, and expected impact.
               </p>
               <span className="circle-mobile"></span>
             </div>
             <div className="container-mobile">
-              <h2 className="container-title-mobile">Registration Closes</h2>
+              <h2 className="container-title-mobile">Round 2: Evaluation</h2>
               <h1 className="date-mobile">
                 <div>
-                  Aug
+                  Mar
                   <div>
                     <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description-mobile">
-                Last call for registration! Time is running out to be a part of
-                our extraordinary hackathon event. Don't miss this incredible
-                opportunity to join a community of tech enthusiasts, developers,
-                and innovators from around the world. Registration will close
-                soon, so act fast and secure your spot
+                Core Committee and mentors review submissions. Teams shortlisted 
+                based on quality, feasibility, innovation, and impact.
               </p>
               <span className="circle-mobile"></span>
             </div>
             <div className="container-mobile ">
-              <h2 className="container-title-mobile">Hackathon Finale</h2>{" "}
+              <h2 className="container-title-mobile">Round 3: Grand Finale</h2>{" "}
               <br />
               <h1 className="date-mobile">
                 <div>
-                  sep
+                  Mar
                   <div>
-                    <div>8</div> <div>th</div>
-                  </div>
-                  - sep
-                  <div>
-                    <div>9</div> <div>th</div>
+                    <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description-mobile">
-                Get ready for the moment of triumph – the Hackathon Finale is
-                just around the corner! After an intense and exhilarating
-                journey, we've arrived at the grand finale, where the most
-                ingenious minds will showcase their remarkable solutions.
+                Present to judges at Bharat Mandapam. On-the-spot evaluation 
+                by judges along with ministries will declare winners.
               </p>
               <span className="circle-mobile"></span>
             </div>
@@ -271,18 +250,15 @@ const schedule = () => {
               <h2 className="container-title-mobile">Award Ceremony</h2>
               <h1 className="date-mobile">
                 <div>
-                  sep
+                  Mar
                   <div>
-                    <div>9</div> <div>th</div>
+                    <div>28</div> <div>th</div>
                   </div>
                 </div>
               </h1>
               <p className="container-description-mobile">
-                The judges deliberate, and winners are announced in various
-                categories, celebrating outstanding projects, creativity, and
-                teamwork. The successful conclusion of the hackathon is
-                commemorated with an awards ceremony and well-deserved
-                celebrations.
+                Winners announced with prizes worth ₹10,05,000! Celebrating 
+                innovations for Viksit Bharat 2047.
               </p>
               <span className="circle-mobile"></span>
             </div>

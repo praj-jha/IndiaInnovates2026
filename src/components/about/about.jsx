@@ -37,32 +37,30 @@ const about = () => {
   return (
     <React.Fragment>
       <div id="about" className="parent-about">
-        <h1 className="about-title">About Us</h1>
+        <h1 className="about-title">About The Event</h1>
         <div className="foundation">
           <div className="foundation-title " id="about-right">
             <img
-              src="/images/srm.webp"
-              alt="srm logo"
+              src="/images/diamond.webp"
+              alt="India Innovates logo"
               className="about-srm-logo"
             />
-            Foundation Day Celebration
+            India Innovates 2026
             <img
-              src="/images/srmvec.webp"
-              alt="srmvec logo"
+              src="/images/diamond.webp"
+              alt="India Innovates logo"
               className="about-srmvec-logo"
             />
           </div>
           <div className="foundation-description" id="about-left">
-            SRM Valliammai Engineering college (An Autonomous Institution) was
-            established on 9th September, 1999. The SRM Valliammai Engineering
-            College is a part of the SRM Group of Educational Institutions,
-            sponsored by the Valliammai Society. The Valliammai Society was
-            founded by Dr.T.R.Paarivendhar , a well-known educationist, in the
-            name of his mother Tmt. R.Valliammai, under whose care and guidance
-            he attained greater heights in his personal development and whose
-            ideals continue to inspire him. On this auspicious moment we
-            celebrate the 25th Foundation Day of SRM Valliammai Engineering
-            college by organising Hackathon on 8th September, 2023.
+            India Innovates 2026 is India's Biggest Tech Innovation Summit where 
+            Code Meets Constitution. This prestigious event invites India's brightest 
+            student innovators to bring working products, prototypes, and breakthrough 
+            ideas that can transform governance, security, and national systems. 
+            This is your chance to showcase at a national stage where policy meets 
+            innovation, in front of investors, government leaders, bureaucrats, 
+            diplomats, founders, and ecosystem builders at Bharat Mandapam, New Delhi 
+            on 28th March 2026.
           </div>
         </div>
 
@@ -70,68 +68,66 @@ const about = () => {
           <div
             className="about-srmvec-title "
             id="about-left"
-            onClick={() => handleWebClicks("https://www.srmvalliammai.ac.in")}
+            onClick={() => handleWebClicks("#")}
           >
             <img
               className="about-srmvec-logo"
-              src="/images/srmvec.webp"
-              alt="srmvec logo"
+              src="/images/diamond.webp"
+              alt="Innovation Themes"
             />
-            About Srmvec
+            Innovation Themes
           </div>
           <div className="about-srmvec-description" id="about-right">
-            SRM Valliammai Engineering college (An Autonomous Institution) was
-            established on September 9, 1999 and presently conducts 11 Under
-            graduate courses and 8 Post graduate courses. The college has highly
-            qualified, dynamic and dedicated renowned faculty both from academic
-            and industrial background. The serene atmosphere with the
-            surrounding greenery is conductive to the pursuit of higher studies.
+            The summit focuses on three key innovation domains: Data Mining and 
+            Processing - building solutions that strengthen democracy, governance, 
+            citizen services, and political systems. Participants can choose from 
+            various problem statements including designing AI-powered solutions 
+            for national challenges. Teams of 3-6 members compete for prizes worth 
+            Rs. 10,05,000!
           </div>
         </div>
         <div className="csi">
           <div
             className="about-csi-title"
             id="about-right"
-            onClick={() => handleWebClicks("http://www.csi-kancheepuram.org/")}
+            onClick={() => handleWebClicks("#")}
           >
             <img
               className="about-csi-logo"
-              src="/images/csi1.webp"
-              alt="csi logo"
+              src="/images/diamond.webp"
+              alt="Organizing Partners"
             />
-            About csi
+            Organizing Partners
           </div>
           <div className="about-csi-description" id="about-left">
-            Computer Society of India is a body of computer professionals in
-            India. It was started on 6 March 1965 by a few computer
-            professionals and has now grown to be the national body representing
-            computer professionals. It has 72 chapters across India, 511 student
-            branches, and 100,000 members. The society promotes knowledge
-            sharing,and professional development in the field of computer
-            science.
+            India Innovates 2026 is organized by a consortium of prestigious 
+            institutions including Municipal Corporation of Delhi (MCD), DDU, 
+            IIT Kharagpur, Delhi Transport Corporation (DTC), Netaji Subhas 
+            University of Technology (NSUT), Guru Gobind Singh Indraprastha 
+            University (GGSIPU), THE FISTA, and CBPACS - bringing together the 
+            best minds from academia, government, and industry.
           </div>
         </div>
         <div className="whitehatians">
           <div
             className="about-whitehatians-title"
             id="about-left"
-            onClick={() => handleWebClicks("https://www.whitehatians.tech")}
+            onClick={() => handleWebClicks("#")}
           >
             <img
               className="about-whitehatians-logo"
-              src="/images/whitehatians.webp"
-              alt="whitehatians logo"
+              src="/images/diamond.webp"
+              alt="Bharat Mandapam"
             />
-            About whitehatians
+            The Venue
           </div>
           <div className="about-whitehatians-description" id="about-right">
-            WhiteHatians Cyber Security club. The main goal of this club is to
-            provide a technical opportunity for students to broaden their
-            knowledge in the area of Cyber Security and to interact with other
-            students who have a shared interest in cyber security. Through the
-            club’s activities, members can also network with professionals in
-            the field, gain hands-on experience, and prepare for careers in
-            cyber security.
+            Bharat Mandapam is India's premier convention and exhibition center 
+            located at Pragati Maidan, New Delhi. This state-of-the-art venue 
+            hosted the prestigious G20 Summit in 2023. The best solutions will be 
+            provided exhibition space to display products to investors, founders, 
+            policy makers, politicians, and industry leaders. On-spot evaluation 
+            by judges along with ministries will declare the winners!
           </div>
         </div>
       </div>

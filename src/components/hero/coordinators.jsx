@@ -6,30 +6,23 @@ const coordinators = () => {
       <div className="parent-convener">
         <div className="convener-title">
           <img src="/images/rrr.webp" alt="" className="convener-logo" />
-          <h1 className="convener-title-name">Coordinators</h1>
+          <h1 className="convener-title-name">Register Now</h1>
         </div>
 
-        <div className="convener-container">
-          <div className="convener-card">
+        <div className="convener-container" style={{ justifyContent: "center" }}>
+          <div
+            className="convener-card"
+            style={{ cursor: "pointer" }}
+            onClick={() => window.open("https://unstop.com/conferences/india-innovates-2026-municipal-corporation-of-delhi-1625920")}
+          >
             <img
               className="convener-card-image"
-              src="/images/giridharan.webp"
-              alt="Giridharan - Assistant professor"
+              src="/images/diamond.webp"
+              alt="Register on Unstop"
             />
-            <h1 className="convener-name">Mr. S. Giridharan</h1>
+            <h1 className="convener-name">Register on Unstop</h1>
             <h1 className="convener-position">
-              Assistant Professor - Cyber Security
-            </h1>
-          </div>
-          <div className="convener-card">
-            <img
-              className="convener-card-image"
-              src="/images/nandhashree.webp"
-              alt="Nandhashree - Assistant professor"
-            />
-            <h1 className="convener-name"> Ms. K.R. Nandhashree</h1>
-            <h1 className="convener-position">
-              Assistant Professor - Cyber Security
+              Click here to register your team
             </h1>
           </div>
         </div>

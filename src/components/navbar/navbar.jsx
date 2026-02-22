@@ -16,8 +16,7 @@ const Navbar = () => {
       action: "click",
       label: "Instagram",
     });
-    window.open("https://www.instagram.com/srmveccsisb");
-    window.open("https://www.instagram.com/whitehatians");
+    // Update with India Innovates social media links
   };
   const handleFb = () => {
     ReactGA.event({
@@ -25,8 +24,7 @@ const Navbar = () => {
       action: "click",
       label: "Facebook",
     });
-    window.open("https://www.facebook.com/srmveccsisb");
-    window.open("https://www.facebook.com/@whitehatians");
+    // Update with India Innovates social media links
   };
   const handleYt = () => {
     ReactGA.event({
@@ -34,8 +32,7 @@ const Navbar = () => {
       action: "click",
       label: "Youtube",
     });
-    window.open("https://www.youtube.com/@SRMVECCSIAN");
-    window.open("https://www.youtube.com/@whitehatians");
+    // Update with India Innovates social media links
   };
 
   const handleDiscord = () => {
@@ -44,8 +41,7 @@ const Navbar = () => {
       action: "click",
       label: "Youtube",
     });
-
-    window.open("https://discord.gg/w77zzjVkEB?event=1141717757382107197");
+    // Update with India Innovates discord link
   };
   const handleRegisterClick = () => {
     ReactGA.event({
@@ -53,7 +49,7 @@ const Navbar = () => {
       action: "click",
       label: "register",
     });
-    window.open("https://forms.gle/mqHSf1kpoTUiMURH6");
+    window.open("https://unstop.com/conferences/india-innovates-2026-municipal-corporation-of-delhi-1625920");
   };
   const handleScroll = (id) => {
     ReactGA.event({
@@ -88,7 +84,7 @@ const Navbar = () => {
         <div className="components">
           <div className="title" onClick={() => window.open("/", "_self")}>
             <img src="/images/diamond.webp" className="logo" alt="Logo" />
-            Hackathon
+            India Innovates
             <div className="socials">
               <div className="insta">
                 <SocialIcon
@@ -166,11 +162,11 @@ const Navbar = () => {
               onClick={() => window.open("/", "_self")}
             >
               <img src="/images/diamond.webp" width="30vw" alt="logo" />
-              Hackathon
+              India Innovates
             </div>
             <div className="last-mobile">
               <h2 className="register-mobile">
-                <a href="https://forms.gle/mqHSf1kpoTUiMURH6" target="_blank">
+                <a href="https://unstop.com/conferences/india-innovates-2026-municipal-corporation-of-delhi-1625920" target="_blank">
                   Register
                 </a>
               </h2>
